@@ -2,7 +2,7 @@
 from airflow import DAG
 from airflow.operators.python import PythonOperator
 from datetime import datetime, timedelta
-from src.data_prep import load_data, data_preprocessing, build_save_model, load_model_elbow
+from src.data_prep import load_data, data_preprocessing
 
 # Define default arguments for your DAG
 default_args = {
