@@ -12,3 +12,7 @@ This project implements an advanced Machine Learning Operations (MLOps) pipeline
 ## Installation
 
 1. Clone the repository:
+
+
+# Data
+https://www.kaggle.com/datasets/shashanknecrothapa/ames-housing-dataset 
