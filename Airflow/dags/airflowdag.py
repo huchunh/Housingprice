@@ -63,21 +63,26 @@ data_preprocessing_task = PythonOperator(
     dag=dag,
 )
 
-# def data_clean_test_callable(**kwargs):
-#     # Pull data from XCom
-#     ti = kwargs['ti']
-#     data = ti.xcom_pull(task_ids='dag_clean_test_task', key='data')
-#     data_clean_test(data)
-#     # Push processed data to XCom
-#     # ti.xcom_push(key='processed_data', value=processed_data)
+def data_clean_test_callable(**kwargs):
+    # Pull data from XCom
+    ti = kwargs['ti']
+    data = ti.xcom_pull(task_ids='data_preprocessing_task', key='processed_data')
 
-# dag_clean_test_task = PythonOperator(
-#     task_id='dag_clean_test_task',
-#     python_callable=data_clean_test_callable,  # Direct reference to your updated load_data function
-#     dag=dag,
-# )
+    if data is None:
+        logging.error("No data found in XCom for key 'processed_data'")
+    else:
+        data_clean_test(data)
+    
+    data_clean_test(data)
+    # Push processed data to XCom
+    # ti.xcom_push(key='processed_data', value=processed_data)
+
+dag_clean_test_task = PythonOperator(
+    task_id='dag_clean_test_task',
+    python_callable=data_clean_test_callable,  # Direct reference to your updated load_data function
+    dag=dag,
+)
 
 
 # Set task dependencies
-load_data_task >> data_preprocessing_task 
-# >> dag_clean_test_task
+load_data_task >> data_preprocessing_task >> dag_clean_test_task
