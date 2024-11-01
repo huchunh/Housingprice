@@ -4,7 +4,7 @@ Here's a revised and structured version of your README:
 
 # Data Preprocessing for House Price Prediction
 
-This folder contains the data preprocessing steps for the House Price Prediction project.
+This folder contains the data preprocessing steps for the House Price Prediction project. The original data set is AmesHousing.csv
 
 ### Overview of the Dataset
 - **Dimensions**: 82 columns, 2930 rows
@@ -14,6 +14,9 @@ This folder contains the data preprocessing steps for the House Price Prediction
   - `object`: 43 columns
 
 The dataset includes almost half of bjective/quantitative variables (e.g., year built, number of fireplaces) and half of subjective/qualitative variables (e.g., heating quality, exterior quality).
+
+For detailed data definitions, refer to this [Data Definition Document]
+(https://docs.google.com/spreadsheets/d/1XL6LJVgLLU27yV7a_oh2zuqhGOI3Syg-jWpmr0Ekk14/edit?usp=sharing)
 
 ### Data Validation
 We performed data validation based on the source: [Data Documentation](http://jse.amstat.org/v19n3/decock/DataDocumentation.txt).
