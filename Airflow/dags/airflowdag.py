@@ -1,13 +1,15 @@
-# Import necessary libraries and modules
+import pandas as pd
+import logging
 from airflow import DAG
 from airflow.operators.python import PythonOperator
 from datetime import datetime, timedelta
-from src.data_prep import load_data, data_preprocessing
+from src.data_prep import data_preprocessing, load_data, data_clean_test
+
 
 # Define default arguments for your DAG
 default_args = {
-    'owner': 'Project Team',
-    'start_date': datetime(2024, 10, 20),
+    'owner': 'House_Price_Prediction Team',
+    'start_date': datetime(2024, 10, 29),
     'retries': 0,  # Number of retries in case of task failure
     'retry_delay': timedelta(minutes=5),  # Delay before retries
 }
@@ -26,15 +28,23 @@ dag = DAG(
 # Task to load data, calls the 'load_data' Python function
 def load_data_callable(**kwargs):
     data = load_data()
+    # logging.info(data.head())
     # Push data to XCom
     kwargs['ti'].xcom_push(key='data', value=data)
 
+# load_data_task = PythonOperator(
+#     task_id='load_data_task',
+#     python_callable=load_data_callable,
+#     provide_context=True,
+#     dag=dag,
+# )
+
 load_data_task = PythonOperator(
     task_id='load_data_task',
-    python_callable=load_data_callable,
-    provide_context=True,
+    python_callable=load_data_callable,  # Direct reference to your updated load_data function
     dag=dag,
 )
+
 
 # Task to perform data preprocessing
 def data_preprocessing_callable(**kwargs):
@@ -45,6 +55,7 @@ def data_preprocessing_callable(**kwargs):
     # Push processed data to XCom
     ti.xcom_push(key='processed_data', value=processed_data)
 
+
 data_preprocessing_task = PythonOperator(
     task_id='data_preprocessing_task',
     python_callable=data_preprocessing_callable,
@@ -52,6 +63,26 @@ data_preprocessing_task = PythonOperator(
     dag=dag,
 )
 
+def data_clean_test_callable(**kwargs):
+    # Pull data from XCom
+    ti = kwargs['ti']
+    data = ti.xcom_pull(task_ids='data_preprocessing_task', key='processed_data')
+
+    if data is None:
+        logging.error("No data found in XCom for key 'processed_data'")
+    else:
+        data_clean_test(data)
+    
+    data_clean_test(data)
+    # Push processed data to XCom
+    # ti.xcom_push(key='processed_data', value=processed_data)
+
+dag_clean_test_task = PythonOperator(
+    task_id='dag_clean_test_task',
+    python_callable=data_clean_test_callable,  # Direct reference to your updated load_data function
+    dag=dag,
+)
+
 
 # Set task dependencies
-load_data_task >> data_preprocessing_task 
+load_data_task >> data_preprocessing_task >> dag_clean_test_task
