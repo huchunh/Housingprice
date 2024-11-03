@@ -6,6 +6,8 @@ from airflow.operators.python import PythonOperator
 from datetime import datetime, timedelta
 from src.data_prep import load_data, data_overview, data_validation, data_cleaning
 from src.encoding import encode_data
+from src.data_splitting import split_data
+
 
 # Define default arguments for your DAG
 default_args = {
@@ -98,7 +100,7 @@ data_cleaning_task = PythonOperator(
 # Task to perform all encoding using encode_data
 def encode_data_callable(**kwargs):
     ti = kwargs['ti']
-    data = ti.xcom_pull(task_ids='load_data_task', key='data')
+    data = ti.xcom_pull(task_ids='data_cleaning_task', key='data')
     if data is None:
         logging.error("No data found in XCom for key 'data'")
     else:
@@ -113,5 +115,26 @@ encode_data_task = PythonOperator(
     dag=dag,
 )
 
-# Set task dependencies
-load_data_task >> data_overview_task >> data_validation_task >> data_cleaning_task  >> encode_data_task
+# Task to split data
+def split_data_callable(**kwargs):
+    ti = kwargs['ti']
+    data = ti.xcom_pull(task_ids='encode_data_task', key='encoded_data')
+    if data is None:
+        logging.error("No encoded data found in XCom for key 'encoded_data'")
+    else:
+        # Call the split_data function with encoded data
+        split_result = split_data(data, test_size=0.15)
+        
+        # Push split data back to XCom for later use
+        ti.xcom_push(key='train_data', value=split_result['train_data'])
+        ti.xcom_push(key='test_data', value=split_result['test_data'])
+
+data_split_task = PythonOperator(
+    task_id='data_split_task',
+    python_callable=split_data_callable,
+    provide_context=True,
+    dag=dag,
+)
+
+# Set the updated task dependencies
+load_data_task >> data_overview_task >> data_validation_task >> data_cleaning_task >> encode_data_task >> data_split_task

@@ -1,0 +1,1072 @@
+[2024-11-03T19:50:07.402+0000] {processor.py:153} INFO - Started process (PID=42) to work on /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T19:50:07.402+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/feature_and_augm_dag.py for tasks to queue
+[2024-11-03T19:50:07.403+0000] {logging_mixin.py:137} INFO - [2024-11-03T19:50:07.403+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T19:50:07.995+0000] {logging_mixin.py:137} INFO - [2024-11-03T19:50:07.992+0000] {dagbag.py:343} ERROR - Failed to import: /opt/airflow/dags/feature_and_augm_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 339, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/feature_and_augm_dag.py", line 6, in <module>
+    from src.feature_select import rank_features_by_lasso, select_correlated_features
+  File "/opt/airflow/dags/src/feature_select.py", line 98, in <module>
+    final_features = rank_features_by_lasso()
+TypeError: rank_features_by_lasso() missing 1 required positional argument: 'encoded_data'
+[2024-11-03T19:50:07.995+0000] {processor.py:755} WARNING - No viable dags retrieved from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T19:50:08.011+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/feature_and_augm_dag.py took 0.612 seconds
+[2024-11-03T19:50:38.345+0000] {processor.py:153} INFO - Started process (PID=94) to work on /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T19:50:38.347+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/feature_and_augm_dag.py for tasks to queue
+[2024-11-03T19:50:38.347+0000] {logging_mixin.py:137} INFO - [2024-11-03T19:50:38.347+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T19:50:38.789+0000] {logging_mixin.py:137} INFO - [2024-11-03T19:50:38.784+0000] {dagbag.py:343} ERROR - Failed to import: /opt/airflow/dags/feature_and_augm_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 339, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/feature_and_augm_dag.py", line 6, in <module>
+    from src.feature_select import rank_features_by_lasso, select_correlated_features
+  File "/opt/airflow/dags/src/feature_select.py", line 98, in <module>
+    final_features = rank_features_by_lasso()
+TypeError: rank_features_by_lasso() missing 1 required positional argument: 'encoded_data'
+[2024-11-03T19:50:38.789+0000] {processor.py:755} WARNING - No viable dags retrieved from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T19:50:38.800+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/feature_and_augm_dag.py took 0.459 seconds
+[2024-11-03T19:51:09.105+0000] {processor.py:153} INFO - Started process (PID=146) to work on /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T19:51:09.106+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/feature_and_augm_dag.py for tasks to queue
+[2024-11-03T19:51:09.106+0000] {logging_mixin.py:137} INFO - [2024-11-03T19:51:09.106+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T19:51:09.550+0000] {logging_mixin.py:137} INFO - [2024-11-03T19:51:09.547+0000] {dagbag.py:343} ERROR - Failed to import: /opt/airflow/dags/feature_and_augm_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 339, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/feature_and_augm_dag.py", line 6, in <module>
+    from src.feature_select import rank_features_by_lasso, select_correlated_features
+  File "/opt/airflow/dags/src/feature_select.py", line 98, in <module>
+    final_features = rank_features_by_lasso()
+TypeError: rank_features_by_lasso() missing 1 required positional argument: 'encoded_data'
+[2024-11-03T19:51:09.550+0000] {processor.py:755} WARNING - No viable dags retrieved from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T19:51:09.567+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/feature_and_augm_dag.py took 0.465 seconds
+[2024-11-03T19:51:39.898+0000] {processor.py:153} INFO - Started process (PID=182) to work on /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T19:51:39.899+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/feature_and_augm_dag.py for tasks to queue
+[2024-11-03T19:51:39.900+0000] {logging_mixin.py:137} INFO - [2024-11-03T19:51:39.900+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T19:51:40.405+0000] {logging_mixin.py:137} INFO - [2024-11-03T19:51:40.395+0000] {dagbag.py:343} ERROR - Failed to import: /opt/airflow/dags/feature_and_augm_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 339, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/feature_and_augm_dag.py", line 6, in <module>
+    from src.feature_select import rank_features_by_lasso, select_correlated_features
+  File "/opt/airflow/dags/src/feature_select.py", line 98, in <module>
+    final_features = rank_features_by_lasso()
+TypeError: rank_features_by_lasso() missing 1 required positional argument: 'encoded_data'
+[2024-11-03T19:51:40.408+0000] {processor.py:755} WARNING - No viable dags retrieved from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T19:51:40.418+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/feature_and_augm_dag.py took 0.526 seconds
+[2024-11-03T19:52:10.755+0000] {processor.py:153} INFO - Started process (PID=234) to work on /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T19:52:10.756+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/feature_and_augm_dag.py for tasks to queue
+[2024-11-03T19:52:10.757+0000] {logging_mixin.py:137} INFO - [2024-11-03T19:52:10.757+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T19:52:11.229+0000] {logging_mixin.py:137} INFO - [2024-11-03T19:52:11.220+0000] {dagbag.py:343} ERROR - Failed to import: /opt/airflow/dags/feature_and_augm_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 339, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/feature_and_augm_dag.py", line 6, in <module>
+    from src.feature_select import rank_features_by_lasso, select_correlated_features
+  File "/opt/airflow/dags/src/feature_select.py", line 98, in <module>
+    final_features = rank_features_by_lasso()
+TypeError: rank_features_by_lasso() missing 1 required positional argument: 'encoded_data'
+[2024-11-03T19:52:11.231+0000] {processor.py:755} WARNING - No viable dags retrieved from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T19:52:11.245+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/feature_and_augm_dag.py took 0.497 seconds
+[2024-11-03T19:52:41.550+0000] {processor.py:153} INFO - Started process (PID=286) to work on /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T19:52:41.551+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/feature_and_augm_dag.py for tasks to queue
+[2024-11-03T19:52:41.552+0000] {logging_mixin.py:137} INFO - [2024-11-03T19:52:41.552+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T19:52:41.983+0000] {logging_mixin.py:137} INFO - [2024-11-03T19:52:41.978+0000] {dagbag.py:343} ERROR - Failed to import: /opt/airflow/dags/feature_and_augm_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 339, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/feature_and_augm_dag.py", line 6, in <module>
+    from src.feature_select import rank_features_by_lasso, select_correlated_features
+  File "/opt/airflow/dags/src/feature_select.py", line 98, in <module>
+    final_features = rank_features_by_lasso()
+TypeError: rank_features_by_lasso() missing 1 required positional argument: 'encoded_data'
+[2024-11-03T19:52:41.983+0000] {processor.py:755} WARNING - No viable dags retrieved from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T19:52:41.996+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/feature_and_augm_dag.py took 0.451 seconds
+[2024-11-03T19:53:12.288+0000] {processor.py:153} INFO - Started process (PID=338) to work on /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T19:53:12.289+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/feature_and_augm_dag.py for tasks to queue
+[2024-11-03T19:53:12.290+0000] {logging_mixin.py:137} INFO - [2024-11-03T19:53:12.290+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T19:53:12.830+0000] {logging_mixin.py:137} INFO - [2024-11-03T19:53:12.823+0000] {dagbag.py:343} ERROR - Failed to import: /opt/airflow/dags/feature_and_augm_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 339, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/feature_and_augm_dag.py", line 6, in <module>
+    from src.feature_select import rank_features_by_lasso, select_correlated_features
+  File "/opt/airflow/dags/src/feature_select.py", line 98, in <module>
+    final_features = rank_features_by_lasso()
+TypeError: rank_features_by_lasso() missing 1 required positional argument: 'encoded_data'
+[2024-11-03T19:53:12.830+0000] {processor.py:755} WARNING - No viable dags retrieved from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T19:53:12.838+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/feature_and_augm_dag.py took 0.554 seconds
+[2024-11-03T19:53:38.887+0000] {processor.py:153} INFO - Started process (PID=42) to work on /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T19:53:38.890+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/feature_and_augm_dag.py for tasks to queue
+[2024-11-03T19:53:38.893+0000] {logging_mixin.py:137} INFO - [2024-11-03T19:53:38.893+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T19:53:39.426+0000] {logging_mixin.py:137} INFO - [2024-11-03T19:53:39.422+0000] {dagbag.py:343} ERROR - Failed to import: /opt/airflow/dags/feature_and_augm_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 339, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/feature_and_augm_dag.py", line 6, in <module>
+    from src.feature_select import rank_features_by_lasso, select_correlated_features
+  File "/opt/airflow/dags/src/feature_select.py", line 98, in <module>
+    final_features = rank_features_by_lasso()
+TypeError: rank_features_by_lasso() missing 1 required positional argument: 'encoded_data'
+[2024-11-03T19:53:39.427+0000] {processor.py:755} WARNING - No viable dags retrieved from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T19:53:39.447+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/feature_and_augm_dag.py took 0.568 seconds
+[2024-11-03T19:54:09.765+0000] {processor.py:153} INFO - Started process (PID=94) to work on /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T19:54:09.767+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/feature_and_augm_dag.py for tasks to queue
+[2024-11-03T19:54:09.767+0000] {logging_mixin.py:137} INFO - [2024-11-03T19:54:09.767+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T19:54:10.218+0000] {logging_mixin.py:137} INFO - [2024-11-03T19:54:10.217+0000] {dagbag.py:343} ERROR - Failed to import: /opt/airflow/dags/feature_and_augm_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 339, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/feature_and_augm_dag.py", line 6, in <module>
+    from src.feature_select import rank_features_by_lasso, select_correlated_features
+  File "/opt/airflow/dags/src/feature_select.py", line 98, in <module>
+    final_features = rank_features_by_lasso()
+TypeError: rank_features_by_lasso() missing 1 required positional argument: 'encoded_data'
+[2024-11-03T19:54:10.219+0000] {processor.py:755} WARNING - No viable dags retrieved from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T19:54:10.228+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/feature_and_augm_dag.py took 0.468 seconds
+[2024-11-03T19:54:40.544+0000] {processor.py:153} INFO - Started process (PID=146) to work on /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T19:54:40.545+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/feature_and_augm_dag.py for tasks to queue
+[2024-11-03T19:54:40.546+0000] {logging_mixin.py:137} INFO - [2024-11-03T19:54:40.546+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T19:54:40.962+0000] {logging_mixin.py:137} INFO - [2024-11-03T19:54:40.961+0000] {dagbag.py:343} ERROR - Failed to import: /opt/airflow/dags/feature_and_augm_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 339, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/feature_and_augm_dag.py", line 6, in <module>
+    from src.feature_select import rank_features_by_lasso, select_correlated_features
+  File "/opt/airflow/dags/src/feature_select.py", line 98, in <module>
+    final_features = rank_features_by_lasso()
+TypeError: rank_features_by_lasso() missing 1 required positional argument: 'encoded_data'
+[2024-11-03T19:54:40.962+0000] {processor.py:755} WARNING - No viable dags retrieved from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T19:54:40.971+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/feature_and_augm_dag.py took 0.431 seconds
+[2024-11-03T19:55:11.347+0000] {processor.py:153} INFO - Started process (PID=182) to work on /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T19:55:11.348+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/feature_and_augm_dag.py for tasks to queue
+[2024-11-03T19:55:11.349+0000] {logging_mixin.py:137} INFO - [2024-11-03T19:55:11.349+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T19:55:11.893+0000] {logging_mixin.py:137} INFO - [2024-11-03T19:55:11.891+0000] {dagbag.py:343} ERROR - Failed to import: /opt/airflow/dags/feature_and_augm_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 339, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/feature_and_augm_dag.py", line 6, in <module>
+    from src.feature_select import rank_features_by_lasso, select_correlated_features
+  File "/opt/airflow/dags/src/feature_select.py", line 98, in <module>
+    final_features = rank_features_by_lasso()
+TypeError: rank_features_by_lasso() missing 1 required positional argument: 'encoded_data'
+[2024-11-03T19:55:11.894+0000] {processor.py:755} WARNING - No viable dags retrieved from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T19:55:11.906+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/feature_and_augm_dag.py took 0.565 seconds
+[2024-11-03T19:55:42.254+0000] {processor.py:153} INFO - Started process (PID=234) to work on /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T19:55:42.255+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/feature_and_augm_dag.py for tasks to queue
+[2024-11-03T19:55:42.256+0000] {logging_mixin.py:137} INFO - [2024-11-03T19:55:42.256+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T19:55:42.769+0000] {logging_mixin.py:137} INFO - [2024-11-03T19:55:42.764+0000] {dagbag.py:343} ERROR - Failed to import: /opt/airflow/dags/feature_and_augm_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 339, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/feature_and_augm_dag.py", line 6, in <module>
+    from src.feature_select import rank_features_by_lasso, select_correlated_features
+  File "/opt/airflow/dags/src/feature_select.py", line 98, in <module>
+    final_features = rank_features_by_lasso()
+TypeError: rank_features_by_lasso() missing 1 required positional argument: 'encoded_data'
+[2024-11-03T19:55:42.769+0000] {processor.py:755} WARNING - No viable dags retrieved from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T19:55:42.779+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/feature_and_augm_dag.py took 0.533 seconds
+[2024-11-03T19:56:13.080+0000] {processor.py:153} INFO - Started process (PID=286) to work on /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T19:56:13.081+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/feature_and_augm_dag.py for tasks to queue
+[2024-11-03T19:56:13.082+0000] {logging_mixin.py:137} INFO - [2024-11-03T19:56:13.082+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T19:56:13.521+0000] {logging_mixin.py:137} INFO - [2024-11-03T19:56:13.520+0000] {dagbag.py:343} ERROR - Failed to import: /opt/airflow/dags/feature_and_augm_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 339, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/feature_and_augm_dag.py", line 6, in <module>
+    from src.feature_select import rank_features_by_lasso, select_correlated_features
+  File "/opt/airflow/dags/src/feature_select.py", line 98, in <module>
+    final_features = rank_features_by_lasso()
+TypeError: rank_features_by_lasso() missing 1 required positional argument: 'encoded_data'
+[2024-11-03T19:56:13.521+0000] {processor.py:755} WARNING - No viable dags retrieved from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T19:56:13.529+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/feature_and_augm_dag.py took 0.454 seconds
+[2024-11-03T19:56:43.825+0000] {processor.py:153} INFO - Started process (PID=338) to work on /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T19:56:43.826+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/feature_and_augm_dag.py for tasks to queue
+[2024-11-03T19:56:43.827+0000] {logging_mixin.py:137} INFO - [2024-11-03T19:56:43.827+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T19:56:44.442+0000] {logging_mixin.py:137} INFO - [2024-11-03T19:56:44.438+0000] {dagbag.py:343} ERROR - Failed to import: /opt/airflow/dags/feature_and_augm_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 339, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/feature_and_augm_dag.py", line 6, in <module>
+    from src.feature_select import rank_features_by_lasso, select_correlated_features
+  File "/opt/airflow/dags/src/feature_select.py", line 98, in <module>
+    final_features = rank_features_by_lasso()
+TypeError: rank_features_by_lasso() missing 1 required positional argument: 'encoded_data'
+[2024-11-03T19:56:44.443+0000] {processor.py:755} WARNING - No viable dags retrieved from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T19:56:44.452+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/feature_and_augm_dag.py took 0.631 seconds
+[2024-11-03T19:57:14.718+0000] {processor.py:153} INFO - Started process (PID=374) to work on /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T19:57:14.719+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/feature_and_augm_dag.py for tasks to queue
+[2024-11-03T19:57:14.720+0000] {logging_mixin.py:137} INFO - [2024-11-03T19:57:14.720+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T19:57:15.169+0000] {logging_mixin.py:137} INFO - [2024-11-03T19:57:15.168+0000] {dagbag.py:343} ERROR - Failed to import: /opt/airflow/dags/feature_and_augm_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 339, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/feature_and_augm_dag.py", line 6, in <module>
+    from src.feature_select import rank_features_by_lasso, select_correlated_features
+  File "/opt/airflow/dags/src/feature_select.py", line 98, in <module>
+    final_features = rank_features_by_lasso()
+TypeError: rank_features_by_lasso() missing 1 required positional argument: 'encoded_data'
+[2024-11-03T19:57:15.169+0000] {processor.py:755} WARNING - No viable dags retrieved from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T19:57:15.180+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/feature_and_augm_dag.py took 0.467 seconds
+[2024-11-03T19:57:45.513+0000] {processor.py:153} INFO - Started process (PID=426) to work on /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T19:57:45.515+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/feature_and_augm_dag.py for tasks to queue
+[2024-11-03T19:57:45.516+0000] {logging_mixin.py:137} INFO - [2024-11-03T19:57:45.516+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T19:57:45.906+0000] {logging_mixin.py:137} INFO - [2024-11-03T19:57:45.905+0000] {dagbag.py:343} ERROR - Failed to import: /opt/airflow/dags/feature_and_augm_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 339, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/feature_and_augm_dag.py", line 6, in <module>
+    from src.feature_select import rank_features_by_lasso, select_correlated_features
+  File "/opt/airflow/dags/src/feature_select.py", line 98, in <module>
+    final_features = rank_features_by_lasso()
+TypeError: rank_features_by_lasso() missing 1 required positional argument: 'encoded_data'
+[2024-11-03T19:57:45.906+0000] {processor.py:755} WARNING - No viable dags retrieved from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T19:57:45.915+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/feature_and_augm_dag.py took 0.406 seconds
+[2024-11-03T19:58:16.256+0000] {processor.py:153} INFO - Started process (PID=478) to work on /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T19:58:16.257+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/feature_and_augm_dag.py for tasks to queue
+[2024-11-03T19:58:16.258+0000] {logging_mixin.py:137} INFO - [2024-11-03T19:58:16.258+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T19:58:16.687+0000] {logging_mixin.py:137} INFO - [2024-11-03T19:58:16.686+0000] {dagbag.py:343} ERROR - Failed to import: /opt/airflow/dags/feature_and_augm_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 339, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/feature_and_augm_dag.py", line 6, in <module>
+    from src.feature_select import rank_features_by_lasso, select_correlated_features
+  File "/opt/airflow/dags/src/feature_select.py", line 98, in <module>
+    final_features = rank_features_by_lasso()
+TypeError: rank_features_by_lasso() missing 1 required positional argument: 'encoded_data'
+[2024-11-03T19:58:16.687+0000] {processor.py:755} WARNING - No viable dags retrieved from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T19:58:16.696+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/feature_and_augm_dag.py took 0.446 seconds
+[2024-11-03T19:58:47.006+0000] {processor.py:153} INFO - Started process (PID=530) to work on /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T19:58:47.008+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/feature_and_augm_dag.py for tasks to queue
+[2024-11-03T19:58:47.009+0000] {logging_mixin.py:137} INFO - [2024-11-03T19:58:47.009+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T19:58:47.498+0000] {logging_mixin.py:137} INFO - [2024-11-03T19:58:47.497+0000] {dagbag.py:343} ERROR - Failed to import: /opt/airflow/dags/feature_and_augm_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 339, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/feature_and_augm_dag.py", line 6, in <module>
+    from src.feature_select import rank_features_by_lasso, select_correlated_features
+  File "/opt/airflow/dags/src/feature_select.py", line 98, in <module>
+    final_features = rank_features_by_lasso()
+TypeError: rank_features_by_lasso() missing 1 required positional argument: 'encoded_data'
+[2024-11-03T19:58:47.498+0000] {processor.py:755} WARNING - No viable dags retrieved from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T19:58:47.506+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/feature_and_augm_dag.py took 0.503 seconds
+[2024-11-03T19:59:44.543+0000] {processor.py:153} INFO - Started process (PID=43) to work on /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T19:59:44.544+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/feature_and_augm_dag.py for tasks to queue
+[2024-11-03T19:59:44.546+0000] {logging_mixin.py:137} INFO - [2024-11-03T19:59:44.546+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T19:59:45.112+0000] {logging_mixin.py:137} INFO - [2024-11-03T19:59:45.107+0000] {dagbag.py:343} ERROR - Failed to import: /opt/airflow/dags/feature_and_augm_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 339, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/feature_and_augm_dag.py", line 6, in <module>
+    from src.feature_select import rank_features_by_lasso, select_correlated_features
+  File "/opt/airflow/dags/src/feature_select.py", line 98, in <module>
+    final_features = rank_features_by_lasso()
+TypeError: rank_features_by_lasso() missing 1 required positional argument: 'encoded_data'
+[2024-11-03T19:59:45.113+0000] {processor.py:755} WARNING - No viable dags retrieved from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T19:59:45.134+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/feature_and_augm_dag.py took 0.596 seconds
+[2024-11-03T20:00:15.605+0000] {processor.py:153} INFO - Started process (PID=95) to work on /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:00:15.607+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/feature_and_augm_dag.py for tasks to queue
+[2024-11-03T20:00:15.607+0000] {logging_mixin.py:137} INFO - [2024-11-03T20:00:15.607+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:00:16.111+0000] {logging_mixin.py:137} INFO - [2024-11-03T20:00:16.109+0000] {dagbag.py:343} ERROR - Failed to import: /opt/airflow/dags/feature_and_augm_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 339, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/feature_and_augm_dag.py", line 6, in <module>
+    from src.feature_select import rank_features_by_lasso, select_correlated_features
+  File "/opt/airflow/dags/src/feature_select.py", line 98, in <module>
+    final_features = rank_features_by_lasso()
+TypeError: rank_features_by_lasso() missing 1 required positional argument: 'encoded_data'
+[2024-11-03T20:00:16.111+0000] {processor.py:755} WARNING - No viable dags retrieved from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:00:16.131+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/feature_and_augm_dag.py took 0.529 seconds
+[2024-11-03T20:00:46.437+0000] {processor.py:153} INFO - Started process (PID=147) to work on /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:00:46.440+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/feature_and_augm_dag.py for tasks to queue
+[2024-11-03T20:00:46.440+0000] {logging_mixin.py:137} INFO - [2024-11-03T20:00:46.440+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:00:46.891+0000] {logging_mixin.py:137} INFO - [2024-11-03T20:00:46.889+0000] {dagbag.py:343} ERROR - Failed to import: /opt/airflow/dags/feature_and_augm_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 339, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/feature_and_augm_dag.py", line 6, in <module>
+    from src.feature_select import rank_features_by_lasso, select_correlated_features
+  File "/opt/airflow/dags/src/feature_select.py", line 98, in <module>
+    final_features = rank_features_by_lasso()
+TypeError: rank_features_by_lasso() missing 1 required positional argument: 'encoded_data'
+[2024-11-03T20:00:46.892+0000] {processor.py:755} WARNING - No viable dags retrieved from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:00:46.902+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/feature_and_augm_dag.py took 0.470 seconds
+[2024-11-03T20:01:16.209+0000] {processor.py:153} INFO - Started process (PID=43) to work on /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:01:16.210+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/feature_and_augm_dag.py for tasks to queue
+[2024-11-03T20:01:16.211+0000] {logging_mixin.py:137} INFO - [2024-11-03T20:01:16.211+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:01:16.728+0000] {logging_mixin.py:137} INFO - [2024-11-03T20:01:16.725+0000] {dagbag.py:343} ERROR - Failed to import: /opt/airflow/dags/feature_and_augm_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 339, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/feature_and_augm_dag.py", line 6, in <module>
+    from src.feature_select import rank_features_by_lasso, select_correlated_features
+  File "/opt/airflow/dags/src/feature_select.py", line 98, in <module>
+    final_features = rank_features_by_lasso()
+TypeError: rank_features_by_lasso() missing 1 required positional argument: 'encoded_data'
+[2024-11-03T20:01:16.729+0000] {processor.py:755} WARNING - No viable dags retrieved from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:01:16.742+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/feature_and_augm_dag.py took 0.535 seconds
+[2024-11-03T20:02:05.489+0000] {processor.py:153} INFO - Started process (PID=43) to work on /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:02:05.489+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/feature_and_augm_dag.py for tasks to queue
+[2024-11-03T20:02:05.491+0000] {logging_mixin.py:137} INFO - [2024-11-03T20:02:05.491+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:02:06.224+0000] {logging_mixin.py:137} INFO - [2024-11-03T20:02:06.211+0000] {dagbag.py:343} ERROR - Failed to import: /opt/airflow/dags/feature_and_augm_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 339, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/feature_and_augm_dag.py", line 6, in <module>
+    from src.feature_select import rank_features_by_lasso, select_correlated_features
+  File "/opt/airflow/dags/src/feature_select.py", line 98, in <module>
+    final_features = rank_features_by_lasso()
+TypeError: rank_features_by_lasso() missing 1 required positional argument: 'encoded_data'
+[2024-11-03T20:02:06.226+0000] {processor.py:755} WARNING - No viable dags retrieved from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:02:06.254+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/feature_and_augm_dag.py took 0.768 seconds
+[2024-11-03T20:02:36.794+0000] {processor.py:153} INFO - Started process (PID=95) to work on /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:02:36.798+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/feature_and_augm_dag.py for tasks to queue
+[2024-11-03T20:02:36.798+0000] {logging_mixin.py:137} INFO - [2024-11-03T20:02:36.798+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:02:37.251+0000] {logging_mixin.py:137} INFO - [2024-11-03T20:02:37.244+0000] {dagbag.py:343} ERROR - Failed to import: /opt/airflow/dags/feature_and_augm_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 339, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/feature_and_augm_dag.py", line 6, in <module>
+    from src.feature_select import rank_features_by_lasso, select_correlated_features
+  File "/opt/airflow/dags/src/feature_select.py", line 98, in <module>
+    final_features = rank_features_by_lasso()
+TypeError: rank_features_by_lasso() missing 1 required positional argument: 'encoded_data'
+[2024-11-03T20:02:37.251+0000] {processor.py:755} WARNING - No viable dags retrieved from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:02:37.264+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/feature_and_augm_dag.py took 0.473 seconds
+[2024-11-03T20:03:08.194+0000] {processor.py:153} INFO - Started process (PID=147) to work on /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:03:08.196+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/feature_and_augm_dag.py for tasks to queue
+[2024-11-03T20:03:08.197+0000] {logging_mixin.py:137} INFO - [2024-11-03T20:03:08.197+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:03:08.856+0000] {logging_mixin.py:137} INFO - [2024-11-03T20:03:08.854+0000] {dagbag.py:343} ERROR - Failed to import: /opt/airflow/dags/feature_and_augm_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 339, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/feature_and_augm_dag.py", line 6, in <module>
+    from src.feature_select import rank_features_by_lasso, select_correlated_features
+  File "/opt/airflow/dags/src/feature_select.py", line 98, in <module>
+    final_features = rank_features_by_lasso()
+TypeError: rank_features_by_lasso() missing 1 required positional argument: 'encoded_data'
+[2024-11-03T20:03:08.856+0000] {processor.py:755} WARNING - No viable dags retrieved from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:03:08.866+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/feature_and_augm_dag.py took 0.675 seconds
+[2024-11-03T20:03:39.178+0000] {processor.py:153} INFO - Started process (PID=183) to work on /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:03:39.180+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/feature_and_augm_dag.py for tasks to queue
+[2024-11-03T20:03:39.181+0000] {logging_mixin.py:137} INFO - [2024-11-03T20:03:39.181+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:03:39.642+0000] {logging_mixin.py:137} INFO - [2024-11-03T20:03:39.636+0000] {dagbag.py:343} ERROR - Failed to import: /opt/airflow/dags/feature_and_augm_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 339, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/feature_and_augm_dag.py", line 6, in <module>
+    from src.feature_select import rank_features_by_lasso, select_correlated_features
+  File "/opt/airflow/dags/src/feature_select.py", line 98, in <module>
+    final_features = rank_features_by_lasso()
+TypeError: rank_features_by_lasso() missing 1 required positional argument: 'encoded_data'
+[2024-11-03T20:03:39.642+0000] {processor.py:755} WARNING - No viable dags retrieved from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:03:39.654+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/feature_and_augm_dag.py took 0.480 seconds
+[2024-11-03T20:04:09.944+0000] {processor.py:153} INFO - Started process (PID=235) to work on /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:04:09.946+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/feature_and_augm_dag.py for tasks to queue
+[2024-11-03T20:04:09.947+0000] {logging_mixin.py:137} INFO - [2024-11-03T20:04:09.947+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:04:10.431+0000] {logging_mixin.py:137} INFO - [2024-11-03T20:04:10.430+0000] {dagbag.py:343} ERROR - Failed to import: /opt/airflow/dags/feature_and_augm_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 339, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/feature_and_augm_dag.py", line 6, in <module>
+    from src.feature_select import rank_features_by_lasso, select_correlated_features
+  File "/opt/airflow/dags/src/feature_select.py", line 98, in <module>
+    final_features = rank_features_by_lasso()
+TypeError: rank_features_by_lasso() missing 1 required positional argument: 'encoded_data'
+[2024-11-03T20:04:10.431+0000] {processor.py:755} WARNING - No viable dags retrieved from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:04:10.440+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/feature_and_augm_dag.py took 0.500 seconds
+[2024-11-03T20:04:40.744+0000] {processor.py:153} INFO - Started process (PID=287) to work on /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:04:40.747+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/feature_and_augm_dag.py for tasks to queue
+[2024-11-03T20:04:40.747+0000] {logging_mixin.py:137} INFO - [2024-11-03T20:04:40.747+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:04:41.165+0000] {logging_mixin.py:137} INFO - [2024-11-03T20:04:41.164+0000] {dagbag.py:343} ERROR - Failed to import: /opt/airflow/dags/feature_and_augm_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 339, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/feature_and_augm_dag.py", line 6, in <module>
+    from src.feature_select import rank_features_by_lasso, select_correlated_features
+  File "/opt/airflow/dags/src/feature_select.py", line 98, in <module>
+    final_features = rank_features_by_lasso()
+TypeError: rank_features_by_lasso() missing 1 required positional argument: 'encoded_data'
+[2024-11-03T20:04:41.165+0000] {processor.py:755} WARNING - No viable dags retrieved from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:04:41.174+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/feature_and_augm_dag.py took 0.434 seconds
+[2024-11-03T20:05:11.448+0000] {processor.py:153} INFO - Started process (PID=332) to work on /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:05:11.451+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/feature_and_augm_dag.py for tasks to queue
+[2024-11-03T20:05:11.451+0000] {logging_mixin.py:137} INFO - [2024-11-03T20:05:11.451+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:05:12.069+0000] {logging_mixin.py:137} INFO - [2024-11-03T20:05:12.067+0000] {dagbag.py:343} ERROR - Failed to import: /opt/airflow/dags/feature_and_augm_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 339, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/feature_and_augm_dag.py", line 6, in <module>
+    from src.feature_select import rank_features_by_lasso, select_correlated_features
+  File "/opt/airflow/dags/src/feature_select.py", line 98, in <module>
+    final_features = rank_features_by_lasso()
+TypeError: rank_features_by_lasso() missing 1 required positional argument: 'encoded_data'
+[2024-11-03T20:05:12.069+0000] {processor.py:755} WARNING - No viable dags retrieved from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:05:12.083+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/feature_and_augm_dag.py took 0.637 seconds
+[2024-11-03T20:05:42.453+0000] {processor.py:153} INFO - Started process (PID=375) to work on /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:05:42.455+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/feature_and_augm_dag.py for tasks to queue
+[2024-11-03T20:05:42.456+0000] {logging_mixin.py:137} INFO - [2024-11-03T20:05:42.456+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:05:42.913+0000] {logging_mixin.py:137} INFO - [2024-11-03T20:05:42.905+0000] {dagbag.py:343} ERROR - Failed to import: /opt/airflow/dags/feature_and_augm_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 339, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/feature_and_augm_dag.py", line 6, in <module>
+    from src.feature_select import rank_features_by_lasso, select_correlated_features
+  File "/opt/airflow/dags/src/feature_select.py", line 98, in <module>
+    final_features = rank_features_by_lasso()
+TypeError: rank_features_by_lasso() missing 1 required positional argument: 'encoded_data'
+[2024-11-03T20:05:42.914+0000] {processor.py:755} WARNING - No viable dags retrieved from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:05:42.924+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/feature_and_augm_dag.py took 0.476 seconds
+[2024-11-03T20:06:13.333+0000] {processor.py:153} INFO - Started process (PID=427) to work on /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:06:13.337+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/feature_and_augm_dag.py for tasks to queue
+[2024-11-03T20:06:13.338+0000] {logging_mixin.py:137} INFO - [2024-11-03T20:06:13.337+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:06:13.803+0000] {logging_mixin.py:137} INFO - [2024-11-03T20:06:13.802+0000] {dagbag.py:343} ERROR - Failed to import: /opt/airflow/dags/feature_and_augm_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 339, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/feature_and_augm_dag.py", line 6, in <module>
+    from src.feature_select import rank_features_by_lasso, select_correlated_features
+  File "/opt/airflow/dags/src/feature_select.py", line 98, in <module>
+    final_features = rank_features_by_lasso()
+TypeError: rank_features_by_lasso() missing 1 required positional argument: 'encoded_data'
+[2024-11-03T20:06:13.803+0000] {processor.py:755} WARNING - No viable dags retrieved from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:06:13.823+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/feature_and_augm_dag.py took 0.495 seconds
+[2024-11-03T20:06:44.140+0000] {processor.py:153} INFO - Started process (PID=479) to work on /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:06:44.143+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/feature_and_augm_dag.py for tasks to queue
+[2024-11-03T20:06:44.144+0000] {logging_mixin.py:137} INFO - [2024-11-03T20:06:44.143+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:06:44.567+0000] {logging_mixin.py:137} INFO - [2024-11-03T20:06:44.566+0000] {dagbag.py:343} ERROR - Failed to import: /opt/airflow/dags/feature_and_augm_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 339, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/feature_and_augm_dag.py", line 6, in <module>
+    from src.feature_select import rank_features_by_lasso, select_correlated_features
+  File "/opt/airflow/dags/src/feature_select.py", line 98, in <module>
+    final_features = rank_features_by_lasso()
+TypeError: rank_features_by_lasso() missing 1 required positional argument: 'encoded_data'
+[2024-11-03T20:06:44.568+0000] {processor.py:755} WARNING - No viable dags retrieved from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:06:44.577+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/feature_and_augm_dag.py took 0.442 seconds
+[2024-11-03T20:07:14.952+0000] {processor.py:153} INFO - Started process (PID=515) to work on /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:07:14.952+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/feature_and_augm_dag.py for tasks to queue
+[2024-11-03T20:07:14.953+0000] {logging_mixin.py:137} INFO - [2024-11-03T20:07:14.953+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:07:15.440+0000] {logging_mixin.py:137} INFO - [2024-11-03T20:07:15.434+0000] {dagbag.py:343} ERROR - Failed to import: /opt/airflow/dags/feature_and_augm_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 339, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/feature_and_augm_dag.py", line 6, in <module>
+    from src.feature_select import rank_features_by_lasso, select_correlated_features
+  File "/opt/airflow/dags/src/feature_select.py", line 98, in <module>
+    final_features = rank_features_by_lasso()
+TypeError: rank_features_by_lasso() missing 1 required positional argument: 'encoded_data'
+[2024-11-03T20:07:15.440+0000] {processor.py:755} WARNING - No viable dags retrieved from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:07:15.450+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/feature_and_augm_dag.py took 0.503 seconds
+[2024-11-03T20:07:45.774+0000] {processor.py:153} INFO - Started process (PID=567) to work on /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:07:45.775+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/feature_and_augm_dag.py for tasks to queue
+[2024-11-03T20:07:45.777+0000] {logging_mixin.py:137} INFO - [2024-11-03T20:07:45.777+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:07:46.225+0000] {logging_mixin.py:137} INFO - [2024-11-03T20:07:46.218+0000] {dagbag.py:343} ERROR - Failed to import: /opt/airflow/dags/feature_and_augm_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 339, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/feature_and_augm_dag.py", line 6, in <module>
+    from src.feature_select import rank_features_by_lasso, select_correlated_features
+  File "/opt/airflow/dags/src/feature_select.py", line 98, in <module>
+    final_features = rank_features_by_lasso()
+TypeError: rank_features_by_lasso() missing 1 required positional argument: 'encoded_data'
+[2024-11-03T20:07:46.227+0000] {processor.py:755} WARNING - No viable dags retrieved from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:07:46.241+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/feature_and_augm_dag.py took 0.471 seconds
+[2024-11-03T20:08:16.584+0000] {processor.py:153} INFO - Started process (PID=619) to work on /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:08:16.585+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/feature_and_augm_dag.py for tasks to queue
+[2024-11-03T20:08:16.587+0000] {logging_mixin.py:137} INFO - [2024-11-03T20:08:16.587+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:08:17.063+0000] {logging_mixin.py:137} INFO - [2024-11-03T20:08:17.057+0000] {dagbag.py:343} ERROR - Failed to import: /opt/airflow/dags/feature_and_augm_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 339, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/feature_and_augm_dag.py", line 6, in <module>
+    from src.feature_select import rank_features_by_lasso, select_correlated_features
+  File "/opt/airflow/dags/src/feature_select.py", line 98, in <module>
+    final_features = rank_features_by_lasso()
+TypeError: rank_features_by_lasso() missing 1 required positional argument: 'encoded_data'
+[2024-11-03T20:08:17.065+0000] {processor.py:755} WARNING - No viable dags retrieved from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:08:17.078+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/feature_and_augm_dag.py took 0.500 seconds
+[2024-11-03T20:08:58.926+0000] {processor.py:153} INFO - Started process (PID=43) to work on /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:08:58.931+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/feature_and_augm_dag.py for tasks to queue
+[2024-11-03T20:08:58.931+0000] {logging_mixin.py:137} INFO - [2024-11-03T20:08:58.931+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:08:59.457+0000] {logging_mixin.py:137} INFO - [2024-11-03T20:08:59.451+0000] {dagbag.py:343} ERROR - Failed to import: /opt/airflow/dags/feature_and_augm_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 339, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/feature_and_augm_dag.py", line 6, in <module>
+    from src.feature_select import rank_features_by_lasso, select_correlated_features
+  File "/opt/airflow/dags/src/feature_select.py", line 98, in <module>
+    final_features = rank_features_by_lasso()
+TypeError: rank_features_by_lasso() missing 1 required positional argument: 'encoded_data'
+[2024-11-03T20:08:59.458+0000] {processor.py:755} WARNING - No viable dags retrieved from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:08:59.486+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/feature_and_augm_dag.py took 0.563 seconds
+[2024-11-03T20:09:29.897+0000] {processor.py:153} INFO - Started process (PID=95) to work on /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:09:29.900+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/feature_and_augm_dag.py for tasks to queue
+[2024-11-03T20:09:29.902+0000] {logging_mixin.py:137} INFO - [2024-11-03T20:09:29.902+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:09:30.470+0000] {logging_mixin.py:137} INFO - [2024-11-03T20:09:30.465+0000] {dagbag.py:343} ERROR - Failed to import: /opt/airflow/dags/feature_and_augm_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 339, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/feature_and_augm_dag.py", line 6, in <module>
+    from src.feature_select import rank_features_by_lasso, select_correlated_features
+  File "/opt/airflow/dags/src/feature_select.py", line 98, in <module>
+    final_features = rank_features_by_lasso()
+TypeError: rank_features_by_lasso() missing 1 required positional argument: 'encoded_data'
+[2024-11-03T20:09:30.470+0000] {processor.py:755} WARNING - No viable dags retrieved from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:09:30.484+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/feature_and_augm_dag.py took 0.589 seconds
+[2024-11-03T20:10:00.830+0000] {processor.py:153} INFO - Started process (PID=139) to work on /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:10:00.831+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/feature_and_augm_dag.py for tasks to queue
+[2024-11-03T20:10:00.832+0000] {logging_mixin.py:137} INFO - [2024-11-03T20:10:00.832+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:10:01.489+0000] {logging_mixin.py:137} INFO - [2024-11-03T20:10:01.477+0000] {dagbag.py:343} ERROR - Failed to import: /opt/airflow/dags/feature_and_augm_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 339, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/feature_and_augm_dag.py", line 6, in <module>
+    from src.feature_select import rank_features_by_lasso, select_correlated_features
+  File "/opt/airflow/dags/src/feature_select.py", line 98, in <module>
+    final_features = rank_features_by_lasso()
+TypeError: rank_features_by_lasso() missing 1 required positional argument: 'encoded_data'
+[2024-11-03T20:10:01.489+0000] {processor.py:755} WARNING - No viable dags retrieved from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:10:01.506+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/feature_and_augm_dag.py took 0.680 seconds
+[2024-11-03T20:10:31.823+0000] {processor.py:153} INFO - Started process (PID=182) to work on /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:10:31.824+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/feature_and_augm_dag.py for tasks to queue
+[2024-11-03T20:10:31.824+0000] {logging_mixin.py:137} INFO - [2024-11-03T20:10:31.824+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:10:32.363+0000] {logging_mixin.py:137} INFO - [2024-11-03T20:10:32.362+0000] {dagbag.py:343} ERROR - Failed to import: /opt/airflow/dags/feature_and_augm_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 339, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/feature_and_augm_dag.py", line 6, in <module>
+    from src.feature_select import rank_features_by_lasso, select_correlated_features
+  File "/opt/airflow/dags/src/feature_select.py", line 98, in <module>
+    final_features = rank_features_by_lasso()
+TypeError: rank_features_by_lasso() missing 1 required positional argument: 'encoded_data'
+[2024-11-03T20:10:32.363+0000] {processor.py:755} WARNING - No viable dags retrieved from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:10:32.374+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/feature_and_augm_dag.py took 0.554 seconds
+[2024-11-03T20:11:02.724+0000] {processor.py:153} INFO - Started process (PID=234) to work on /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:11:02.726+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/feature_and_augm_dag.py for tasks to queue
+[2024-11-03T20:11:02.726+0000] {logging_mixin.py:137} INFO - [2024-11-03T20:11:02.726+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:11:03.238+0000] {logging_mixin.py:137} INFO - [2024-11-03T20:11:03.232+0000] {dagbag.py:343} ERROR - Failed to import: /opt/airflow/dags/feature_and_augm_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 339, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/feature_and_augm_dag.py", line 6, in <module>
+    from src.feature_select import rank_features_by_lasso, select_correlated_features
+  File "/opt/airflow/dags/src/feature_select.py", line 98, in <module>
+    final_features = rank_features_by_lasso()
+TypeError: rank_features_by_lasso() missing 1 required positional argument: 'encoded_data'
+[2024-11-03T20:11:03.238+0000] {processor.py:755} WARNING - No viable dags retrieved from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:11:03.249+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/feature_and_augm_dag.py took 0.527 seconds
+[2024-11-03T20:11:33.515+0000] {processor.py:153} INFO - Started process (PID=286) to work on /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:11:33.516+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/feature_and_augm_dag.py for tasks to queue
+[2024-11-03T20:11:33.517+0000] {logging_mixin.py:137} INFO - [2024-11-03T20:11:33.517+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:11:33.980+0000] {logging_mixin.py:137} INFO - [2024-11-03T20:11:33.973+0000] {dagbag.py:343} ERROR - Failed to import: /opt/airflow/dags/feature_and_augm_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 339, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/feature_and_augm_dag.py", line 6, in <module>
+    from src.feature_select import rank_features_by_lasso, select_correlated_features
+  File "/opt/airflow/dags/src/feature_select.py", line 98, in <module>
+    final_features = rank_features_by_lasso()
+TypeError: rank_features_by_lasso() missing 1 required positional argument: 'encoded_data'
+[2024-11-03T20:11:33.980+0000] {processor.py:755} WARNING - No viable dags retrieved from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:11:33.989+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/feature_and_augm_dag.py took 0.476 seconds
+[2024-11-03T20:12:04.363+0000] {processor.py:153} INFO - Started process (PID=322) to work on /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:12:04.364+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/feature_and_augm_dag.py for tasks to queue
+[2024-11-03T20:12:04.366+0000] {logging_mixin.py:137} INFO - [2024-11-03T20:12:04.366+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:12:04.948+0000] {logging_mixin.py:137} INFO - [2024-11-03T20:12:04.942+0000] {dagbag.py:343} ERROR - Failed to import: /opt/airflow/dags/feature_and_augm_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 339, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/feature_and_augm_dag.py", line 6, in <module>
+    from src.feature_select import rank_features_by_lasso, select_correlated_features
+  File "/opt/airflow/dags/src/feature_select.py", line 98, in <module>
+    final_features = rank_features_by_lasso()
+TypeError: rank_features_by_lasso() missing 1 required positional argument: 'encoded_data'
+[2024-11-03T20:12:04.948+0000] {processor.py:755} WARNING - No viable dags retrieved from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:12:04.966+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/feature_and_augm_dag.py took 0.608 seconds
+[2024-11-03T20:12:35.290+0000] {processor.py:153} INFO - Started process (PID=374) to work on /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:12:35.291+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/feature_and_augm_dag.py for tasks to queue
+[2024-11-03T20:12:35.291+0000] {logging_mixin.py:137} INFO - [2024-11-03T20:12:35.291+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:12:35.819+0000] {logging_mixin.py:137} INFO - [2024-11-03T20:12:35.813+0000] {dagbag.py:343} ERROR - Failed to import: /opt/airflow/dags/feature_and_augm_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 339, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/feature_and_augm_dag.py", line 6, in <module>
+    from src.feature_select import rank_features_by_lasso, select_correlated_features
+  File "/opt/airflow/dags/src/feature_select.py", line 98, in <module>
+    final_features = rank_features_by_lasso()
+TypeError: rank_features_by_lasso() missing 1 required positional argument: 'encoded_data'
+[2024-11-03T20:12:35.820+0000] {processor.py:755} WARNING - No viable dags retrieved from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:12:35.843+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/feature_and_augm_dag.py took 0.556 seconds
+[2024-11-03T20:13:06.341+0000] {processor.py:153} INFO - Started process (PID=426) to work on /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:13:06.341+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/feature_and_augm_dag.py for tasks to queue
+[2024-11-03T20:13:06.342+0000] {logging_mixin.py:137} INFO - [2024-11-03T20:13:06.342+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:13:06.783+0000] {logging_mixin.py:137} INFO - [2024-11-03T20:13:06.782+0000] {dagbag.py:343} ERROR - Failed to import: /opt/airflow/dags/feature_and_augm_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 339, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/feature_and_augm_dag.py", line 6, in <module>
+    from src.feature_select import rank_features_by_lasso, select_correlated_features
+  File "/opt/airflow/dags/src/feature_select.py", line 98, in <module>
+    final_features = rank_features_by_lasso()
+TypeError: rank_features_by_lasso() missing 1 required positional argument: 'encoded_data'
+[2024-11-03T20:13:06.784+0000] {processor.py:755} WARNING - No viable dags retrieved from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:13:06.793+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/feature_and_augm_dag.py took 0.456 seconds
+[2024-11-03T20:13:37.142+0000] {processor.py:153} INFO - Started process (PID=477) to work on /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:13:37.145+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/feature_and_augm_dag.py for tasks to queue
+[2024-11-03T20:13:37.146+0000] {logging_mixin.py:137} INFO - [2024-11-03T20:13:37.146+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:13:37.599+0000] {logging_mixin.py:137} INFO - [2024-11-03T20:13:37.596+0000] {dagbag.py:343} ERROR - Failed to import: /opt/airflow/dags/feature_and_augm_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 339, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/feature_and_augm_dag.py", line 6, in <module>
+    from src.feature_select import rank_features_by_lasso, select_correlated_features
+  File "/opt/airflow/dags/src/feature_select.py", line 98, in <module>
+    final_features = rank_features_by_lasso()
+TypeError: rank_features_by_lasso() missing 1 required positional argument: 'encoded_data'
+[2024-11-03T20:13:37.600+0000] {processor.py:755} WARNING - No viable dags retrieved from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:13:37.615+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/feature_and_augm_dag.py took 0.484 seconds
+[2024-11-03T20:14:07.944+0000] {processor.py:153} INFO - Started process (PID=513) to work on /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:14:07.945+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/feature_and_augm_dag.py for tasks to queue
+[2024-11-03T20:14:07.947+0000] {logging_mixin.py:137} INFO - [2024-11-03T20:14:07.947+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:14:08.494+0000] {logging_mixin.py:137} INFO - [2024-11-03T20:14:08.487+0000] {dagbag.py:343} ERROR - Failed to import: /opt/airflow/dags/feature_and_augm_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 339, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/feature_and_augm_dag.py", line 6, in <module>
+    from src.feature_select import rank_features_by_lasso, select_correlated_features
+  File "/opt/airflow/dags/src/feature_select.py", line 98, in <module>
+    final_features = rank_features_by_lasso()
+TypeError: rank_features_by_lasso() missing 1 required positional argument: 'encoded_data'
+[2024-11-03T20:14:08.495+0000] {processor.py:755} WARNING - No viable dags retrieved from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:14:08.509+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/feature_and_augm_dag.py took 0.569 seconds
+[2024-11-03T20:14:38.977+0000] {processor.py:153} INFO - Started process (PID=565) to work on /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:14:38.978+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/feature_and_augm_dag.py for tasks to queue
+[2024-11-03T20:14:38.978+0000] {logging_mixin.py:137} INFO - [2024-11-03T20:14:38.978+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:14:39.607+0000] {logging_mixin.py:137} INFO - [2024-11-03T20:14:39.605+0000] {dagbag.py:343} ERROR - Failed to import: /opt/airflow/dags/feature_and_augm_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 339, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/feature_and_augm_dag.py", line 6, in <module>
+    from src.feature_select import rank_features_by_lasso, select_correlated_features
+  File "/opt/airflow/dags/src/feature_select.py", line 98, in <module>
+    final_features = rank_features_by_lasso()
+TypeError: rank_features_by_lasso() missing 1 required positional argument: 'encoded_data'
+[2024-11-03T20:14:39.608+0000] {processor.py:755} WARNING - No viable dags retrieved from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:14:39.620+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/feature_and_augm_dag.py took 0.653 seconds
+[2024-11-03T20:15:09.900+0000] {processor.py:153} INFO - Started process (PID=617) to work on /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:15:09.902+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/feature_and_augm_dag.py for tasks to queue
+[2024-11-03T20:15:09.902+0000] {logging_mixin.py:137} INFO - [2024-11-03T20:15:09.902+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:15:10.352+0000] {logging_mixin.py:137} INFO - [2024-11-03T20:15:10.345+0000] {dagbag.py:343} ERROR - Failed to import: /opt/airflow/dags/feature_and_augm_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 339, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/feature_and_augm_dag.py", line 6, in <module>
+    from src.feature_select import rank_features_by_lasso, select_correlated_features
+  File "/opt/airflow/dags/src/feature_select.py", line 98, in <module>
+    final_features = rank_features_by_lasso()
+TypeError: rank_features_by_lasso() missing 1 required positional argument: 'encoded_data'
+[2024-11-03T20:15:10.352+0000] {processor.py:755} WARNING - No viable dags retrieved from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:15:10.365+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/feature_and_augm_dag.py took 0.468 seconds
+[2024-11-03T20:15:40.779+0000] {processor.py:153} INFO - Started process (PID=653) to work on /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:15:40.781+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/feature_and_augm_dag.py for tasks to queue
+[2024-11-03T20:15:40.782+0000] {logging_mixin.py:137} INFO - [2024-11-03T20:15:40.782+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:15:41.361+0000] {logging_mixin.py:137} INFO - [2024-11-03T20:15:41.355+0000] {dagbag.py:343} ERROR - Failed to import: /opt/airflow/dags/feature_and_augm_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 339, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/feature_and_augm_dag.py", line 6, in <module>
+    from src.feature_select import rank_features_by_lasso, select_correlated_features
+  File "/opt/airflow/dags/src/feature_select.py", line 98, in <module>
+    final_features = rank_features_by_lasso()
+TypeError: rank_features_by_lasso() missing 1 required positional argument: 'encoded_data'
+[2024-11-03T20:15:41.362+0000] {processor.py:755} WARNING - No viable dags retrieved from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:15:41.378+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/feature_and_augm_dag.py took 0.605 seconds
+[2024-11-03T20:16:11.693+0000] {processor.py:153} INFO - Started process (PID=705) to work on /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:16:11.694+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/feature_and_augm_dag.py for tasks to queue
+[2024-11-03T20:16:11.695+0000] {logging_mixin.py:137} INFO - [2024-11-03T20:16:11.695+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:16:12.153+0000] {logging_mixin.py:137} INFO - [2024-11-03T20:16:12.148+0000] {dagbag.py:343} ERROR - Failed to import: /opt/airflow/dags/feature_and_augm_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 339, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/feature_and_augm_dag.py", line 6, in <module>
+    from src.feature_select import rank_features_by_lasso, select_correlated_features
+  File "/opt/airflow/dags/src/feature_select.py", line 98, in <module>
+    final_features = rank_features_by_lasso()
+TypeError: rank_features_by_lasso() missing 1 required positional argument: 'encoded_data'
+[2024-11-03T20:16:12.153+0000] {processor.py:755} WARNING - No viable dags retrieved from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:16:12.164+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/feature_and_augm_dag.py took 0.474 seconds
+[2024-11-03T20:16:42.510+0000] {processor.py:153} INFO - Started process (PID=756) to work on /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:16:42.511+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/feature_and_augm_dag.py for tasks to queue
+[2024-11-03T20:16:42.512+0000] {logging_mixin.py:137} INFO - [2024-11-03T20:16:42.512+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:16:42.940+0000] {logging_mixin.py:137} INFO - [2024-11-03T20:16:42.936+0000] {dagbag.py:343} ERROR - Failed to import: /opt/airflow/dags/feature_and_augm_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 339, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/feature_and_augm_dag.py", line 6, in <module>
+    from src.feature_select import rank_features_by_lasso, select_correlated_features
+  File "/opt/airflow/dags/src/feature_select.py", line 98, in <module>
+    final_features = rank_features_by_lasso()
+TypeError: rank_features_by_lasso() missing 1 required positional argument: 'encoded_data'
+[2024-11-03T20:16:42.940+0000] {processor.py:755} WARNING - No viable dags retrieved from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:16:42.949+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/feature_and_augm_dag.py took 0.442 seconds
+[2024-11-03T20:17:13.365+0000] {processor.py:153} INFO - Started process (PID=791) to work on /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:17:13.366+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/feature_and_augm_dag.py for tasks to queue
+[2024-11-03T20:17:13.367+0000] {logging_mixin.py:137} INFO - [2024-11-03T20:17:13.367+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:17:13.835+0000] {logging_mixin.py:137} INFO - [2024-11-03T20:17:13.830+0000] {dagbag.py:343} ERROR - Failed to import: /opt/airflow/dags/feature_and_augm_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 339, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/feature_and_augm_dag.py", line 6, in <module>
+    from src.feature_select import rank_features_by_lasso, select_correlated_features
+  File "/opt/airflow/dags/src/feature_select.py", line 98, in <module>
+    final_features = rank_features_by_lasso()
+TypeError: rank_features_by_lasso() missing 1 required positional argument: 'encoded_data'
+[2024-11-03T20:17:13.835+0000] {processor.py:755} WARNING - No viable dags retrieved from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:17:13.850+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/feature_and_augm_dag.py took 0.488 seconds
+[2024-11-03T20:17:44.732+0000] {processor.py:153} INFO - Started process (PID=843) to work on /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:17:44.734+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/feature_and_augm_dag.py for tasks to queue
+[2024-11-03T20:17:44.735+0000] {logging_mixin.py:137} INFO - [2024-11-03T20:17:44.735+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:17:45.180+0000] {logging_mixin.py:137} INFO - [2024-11-03T20:17:45.174+0000] {dagbag.py:343} ERROR - Failed to import: /opt/airflow/dags/feature_and_augm_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 339, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/feature_and_augm_dag.py", line 6, in <module>
+    from src.feature_select import rank_features_by_lasso, select_correlated_features
+  File "/opt/airflow/dags/src/feature_select.py", line 98, in <module>
+    final_features = rank_features_by_lasso()
+TypeError: rank_features_by_lasso() missing 1 required positional argument: 'encoded_data'
+[2024-11-03T20:17:45.181+0000] {processor.py:755} WARNING - No viable dags retrieved from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:17:45.194+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/feature_and_augm_dag.py took 0.466 seconds
+[2024-11-03T20:18:15.670+0000] {processor.py:153} INFO - Started process (PID=894) to work on /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:18:15.674+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/feature_and_augm_dag.py for tasks to queue
+[2024-11-03T20:18:15.682+0000] {logging_mixin.py:137} INFO - [2024-11-03T20:18:15.680+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:18:18.112+0000] {logging_mixin.py:137} INFO - [2024-11-03T20:18:18.103+0000] {dagbag.py:343} ERROR - Failed to import: /opt/airflow/dags/feature_and_augm_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 339, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/feature_and_augm_dag.py", line 6, in <module>
+    from src.feature_select import rank_features_by_lasso, select_correlated_features
+  File "/opt/airflow/dags/src/feature_select.py", line 98, in <module>
+    final_features = rank_features_by_lasso()
+TypeError: rank_features_by_lasso() missing 1 required positional argument: 'encoded_data'
+[2024-11-03T20:18:18.113+0000] {processor.py:755} WARNING - No viable dags retrieved from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:18:18.186+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/feature_and_augm_dag.py took 2.522 seconds
+[2024-11-03T20:18:48.970+0000] {processor.py:153} INFO - Started process (PID=930) to work on /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:18:48.971+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/feature_and_augm_dag.py for tasks to queue
+[2024-11-03T20:18:48.973+0000] {logging_mixin.py:137} INFO - [2024-11-03T20:18:48.973+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:18:49.478+0000] {logging_mixin.py:137} INFO - [2024-11-03T20:18:49.476+0000] {dagbag.py:343} ERROR - Failed to import: /opt/airflow/dags/feature_and_augm_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 339, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/feature_and_augm_dag.py", line 6, in <module>
+    from src.feature_select import rank_features_by_lasso, select_correlated_features
+  File "/opt/airflow/dags/src/feature_select.py", line 98, in <module>
+    final_features = rank_features_by_lasso()
+TypeError: rank_features_by_lasso() missing 1 required positional argument: 'encoded_data'
+[2024-11-03T20:18:49.479+0000] {processor.py:755} WARNING - No viable dags retrieved from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:18:49.496+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/feature_and_augm_dag.py took 0.532 seconds
+[2024-11-03T20:19:19.973+0000] {processor.py:153} INFO - Started process (PID=982) to work on /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:19:19.975+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/feature_and_augm_dag.py for tasks to queue
+[2024-11-03T20:19:19.975+0000] {logging_mixin.py:137} INFO - [2024-11-03T20:19:19.975+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:19:20.455+0000] {logging_mixin.py:137} INFO - [2024-11-03T20:19:20.447+0000] {dagbag.py:343} ERROR - Failed to import: /opt/airflow/dags/feature_and_augm_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 339, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/feature_and_augm_dag.py", line 6, in <module>
+    from src.feature_select import rank_features_by_lasso, select_correlated_features
+  File "/opt/airflow/dags/src/feature_select.py", line 98, in <module>
+    final_features = rank_features_by_lasso()
+TypeError: rank_features_by_lasso() missing 1 required positional argument: 'encoded_data'
+[2024-11-03T20:19:20.455+0000] {processor.py:755} WARNING - No viable dags retrieved from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:19:20.470+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/feature_and_augm_dag.py took 0.502 seconds
+[2024-11-03T20:19:50.742+0000] {processor.py:153} INFO - Started process (PID=1034) to work on /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:19:50.748+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/feature_and_augm_dag.py for tasks to queue
+[2024-11-03T20:19:50.751+0000] {logging_mixin.py:137} INFO - [2024-11-03T20:19:50.751+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:19:51.455+0000] {logging_mixin.py:137} INFO - [2024-11-03T20:19:51.452+0000] {dagbag.py:343} ERROR - Failed to import: /opt/airflow/dags/feature_and_augm_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 339, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/feature_and_augm_dag.py", line 6, in <module>
+    from src.feature_select import rank_features_by_lasso, select_correlated_features
+  File "/opt/airflow/dags/src/feature_select.py", line 98, in <module>
+    final_features = rank_features_by_lasso()
+TypeError: rank_features_by_lasso() missing 1 required positional argument: 'encoded_data'
+[2024-11-03T20:19:51.455+0000] {processor.py:755} WARNING - No viable dags retrieved from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:19:51.477+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/feature_and_augm_dag.py took 0.742 seconds
+[2024-11-03T20:20:21.829+0000] {processor.py:153} INFO - Started process (PID=1086) to work on /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:20:21.830+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/feature_and_augm_dag.py for tasks to queue
+[2024-11-03T20:20:21.832+0000] {logging_mixin.py:137} INFO - [2024-11-03T20:20:21.832+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:20:22.319+0000] {logging_mixin.py:137} INFO - [2024-11-03T20:20:22.318+0000] {dagbag.py:343} ERROR - Failed to import: /opt/airflow/dags/feature_and_augm_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 339, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/feature_and_augm_dag.py", line 6, in <module>
+    from src.feature_select import rank_features_by_lasso, select_correlated_features
+  File "/opt/airflow/dags/src/feature_select.py", line 98, in <module>
+    final_features = rank_features_by_lasso()
+TypeError: rank_features_by_lasso() missing 1 required positional argument: 'encoded_data'
+[2024-11-03T20:20:22.319+0000] {processor.py:755} WARNING - No viable dags retrieved from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:20:22.328+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/feature_and_augm_dag.py took 0.506 seconds
+[2024-11-03T20:20:52.817+0000] {processor.py:153} INFO - Started process (PID=1122) to work on /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:20:52.822+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/feature_and_augm_dag.py for tasks to queue
+[2024-11-03T20:20:52.825+0000] {logging_mixin.py:137} INFO - [2024-11-03T20:20:52.825+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:20:53.719+0000] {logging_mixin.py:137} INFO - [2024-11-03T20:20:53.711+0000] {dagbag.py:343} ERROR - Failed to import: /opt/airflow/dags/feature_and_augm_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 339, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/feature_and_augm_dag.py", line 6, in <module>
+    from src.feature_select import rank_features_by_lasso, select_correlated_features
+  File "/opt/airflow/dags/src/feature_select.py", line 98, in <module>
+    final_features = rank_features_by_lasso()
+TypeError: rank_features_by_lasso() missing 1 required positional argument: 'encoded_data'
+[2024-11-03T20:20:53.719+0000] {processor.py:755} WARNING - No viable dags retrieved from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:20:53.750+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/feature_and_augm_dag.py took 0.939 seconds
+[2024-11-03T20:21:24.128+0000] {processor.py:153} INFO - Started process (PID=1174) to work on /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:21:24.129+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/feature_and_augm_dag.py for tasks to queue
+[2024-11-03T20:21:24.131+0000] {logging_mixin.py:137} INFO - [2024-11-03T20:21:24.131+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:21:24.715+0000] {logging_mixin.py:137} INFO - [2024-11-03T20:21:24.714+0000] {dagbag.py:343} ERROR - Failed to import: /opt/airflow/dags/feature_and_augm_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 339, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/feature_and_augm_dag.py", line 6, in <module>
+    from src.feature_select import rank_features_by_lasso, select_correlated_features
+  File "/opt/airflow/dags/src/feature_select.py", line 98, in <module>
+    final_features = rank_features_by_lasso()
+TypeError: rank_features_by_lasso() missing 1 required positional argument: 'encoded_data'
+[2024-11-03T20:21:24.716+0000] {processor.py:755} WARNING - No viable dags retrieved from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:21:24.726+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/feature_and_augm_dag.py took 0.602 seconds
+[2024-11-03T20:21:54.783+0000] {processor.py:153} INFO - Started process (PID=1225) to work on /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:21:54.785+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/feature_and_augm_dag.py for tasks to queue
+[2024-11-03T20:21:54.787+0000] {logging_mixin.py:137} INFO - [2024-11-03T20:21:54.787+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:21:55.434+0000] {logging_mixin.py:137} INFO - [2024-11-03T20:21:55.433+0000] {dagbag.py:343} ERROR - Failed to import: /opt/airflow/dags/feature_and_augm_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 339, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/feature_and_augm_dag.py", line 6, in <module>
+    from src.feature_select import rank_features_by_lasso, select_correlated_features
+  File "/opt/airflow/dags/src/feature_select.py", line 98, in <module>
+    final_features = rank_features_by_lasso()
+TypeError: rank_features_by_lasso() missing 1 required positional argument: 'encoded_data'
+[2024-11-03T20:21:55.435+0000] {processor.py:755} WARNING - No viable dags retrieved from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:21:55.446+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/feature_and_augm_dag.py took 0.673 seconds
+[2024-11-03T20:22:25.964+0000] {processor.py:153} INFO - Started process (PID=1262) to work on /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:22:25.966+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/feature_and_augm_dag.py for tasks to queue
+[2024-11-03T20:22:25.967+0000] {logging_mixin.py:137} INFO - [2024-11-03T20:22:25.967+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:22:26.485+0000] {logging_mixin.py:137} INFO - [2024-11-03T20:22:26.484+0000] {dagbag.py:343} ERROR - Failed to import: /opt/airflow/dags/feature_and_augm_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 339, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/feature_and_augm_dag.py", line 6, in <module>
+    from src.feature_select import rank_features_by_lasso, select_correlated_features
+  File "/opt/airflow/dags/src/feature_select.py", line 98, in <module>
+    final_features = rank_features_by_lasso()
+TypeError: rank_features_by_lasso() missing 1 required positional argument: 'encoded_data'
+[2024-11-03T20:22:26.486+0000] {processor.py:755} WARNING - No viable dags retrieved from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:22:26.497+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/feature_and_augm_dag.py took 0.539 seconds
+[2024-11-03T20:22:56.821+0000] {processor.py:153} INFO - Started process (PID=1314) to work on /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:22:56.824+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/feature_and_augm_dag.py for tasks to queue
+[2024-11-03T20:22:56.826+0000] {logging_mixin.py:137} INFO - [2024-11-03T20:22:56.826+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:22:57.497+0000] {logging_mixin.py:137} INFO - [2024-11-03T20:22:57.496+0000] {dagbag.py:343} ERROR - Failed to import: /opt/airflow/dags/feature_and_augm_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 339, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/feature_and_augm_dag.py", line 6, in <module>
+    from src.feature_select import rank_features_by_lasso, select_correlated_features
+  File "/opt/airflow/dags/src/feature_select.py", line 98, in <module>
+    final_features = rank_features_by_lasso()
+TypeError: rank_features_by_lasso() missing 1 required positional argument: 'encoded_data'
+[2024-11-03T20:22:57.498+0000] {processor.py:755} WARNING - No viable dags retrieved from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:22:57.508+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/feature_and_augm_dag.py took 0.692 seconds
+[2024-11-03T20:23:27.865+0000] {processor.py:153} INFO - Started process (PID=1366) to work on /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:23:27.867+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/feature_and_augm_dag.py for tasks to queue
+[2024-11-03T20:23:27.868+0000] {logging_mixin.py:137} INFO - [2024-11-03T20:23:27.868+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:23:28.358+0000] {logging_mixin.py:137} INFO - [2024-11-03T20:23:28.352+0000] {dagbag.py:343} ERROR - Failed to import: /opt/airflow/dags/feature_and_augm_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 339, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/feature_and_augm_dag.py", line 6, in <module>
+    from src.feature_select import rank_features_by_lasso, select_correlated_features
+  File "/opt/airflow/dags/src/feature_select.py", line 98, in <module>
+    final_features = rank_features_by_lasso()
+TypeError: rank_features_by_lasso() missing 1 required positional argument: 'encoded_data'
+[2024-11-03T20:23:28.358+0000] {processor.py:755} WARNING - No viable dags retrieved from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:23:28.371+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/feature_and_augm_dag.py took 0.511 seconds
+[2024-11-03T20:23:58.723+0000] {processor.py:153} INFO - Started process (PID=1402) to work on /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:23:58.725+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/feature_and_augm_dag.py for tasks to queue
+[2024-11-03T20:23:58.726+0000] {logging_mixin.py:137} INFO - [2024-11-03T20:23:58.726+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:23:59.366+0000] {logging_mixin.py:137} INFO - [2024-11-03T20:23:59.364+0000] {dagbag.py:343} ERROR - Failed to import: /opt/airflow/dags/feature_and_augm_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 339, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/feature_and_augm_dag.py", line 6, in <module>
+    from src.feature_select import rank_features_by_lasso, select_correlated_features
+  File "/opt/airflow/dags/src/feature_select.py", line 98, in <module>
+    final_features = rank_features_by_lasso()
+TypeError: rank_features_by_lasso() missing 1 required positional argument: 'encoded_data'
+[2024-11-03T20:23:59.366+0000] {processor.py:755} WARNING - No viable dags retrieved from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:23:59.387+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/feature_and_augm_dag.py took 0.669 seconds
+[2024-11-03T20:24:29.552+0000] {processor.py:153} INFO - Started process (PID=1454) to work on /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:24:29.554+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/feature_and_augm_dag.py for tasks to queue
+[2024-11-03T20:24:29.555+0000] {logging_mixin.py:137} INFO - [2024-11-03T20:24:29.555+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:24:30.120+0000] {logging_mixin.py:137} INFO - [2024-11-03T20:24:30.118+0000] {dagbag.py:343} ERROR - Failed to import: /opt/airflow/dags/feature_and_augm_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 339, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/feature_and_augm_dag.py", line 6, in <module>
+    from src.feature_select import rank_features_by_lasso, select_correlated_features
+  File "/opt/airflow/dags/src/feature_select.py", line 98, in <module>
+    final_features = rank_features_by_lasso()
+TypeError: rank_features_by_lasso() missing 1 required positional argument: 'encoded_data'
+[2024-11-03T20:24:30.120+0000] {processor.py:755} WARNING - No viable dags retrieved from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:24:30.131+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/feature_and_augm_dag.py took 0.584 seconds
+[2024-11-03T20:25:00.488+0000] {processor.py:153} INFO - Started process (PID=1505) to work on /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:25:00.489+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/feature_and_augm_dag.py for tasks to queue
+[2024-11-03T20:25:00.490+0000] {logging_mixin.py:137} INFO - [2024-11-03T20:25:00.490+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:25:01.272+0000] {logging_mixin.py:137} INFO - [2024-11-03T20:25:01.271+0000] {dagbag.py:343} ERROR - Failed to import: /opt/airflow/dags/feature_and_augm_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 339, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/feature_and_augm_dag.py", line 6, in <module>
+    from src.feature_select import rank_features_by_lasso, select_correlated_features
+  File "/opt/airflow/dags/src/feature_select.py", line 98, in <module>
+    final_features = rank_features_by_lasso()
+TypeError: rank_features_by_lasso() missing 1 required positional argument: 'encoded_data'
+[2024-11-03T20:25:01.273+0000] {processor.py:755} WARNING - No viable dags retrieved from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T20:25:01.285+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/feature_and_augm_dag.py took 0.800 seconds
