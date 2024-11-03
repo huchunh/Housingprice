@@ -1,9 +1,9 @@
 import pandas as pd
 import numpy as np
-from src.feature_select import rank_features_by_lasso
+# from src.feature_select import rank_features_by_lasso
 
 
-def augment_data_with_perturbations(data, perturbation_percentage=0.02):
+def augment_data_with_perturbations(data, final_features, perturbation_percentage=0.02):
     """
     Generate synthetic records by applying random perturbations to numeric features.
     
@@ -23,7 +23,6 @@ def augment_data_with_perturbations(data, perturbation_percentage=0.02):
     # Randomly sample rows from the data to generate synthetic records
     synthetic_data = data.sample(n=num_synthetic_records, replace=True).copy()
 
-    final_features = rank_features_by_lasso()
     # Apply perturbation to each selected numerical feature
     for feature in final_features:
         # Calculate noise based on feature's standard deviation and perturbation percentage
@@ -34,5 +33,3 @@ def augment_data_with_perturbations(data, perturbation_percentage=0.02):
     augmented_data = pd.concat([data, synthetic_data], ignore_index=True)
     
     return augmented_data
-
-augmented_train_data = augment_data_with_perturbations()

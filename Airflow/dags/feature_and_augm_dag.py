@@ -1,28 +1,54 @@
 from airflow import DAG
+import logging
 from airflow.operators.python import PythonOperator
 from datetime import datetime, timedelta
 import pandas as pd
 import numpy as np
 from src.feature_select import rank_features_by_lasso, select_correlated_features
 from src.data_augment import augment_data_with_perturbations
-from datetime import datetime, timedelta
+from src.data_splitting import split_data
 import json
 
-# Define the DAG
+# Define default arguments for your DAG
 default_args = {
     'owner': 'House_Price_Prediction Team',
     'start_date': datetime(2024, 10, 29),
-    'retries': 0,
-    'retry_delay': timedelta(minutes=5),
+    'retries': 0,  # Number of retries in case of task failure
+    'retry_delay': timedelta(minutes=5),  # Delay before retries
 }
 
-dag = DAG(
-    'DAG_feature_selcet_data_augmentation',
+# Create a DAG instance named 'DAG_Data_Preprocessing' with the defined default arguments
+dag2 = DAG(
+    'DAG_feature_select_and_data_augmentation',
     default_args=default_args,
-    description='DAG for tasks in House Price Prediction Project',
-    schedule_interval=None,
+    description='DAG for splitting data, features selection and data preprocaugmentation tasks',
+    schedule_interval=None,  # Set the schedule interval or use None for manual triggering
     catchup=False,
+    max_active_runs=1,
 )
+
+# Task to split data
+def split_data_callable(**kwargs):
+    ti = kwargs['ti']
+    data = ti.xcom_pull(task_ids='encode_data_task', key='encoded_data')
+    if data is None:
+        logging.error("No encoded data found in XCom for key 'encoded_data'")
+    else:
+        # Call the split_data function with encoded data
+        split_result = split_data(data, test_size=0.15)
+        
+        # Push split data back to XCom for later use
+        ti.xcom_push(key='train_data', value=split_result['train_data'])
+        ti.xcom_push(key='test_data', value=split_result['test_data'])
+
+data_split_task = PythonOperator(
+    task_id='data_split_task',
+    python_callable=split_data_callable,
+    provide_context=True,
+    dag=dag2,
+)
+
+
 # Define the Python function for the feature selection task
 def feature_selection_callable(**kwargs):
     # Pull the encoded data from XCom
@@ -60,7 +86,7 @@ feature_selection_task = PythonOperator(
     task_id='feature_selection_task',
     python_callable=feature_selection_callable,
     provide_context=True,
-    dag=dag,
+    dag=dag2,
 )
 
 # Data augmentation task
@@ -86,8 +112,8 @@ data_augmentation_task = PythonOperator(
     task_id='data_augmentation_task',
     python_callable=data_augmentation_callable,
     provide_context=True,
-    dag=dag,
+    dag=dag2,
 )
 
 # Set dependencies
-feature_selection_task >> data_augmentation_task
+data_split_task >> feature_selection_task >> data_augmentation_task

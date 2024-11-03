@@ -3,10 +3,10 @@ import logging
 import json
 from airflow import DAG
 from airflow.operators.python import PythonOperator
+from airflow.operators.trigger_dagrun import TriggerDagRunOperator
 from datetime import datetime, timedelta
 from src.data_prep import load_data, data_overview, data_validation, data_cleaning
 from src.encoding import encode_data
-from src.data_splitting import split_data
 
 
 # Define default arguments for your DAG
@@ -18,12 +18,13 @@ default_args = {
 }
 
 # Create a DAG instance named 'DAG_Data_Preprocessing' with the defined default arguments
-dag = DAG(
+dag1 = DAG(
     'DAG_Data_Preprocessing',
     default_args=default_args,
     description='DAG for data preprocessing tasks in House Price Prediction Project',
     schedule_interval=None,  # Set the schedule interval or use None for manual triggering
     catchup=False,
+    max_active_runs=1,
 )
 
 # Define PythonOperators for each function
@@ -37,7 +38,7 @@ def load_data_callable(**kwargs):
 load_data_task = PythonOperator(
     task_id='load_data_task',
     python_callable=load_data_callable,
-    dag=dag,
+    dag=dag1,
 )
 
 # Task to perform data overview
@@ -56,7 +57,7 @@ data_overview_task = PythonOperator(
     task_id='data_overview_task',
     python_callable=data_overview_callable,
     provide_context=True,
-    dag=dag,
+    dag=dag1,
 )
 
 # Task to perform data validation
@@ -75,7 +76,7 @@ data_validation_task = PythonOperator(
     task_id='data_validation_task',
     python_callable=data_validation_callable,
     provide_context=True,
-    dag=dag,
+    dag=dag1,
 )
 
 # Task to perform data cleaning
@@ -94,7 +95,7 @@ data_cleaning_task = PythonOperator(
     task_id='data_cleaning_task',
     python_callable=data_cleaning_callable,
     provide_context=True,
-    dag=dag,
+    dag=dag1,
 )
 
 # Task to perform all encoding using encode_data
@@ -112,29 +113,17 @@ encode_data_task = PythonOperator(
     task_id='encode_data_task',
     python_callable=encode_data_callable,
     provide_context=True,
-    dag=dag,
+    dag=dag1,
 )
 
-# Task to split data
-def split_data_callable(**kwargs):
-    ti = kwargs['ti']
-    data = ti.xcom_pull(task_ids='encode_data_task', key='encoded_data')
-    if data is None:
-        logging.error("No encoded data found in XCom for key 'encoded_data'")
-    else:
-        # Call the split_data function with encoded data
-        split_result = split_data(data, test_size=0.15)
-        
-        # Push split data back to XCom for later use
-        ti.xcom_push(key='train_data', value=split_result['train_data'])
-        ti.xcom_push(key='test_data', value=split_result['test_data'])
-
-data_split_task = PythonOperator(
-    task_id='data_split_task',
-    python_callable=split_data_callable,
-    provide_context=True,
-    dag=dag,
+# Trigger the second DAG after the data encoding step
+trigger_dag2_task = TriggerDagRunOperator(
+    task_id="trigger_feature_select_and_data_augmentation",
+    trigger_dag_id="DAG_feature_select_and_data_augmentation",  # The ID of the second DAG
+    conf={"encoded_data_key": "encoded_data"},  # Optional: Pass any needed context
+    trigger_rule="all_success",  # Ensures it only runs if all previous tasks are successful
+    dag=dag1,
 )
 
 # Set the updated task dependencies
-load_data_task >> data_overview_task >> data_validation_task >> data_cleaning_task >> encode_data_task >> data_split_task
+load_data_task >> data_overview_task >> data_validation_task >> data_cleaning_task >> encode_data_task >> trigger_dag2_task
