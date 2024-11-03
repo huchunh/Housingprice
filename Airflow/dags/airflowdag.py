@@ -86,7 +86,7 @@ def data_cleaning_callable(**kwargs):
     else:
         cleaned_data = data_cleaning(validated_data)
         # Push cleaned data to XCom
-        ti.xcom_push(key='cleaned_data', value=cleaned_data)
+        ti.xcom_push(key='', value=cleaned_data)
 
 data_cleaning_task = PythonOperator(
     task_id='data_cleaning_task',
@@ -98,9 +98,9 @@ data_cleaning_task = PythonOperator(
 # Task to perform all encoding using encode_data
 def encode_data_callable(**kwargs):
     ti = kwargs['ti']
-    data = ti.xcom_pull(task_ids='load_data_task', key='data')
+    data = ti.xcom_pull(task_ids='data_cleaning_task', key='cleaned_data')
     if data is None:
-        logging.error("No data found in XCom for key 'data'")
+        logging.error("No data found in XCom for key 'cleaned_data'")
     else:
         serialized_data, remaining_mappings = encode_data(data)
         ti.xcom_push(key='encoded_data', value=serialized_data)
