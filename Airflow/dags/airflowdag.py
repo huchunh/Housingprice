@@ -1,9 +1,11 @@
 import pandas as pd
 import logging
+import json
 from airflow import DAG
 from airflow.operators.python import PythonOperator
 from datetime import datetime, timedelta
 from src.data_prep import load_data, data_overview, data_validation, data_cleaning
+from src.encoding import encode_data
 
 # Define default arguments for your DAG
 default_args = {
@@ -93,5 +95,23 @@ data_cleaning_task = PythonOperator(
     dag=dag,
 )
 
+# Task to perform all encoding using encode_data
+def encode_data_callable(**kwargs):
+    ti = kwargs['ti']
+    data = ti.xcom_pull(task_ids='load_data_task', key='data')
+    if data is None:
+        logging.error("No data found in XCom for key 'data'")
+    else:
+        serialized_data, remaining_mappings = encode_data(data)
+        ti.xcom_push(key='encoded_data', value=serialized_data)
+        ti.xcom_push(key='remaining_mappings', value=json.dumps(remaining_mappings))
+
+encode_data_task = PythonOperator(
+    task_id='encode_data_task',
+    python_callable=encode_data_callable,
+    provide_context=True,
+    dag=dag,
+)
+
 # Set task dependencies
-load_data_task >> data_overview_task >> data_validation_task >> data_cleaning_task
+load_data_task >> data_overview_task >> data_validation_task >> data_cleaning_task  >> encode_data_task
