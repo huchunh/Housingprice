@@ -2,97 +2,113 @@ import pandas as pd
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.cluster import KMeans
 from kneed import KneeLocator # type: ignore
+from google.oauth2 import service_account
+from airflow.models import Variable
+import json
+from google.cloud import storage
 import pickle
 import os
+import logging
 
 
 def load_data():
-    """
-    Loads data from a CSV file, serializes it, and returns the serialized data.
-
-    Returns:
-        bytes: Serialized data.
-    """
-
-    df = pd.read_csv(os.path.join(os.path.dirname(__file__), "../data/file.csv"))
-    serialized_data = pickle.dumps(df)
+    # Fetch the credentials from Airflow Variables
+    gcp_credentials = Variable.get("GOOGLE_APPLICATION_CREDENTIALS", deserialize_json=True)
+    # Authenticate using the fetched credentials
+    credentials = service_account.Credentials.from_service_account_info(gcp_credentials)
     
+    # Create a storage client with specified credentials
+    storage_client = storage.Client(credentials=credentials)
+    bucket_name = 'bucket_data_mlopsteam2'
+    blob_name = 'AmesHousing.csv'
+    
+    # Get the bucket and blob
+    bucket = storage_client.get_bucket(bucket_name)
+    blob = bucket.blob(blob_name)
+    # Download the blob to a temporary file
+    blob.download_to_filename('/tmp/AmesHousing.csv')
+    
+    # Load the dataset into a DataFrame
+    data = pd.read_csv('/tmp/AmesHousing.csv')
+    serialized_data = data.to_json()
+    # pickle.dumps(data)
+    logging.info(data.head())
     return serialized_data
+
+
+def data_overview(data):
+    """
+    Deserializes the dataset, provides an overview, and returns serialized data.
+    """
+    df = pd.read_json(data)
     
-
-def data_preprocessing(data):
-
-    """
-    Deserializes data, performs data preprocessing, and returns serialized clustered data.
-
-    Args:
-        data (bytes): Serialized data to be deserialized and processed.
-
-    Returns:
-        bytes: Serialized clustered data.
-    """
-    df = pickle.loads(data)
-    df = df.dropna()
-    clustering_data = df[["BALANCE", "PURCHASES", "CREDIT_LIMIT"]]
-    min_max_scaler = MinMaxScaler()
-    clustering_data_minmax = min_max_scaler.fit_transform(clustering_data)
-    clustering_serialized_data = pickle.dumps(clustering_data_minmax)
-    return clustering_serialized_data
-
-
-def build_save_model(data, filename):
-    """
-    Builds a KMeans clustering model, saves it to a file, and returns SSE values.
-
-    Args:
-        data (bytes): Serialized data for clustering.
-        filename (str): Name of the file to save the clustering model.
-
-    Returns:
-        list: List of SSE (Sum of Squared Errors) values for different numbers of clusters.
-    """
-    df = pickle.loads(data)
-    kmeans_kwargs = {"init": "random","n_init": 10,"max_iter": 300,"random_state": 42,}
-    sse = []
-    for k in range(1, 50):
-        kmeans = KMeans(n_clusters=k, **kmeans_kwargs)
-        kmeans.fit(df)
-        sse.append(kmeans.inertia_)
+    # Data overview: shape, info, and descriptive statistics
+    logging.info(f"Data shape: {df.shape}")
+    print("Data shape:", df.shape)
+    logging.info(df.info())
+    print("Data Info:", df.info())
+    logging.info(df.describe(include="all"))
+    print("Data Description:", df.describe(include="all"))
     
-    output_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), "model", filename)
-
-    # Save the trained model to a file
-    pickle.dump(kmeans, open(output_path, 'wb'))
-
-    return sse
+    return df.to_json()
 
 
-def load_model_elbow(filename,sse):
+def data_validation(data):
     """
-    Loads a saved KMeans clustering model and determines the number of clusters using the elbow method.
-
-    Args:
-        filename (str): Name of the file containing the saved clustering model.
-        sse (list): List of SSE values for different numbers of clusters.
-
-    Returns:
-        str: A string indicating the predicted cluster and the number of clusters based on the elbow method.
+    Validates the dataset by handling outliers and correcting anomalies, then re-serializes.
     """
+    df = pd.read_json(data)
     
-    output_path = os.path.join(os.path.dirname(__file__), "../model", filename)
-    # Load the saved model from a file
-    loaded_model = pickle.load(open(output_path, 'rb'))
-
-    df = pd.read_csv(os.path.join(os.path.dirname(__file__), "../data/test.csv"))
+    # Drop outliers for 'Gr Liv Area'
+    df.drop(df[df['Gr Liv Area'] > 4000].index, inplace=True)
+    logging.info("Outliers removed where 'Gr Liv Area' > 4000.")
     
-    kl = KneeLocator(
-        range(1, 50), sse, curve="convex", direction="decreasing"
-    )
-
-    # Optimal clusters
-    print(f"Optimal no. of clusters: {kl.elbow}")
-
-    # Make predictions on the test data
-    predictions = loaded_model.predict(df)
+    # Correcting Garage Year Built anomaly
+    df['Garage Yr Blt'] = df['Garage Yr Blt'].replace({2207: 2007})
+    logging.info("Corrected 'Garage Yr Blt' from 2207 to 2007.")
     
-    return predictions[0]
+    return df.to_json()
+
+
+def data_cleaning(data):
+    """
+    Cleans the dataset by removing duplicates and filling missing values, then re-serializes.
+    """
+    df = pd.read_json(data)
+    
+    # Remove duplicates
+    duplicate_rows = df.duplicated()
+    if duplicate_rows.any():
+        logging.info(f"Number of duplicate rows: {duplicate_rows.sum()}")
+        df.drop_duplicates(inplace=True)
+    else:
+        logging.info("No duplicate rows found.")
+
+    # Handle missing values in specific columns
+    df['Lot Frontage'] = df['Lot Frontage'].fillna(df['Lot Frontage'].median())
+    df['Mas Vnr Area'] = df['Mas Vnr Area'].fillna(1)
+    df['Bsmt Full Bath'] = df['Bsmt Full Bath'].fillna(0)
+    df['Bsmt Half Bath'] = df['Bsmt Half Bath'].fillna(0)
+    df['BsmtFin SF 1'] = df['BsmtFin SF 1'].fillna(0)
+    df['Garage Cars'] = df['Garage Cars'].fillna(df['Garage Cars'].median())
+    df['Electrical'] = df['Electrical'].fillna(df['Electrical'].mode()[0])
+    df['Total Bsmt SF'] = df['Total Bsmt SF'].fillna(0)
+    df['Bsmt Unf SF'] = df['Bsmt Unf SF'].fillna(0)
+    df['BsmtFin SF 2'] = df['BsmtFin SF 2'].fillna(0)
+    df['Garage Area'] = df['Garage Area'].fillna(df['Garage Area'].median())
+    df['Garage Yr Blt'] = df['Garage Yr Blt'].fillna(0)
+
+    # Replace NaN and empty values with "Missing" in selected categorical columns
+    columns_replace_na_and_empty = [
+        'Garage Cond', 'Garage Finish', 'Garage Qual',
+        'Bsmt Exposure', 'BsmtFin Type 2', 'Bsmt Qual', 'Bsmt Cond', 'BsmtFin Type 1'
+    ]
+    for col in columns_replace_na_and_empty:
+        df[col] = df[col].replace('', 'Missing').fillna('Missing')
+    
+    columns_replace_na_only = [
+        'Pool QC', 'Misc Feature', 'Alley', 'Fence', 'Garage Type', 'Fireplace Qu', 'Mas Vnr Type'
+    ]
+    df[columns_replace_na_only] = df[columns_replace_na_only].fillna('Missing')
+
+    return df.to_json()
