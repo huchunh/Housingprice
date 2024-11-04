@@ -14,13 +14,19 @@ The Airflow pipeline is used to automate the end-to-end data processing and mach
 
 ```
 Airflow
-├── dags                 # Folder containing Airflow DAGs
-│   ├── airflowdag.py    # Main DAG definition
-│   └── feature_and_augm_dag.py   # DAG for feature engineering and augmentation
-├── __pycache__          # Folder for cached Python files
-├── config               # Config files for environment variables, Airflow settings
-│   └── .env             # Environment variables
-└── logs                 # Log files for tracking DAG runs
+├── dags                # Main folder containing all Airflow DAGs and related scripts
+│   ├── __pycache__     # Folder for cached Python files
+│   ├── data            # Folder for any data files required by DAGs
+│   ├── src             # Source folder containing custom scripts
+│   │   ├── __init__.py
+│   │   ├── data_augment.py
+│   │   ├── data_prep.py
+│   │   ├── data_splitting.py
+│   │   ├── feature_select.py
+│   │   └── label_encode.py
+│   ├── __init__.py     # Initialization file for Airflow
+│   ├── airflowdag.py   # Main DAG definition file
+│   └── feature_and_augm_dag.py  # DAG for feature engineering and augmentation
 ```
 
 ## 3. Prerequisites
