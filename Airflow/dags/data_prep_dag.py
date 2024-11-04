@@ -133,7 +133,6 @@ encode_data_task = PythonOperator(
     dag=dag1,
 )
  
-
 # Function to retrieve XCom data and trigger dag2
 def trigger_dag2_with_conf(**kwargs):
     ti = kwargs['ti']
@@ -146,7 +145,7 @@ def trigger_dag2_with_conf(**kwargs):
     # Set up the TriggerDagRunOperator dynamically with conf
     TriggerDagRunOperator(
         task_id="trigger_feature_select_and_data_augmentation",
-        trigger_dag_id="DAG_feature_select_and_data_augmentation",  # The ID of the second DAG
+        trigger_dag_id="DAG_feature_select_and_data_augmentation", 
         conf={"encoded_result": encoded_result},  # Pass the encoded result to DAG 2
         trigger_rule="all_success",  # Ensures it only runs if all previous tasks are successful
     ).execute(kwargs)  # Pass Airflow context to execute method

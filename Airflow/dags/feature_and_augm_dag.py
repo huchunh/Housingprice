@@ -10,7 +10,7 @@ from src.data_augment import augment_data_with_perturbations
 # Define default arguments for your DAG
 default_args = {
     'owner': 'House_Price_Prediction Team',
-    'start_date': datetime(2024, 10, 29),
+    'start_date': datetime(2024, 11, 2),
     'retries': 0,  # Number of retries in case of task failure
     'retry_delay': timedelta(minutes=5),  # Delay before retries
 }
@@ -52,7 +52,6 @@ data_split_task = PythonOperator(
     dag=dag2,
 )
 
-
 # Define the Python function for the feature selection task
 def feature_selection_callable(**kwargs):
     # Pull the encoded data from XCom
@@ -67,7 +66,6 @@ def feature_selection_callable(**kwargs):
     if encoded_data_json is None:
         raise ValueError("No encoded data found in XCom for 'encoded_data'")
     
-
     # Define parameters
     numerical_features = [
        "Order", "PID", "MS SubClass", "Lot Frontage", "Lot Area", "Overall Qual", 

@@ -4,7 +4,7 @@ from unittest.mock import MagicMock, patch
 import json
 from Airflow.dags.src.data_prep import data_overview, data_validation, data_cleaning
 from Airflow.dags.src.label_encode import encode_data
-from Airflow.dags.airflowdag import data_overview_callable, data_validation_callable, data_cleaning_callable, encode_data_callable
+from Airflow.dags.data_prep_dag import data_overview_callable, data_validation_callable, data_cleaning_callable, encode_data_callable
 from airflow.models import TaskInstance
 
 class TestDagTasks(unittest.TestCase):
