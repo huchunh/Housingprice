@@ -2585,3 +2585,455 @@ TypeError: augment_data_with_perturbations() missing 2 required positional argum
 [2024-11-03T22:56:19.060+0000] {logging_mixin.py:137} INFO - [2024-11-03T22:56:19.060+0000] {dag.py:2690} INFO - Sync 1 DAGs
 [2024-11-03T22:56:19.076+0000] {logging_mixin.py:137} INFO - [2024-11-03T22:56:19.076+0000] {dag.py:3441} INFO - Setting next_dagrun for DAG_feature_select_and_data_augmentation to None, run_after=None
 [2024-11-03T22:56:19.088+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/feature_and_augm_dag.py took 0.504 seconds
+[2024-11-03T22:56:49.285+0000] {processor.py:153} INFO - Started process (PID=2370) to work on /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T22:56:49.287+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/feature_and_augm_dag.py for tasks to queue
+[2024-11-03T22:56:49.288+0000] {logging_mixin.py:137} INFO - [2024-11-03T22:56:49.288+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T22:56:49.768+0000] {processor.py:753} INFO - DAG(s) dict_keys(['DAG_feature_select_and_data_augmentation']) retrieved from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T22:56:49.781+0000] {logging_mixin.py:137} INFO - [2024-11-03T22:56:49.780+0000] {dag.py:2690} INFO - Sync 1 DAGs
+[2024-11-03T22:56:49.792+0000] {logging_mixin.py:137} INFO - [2024-11-03T22:56:49.792+0000] {dag.py:3441} INFO - Setting next_dagrun for DAG_feature_select_and_data_augmentation to None, run_after=None
+[2024-11-03T22:56:49.802+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/feature_and_augm_dag.py took 0.521 seconds
+[2024-11-03T22:57:20.154+0000] {processor.py:153} INFO - Started process (PID=2422) to work on /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T22:57:20.155+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/feature_and_augm_dag.py for tasks to queue
+[2024-11-03T22:57:20.155+0000] {logging_mixin.py:137} INFO - [2024-11-03T22:57:20.155+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T22:57:20.710+0000] {processor.py:753} INFO - DAG(s) dict_keys(['DAG_feature_select_and_data_augmentation']) retrieved from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T22:57:20.730+0000] {logging_mixin.py:137} INFO - [2024-11-03T22:57:20.729+0000] {dag.py:2690} INFO - Sync 1 DAGs
+[2024-11-03T22:57:20.744+0000] {logging_mixin.py:137} INFO - [2024-11-03T22:57:20.744+0000] {dag.py:3441} INFO - Setting next_dagrun for DAG_feature_select_and_data_augmentation to None, run_after=None
+[2024-11-03T22:57:20.752+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/feature_and_augm_dag.py took 0.601 seconds
+[2024-11-03T23:21:24.035+0000] {processor.py:153} INFO - Started process (PID=42) to work on /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:21:24.037+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/feature_and_augm_dag.py for tasks to queue
+[2024-11-03T23:21:24.038+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:21:24.038+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:21:26.256+0000] {processor.py:753} INFO - DAG(s) dict_keys(['DAG_feature_select_and_data_augmentation']) retrieved from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:21:26.384+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:21:26.383+0000] {dag.py:2690} INFO - Sync 1 DAGs
+[2024-11-03T23:21:26.440+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:21:26.440+0000] {dag.py:3441} INFO - Setting next_dagrun for DAG_feature_select_and_data_augmentation to None, run_after=None
+[2024-11-03T23:21:26.479+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/feature_and_augm_dag.py took 2.446 seconds
+[2024-11-03T23:21:57.336+0000] {processor.py:153} INFO - Started process (PID=93) to work on /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:21:57.338+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/feature_and_augm_dag.py for tasks to queue
+[2024-11-03T23:21:57.340+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:21:57.340+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:21:58.294+0000] {processor.py:753} INFO - DAG(s) dict_keys(['DAG_feature_select_and_data_augmentation']) retrieved from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:21:58.309+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:21:58.309+0000] {dag.py:2690} INFO - Sync 1 DAGs
+[2024-11-03T23:21:58.322+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:21:58.322+0000] {dag.py:3441} INFO - Setting next_dagrun for DAG_feature_select_and_data_augmentation to None, run_after=None
+[2024-11-03T23:21:58.337+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/feature_and_augm_dag.py took 1.010 seconds
+[2024-11-03T23:22:28.636+0000] {processor.py:153} INFO - Started process (PID=145) to work on /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:22:28.639+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/feature_and_augm_dag.py for tasks to queue
+[2024-11-03T23:22:28.640+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:22:28.640+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:22:29.095+0000] {processor.py:753} INFO - DAG(s) dict_keys(['DAG_feature_select_and_data_augmentation']) retrieved from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:22:29.109+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:22:29.109+0000] {dag.py:2690} INFO - Sync 1 DAGs
+[2024-11-03T23:22:29.121+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:22:29.121+0000] {dag.py:3441} INFO - Setting next_dagrun for DAG_feature_select_and_data_augmentation to None, run_after=None
+[2024-11-03T23:22:29.130+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/feature_and_augm_dag.py took 0.496 seconds
+[2024-11-03T23:22:59.449+0000] {processor.py:153} INFO - Started process (PID=182) to work on /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:22:59.450+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/feature_and_augm_dag.py for tasks to queue
+[2024-11-03T23:22:59.451+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:22:59.451+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:22:59.900+0000] {processor.py:753} INFO - DAG(s) dict_keys(['DAG_feature_select_and_data_augmentation']) retrieved from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:22:59.919+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:22:59.919+0000] {dag.py:2690} INFO - Sync 1 DAGs
+[2024-11-03T23:22:59.932+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:22:59.932+0000] {dag.py:3441} INFO - Setting next_dagrun for DAG_feature_select_and_data_augmentation to None, run_after=None
+[2024-11-03T23:22:59.939+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/feature_and_augm_dag.py took 0.493 seconds
+[2024-11-03T23:23:30.251+0000] {processor.py:153} INFO - Started process (PID=234) to work on /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:23:30.252+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/feature_and_augm_dag.py for tasks to queue
+[2024-11-03T23:23:30.252+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:23:30.252+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:23:30.703+0000] {processor.py:753} INFO - DAG(s) dict_keys(['DAG_feature_select_and_data_augmentation']) retrieved from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:23:30.719+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:23:30.719+0000] {dag.py:2690} INFO - Sync 1 DAGs
+[2024-11-03T23:23:30.731+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:23:30.731+0000] {dag.py:3441} INFO - Setting next_dagrun for DAG_feature_select_and_data_augmentation to None, run_after=None
+[2024-11-03T23:23:30.743+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/feature_and_augm_dag.py took 0.495 seconds
+[2024-11-03T23:24:01.075+0000] {processor.py:153} INFO - Started process (PID=286) to work on /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:24:01.077+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/feature_and_augm_dag.py for tasks to queue
+[2024-11-03T23:24:01.078+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:24:01.078+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:24:01.535+0000] {processor.py:753} INFO - DAG(s) dict_keys(['DAG_feature_select_and_data_augmentation']) retrieved from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:24:01.553+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:24:01.553+0000] {dag.py:2690} INFO - Sync 1 DAGs
+[2024-11-03T23:24:01.564+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:24:01.564+0000] {dag.py:3441} INFO - Setting next_dagrun for DAG_feature_select_and_data_augmentation to None, run_after=None
+[2024-11-03T23:24:01.573+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/feature_and_augm_dag.py took 0.502 seconds
+[2024-11-03T23:24:31.894+0000] {processor.py:153} INFO - Started process (PID=337) to work on /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:24:31.898+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/feature_and_augm_dag.py for tasks to queue
+[2024-11-03T23:24:31.899+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:24:31.899+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:24:32.361+0000] {processor.py:753} INFO - DAG(s) dict_keys(['DAG_feature_select_and_data_augmentation']) retrieved from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:24:32.374+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:24:32.374+0000] {dag.py:2690} INFO - Sync 1 DAGs
+[2024-11-03T23:24:32.391+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:24:32.390+0000] {dag.py:3441} INFO - Setting next_dagrun for DAG_feature_select_and_data_augmentation to None, run_after=None
+[2024-11-03T23:24:32.402+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/feature_and_augm_dag.py took 0.511 seconds
+[2024-11-03T23:25:02.764+0000] {processor.py:153} INFO - Started process (PID=373) to work on /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:25:02.766+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/feature_and_augm_dag.py for tasks to queue
+[2024-11-03T23:25:02.766+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:25:02.766+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:25:03.219+0000] {processor.py:753} INFO - DAG(s) dict_keys(['DAG_feature_select_and_data_augmentation']) retrieved from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:25:03.236+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:25:03.236+0000] {dag.py:2690} INFO - Sync 1 DAGs
+[2024-11-03T23:25:03.248+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:25:03.248+0000] {dag.py:3441} INFO - Setting next_dagrun for DAG_feature_select_and_data_augmentation to None, run_after=None
+[2024-11-03T23:25:03.255+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/feature_and_augm_dag.py took 0.494 seconds
+[2024-11-03T23:25:33.991+0000] {processor.py:153} INFO - Started process (PID=425) to work on /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:25:33.996+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/feature_and_augm_dag.py for tasks to queue
+[2024-11-03T23:25:33.999+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:25:33.999+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:25:34.600+0000] {processor.py:753} INFO - DAG(s) dict_keys(['DAG_feature_select_and_data_augmentation']) retrieved from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:25:34.631+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:25:34.631+0000] {dag.py:2690} INFO - Sync 1 DAGs
+[2024-11-03T23:25:34.650+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:25:34.650+0000] {dag.py:3441} INFO - Setting next_dagrun for DAG_feature_select_and_data_augmentation to None, run_after=None
+[2024-11-03T23:25:34.659+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/feature_and_augm_dag.py took 0.677 seconds
+[2024-11-03T23:26:04.952+0000] {processor.py:153} INFO - Started process (PID=477) to work on /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:26:04.953+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/feature_and_augm_dag.py for tasks to queue
+[2024-11-03T23:26:04.954+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:26:04.954+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:26:05.439+0000] {processor.py:753} INFO - DAG(s) dict_keys(['DAG_feature_select_and_data_augmentation']) retrieved from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:26:05.463+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:26:05.463+0000] {dag.py:2690} INFO - Sync 1 DAGs
+[2024-11-03T23:26:05.477+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:26:05.477+0000] {dag.py:3441} INFO - Setting next_dagrun for DAG_feature_select_and_data_augmentation to None, run_after=None
+[2024-11-03T23:26:05.489+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/feature_and_augm_dag.py took 0.542 seconds
+[2024-11-03T23:26:35.864+0000] {processor.py:153} INFO - Started process (PID=529) to work on /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:26:35.865+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/feature_and_augm_dag.py for tasks to queue
+[2024-11-03T23:26:35.866+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:26:35.866+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:26:36.313+0000] {processor.py:753} INFO - DAG(s) dict_keys(['DAG_feature_select_and_data_augmentation']) retrieved from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:26:36.325+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:26:36.325+0000] {dag.py:2690} INFO - Sync 1 DAGs
+[2024-11-03T23:26:36.336+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:26:36.336+0000] {dag.py:3441} INFO - Setting next_dagrun for DAG_feature_select_and_data_augmentation to None, run_after=None
+[2024-11-03T23:26:36.344+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/feature_and_augm_dag.py took 0.484 seconds
+[2024-11-03T23:27:06.733+0000] {processor.py:153} INFO - Started process (PID=565) to work on /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:27:06.733+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/feature_and_augm_dag.py for tasks to queue
+[2024-11-03T23:27:06.734+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:27:06.734+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:27:07.199+0000] {processor.py:753} INFO - DAG(s) dict_keys(['DAG_feature_select_and_data_augmentation']) retrieved from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:27:07.219+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:27:07.219+0000] {dag.py:2690} INFO - Sync 1 DAGs
+[2024-11-03T23:27:07.231+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:27:07.231+0000] {dag.py:3441} INFO - Setting next_dagrun for DAG_feature_select_and_data_augmentation to None, run_after=None
+[2024-11-03T23:27:07.239+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/feature_and_augm_dag.py took 0.509 seconds
+[2024-11-03T23:27:37.586+0000] {processor.py:153} INFO - Started process (PID=617) to work on /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:27:37.587+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/feature_and_augm_dag.py for tasks to queue
+[2024-11-03T23:27:37.589+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:27:37.589+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:27:38.124+0000] {processor.py:753} INFO - DAG(s) dict_keys(['DAG_feature_select_and_data_augmentation']) retrieved from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:27:38.139+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:27:38.139+0000] {dag.py:2690} INFO - Sync 1 DAGs
+[2024-11-03T23:27:38.153+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:27:38.153+0000] {dag.py:3441} INFO - Setting next_dagrun for DAG_feature_select_and_data_augmentation to None, run_after=None
+[2024-11-03T23:27:38.166+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/feature_and_augm_dag.py took 0.583 seconds
+[2024-11-03T23:28:08.499+0000] {processor.py:153} INFO - Started process (PID=669) to work on /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:28:08.500+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/feature_and_augm_dag.py for tasks to queue
+[2024-11-03T23:28:08.501+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:28:08.501+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:28:08.985+0000] {processor.py:753} INFO - DAG(s) dict_keys(['DAG_feature_select_and_data_augmentation']) retrieved from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:28:08.998+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:28:08.998+0000] {dag.py:2690} INFO - Sync 1 DAGs
+[2024-11-03T23:28:09.011+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:28:09.011+0000] {dag.py:3441} INFO - Setting next_dagrun for DAG_feature_select_and_data_augmentation to None, run_after=None
+[2024-11-03T23:28:09.019+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/feature_and_augm_dag.py took 0.523 seconds
+[2024-11-03T23:28:39.386+0000] {processor.py:153} INFO - Started process (PID=721) to work on /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:28:39.388+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/feature_and_augm_dag.py for tasks to queue
+[2024-11-03T23:28:39.389+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:28:39.389+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:28:39.868+0000] {processor.py:753} INFO - DAG(s) dict_keys(['DAG_feature_select_and_data_augmentation']) retrieved from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:28:39.881+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:28:39.880+0000] {dag.py:2690} INFO - Sync 1 DAGs
+[2024-11-03T23:28:39.893+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:28:39.893+0000] {dag.py:3441} INFO - Setting next_dagrun for DAG_feature_select_and_data_augmentation to None, run_after=None
+[2024-11-03T23:28:39.901+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/feature_and_augm_dag.py took 0.520 seconds
+[2024-11-03T23:29:10.259+0000] {processor.py:153} INFO - Started process (PID=757) to work on /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:29:10.262+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/feature_and_augm_dag.py for tasks to queue
+[2024-11-03T23:29:10.264+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:29:10.264+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:29:11.009+0000] {processor.py:753} INFO - DAG(s) dict_keys(['DAG_feature_select_and_data_augmentation']) retrieved from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:29:11.034+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:29:11.033+0000] {dag.py:2690} INFO - Sync 1 DAGs
+[2024-11-03T23:29:11.047+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:29:11.047+0000] {dag.py:3441} INFO - Setting next_dagrun for DAG_feature_select_and_data_augmentation to None, run_after=None
+[2024-11-03T23:29:11.055+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/feature_and_augm_dag.py took 0.802 seconds
+[2024-11-03T23:29:41.376+0000] {processor.py:153} INFO - Started process (PID=809) to work on /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:29:41.377+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/feature_and_augm_dag.py for tasks to queue
+[2024-11-03T23:29:41.378+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:29:41.378+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:29:41.847+0000] {processor.py:753} INFO - DAG(s) dict_keys(['DAG_feature_select_and_data_augmentation']) retrieved from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:29:41.859+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:29:41.859+0000] {dag.py:2690} INFO - Sync 1 DAGs
+[2024-11-03T23:29:41.872+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:29:41.872+0000] {dag.py:3441} INFO - Setting next_dagrun for DAG_feature_select_and_data_augmentation to None, run_after=None
+[2024-11-03T23:29:41.880+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/feature_and_augm_dag.py took 0.510 seconds
+[2024-11-03T23:30:12.300+0000] {processor.py:153} INFO - Started process (PID=861) to work on /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:30:12.304+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/feature_and_augm_dag.py for tasks to queue
+[2024-11-03T23:30:12.309+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:30:12.308+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:30:13.048+0000] {processor.py:753} INFO - DAG(s) dict_keys(['DAG_feature_select_and_data_augmentation']) retrieved from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:30:13.068+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:30:13.068+0000] {dag.py:2690} INFO - Sync 1 DAGs
+[2024-11-03T23:30:13.083+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:30:13.083+0000] {dag.py:3441} INFO - Setting next_dagrun for DAG_feature_select_and_data_augmentation to None, run_after=None
+[2024-11-03T23:30:13.095+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/feature_and_augm_dag.py took 0.805 seconds
+[2024-11-03T23:30:43.409+0000] {processor.py:153} INFO - Started process (PID=913) to work on /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:30:43.410+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/feature_and_augm_dag.py for tasks to queue
+[2024-11-03T23:30:43.411+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:30:43.411+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:30:43.874+0000] {processor.py:753} INFO - DAG(s) dict_keys(['DAG_feature_select_and_data_augmentation']) retrieved from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:30:43.887+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:30:43.886+0000] {dag.py:2690} INFO - Sync 1 DAGs
+[2024-11-03T23:30:43.899+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:30:43.899+0000] {dag.py:3441} INFO - Setting next_dagrun for DAG_feature_select_and_data_augmentation to None, run_after=None
+[2024-11-03T23:30:43.907+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/feature_and_augm_dag.py took 0.501 seconds
+[2024-11-03T23:31:14.246+0000] {processor.py:153} INFO - Started process (PID=949) to work on /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:31:14.247+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/feature_and_augm_dag.py for tasks to queue
+[2024-11-03T23:31:14.248+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:31:14.248+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:31:14.696+0000] {processor.py:753} INFO - DAG(s) dict_keys(['DAG_feature_select_and_data_augmentation']) retrieved from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:31:14.707+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:31:14.707+0000] {dag.py:2690} INFO - Sync 1 DAGs
+[2024-11-03T23:31:14.719+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:31:14.719+0000] {dag.py:3441} INFO - Setting next_dagrun for DAG_feature_select_and_data_augmentation to None, run_after=None
+[2024-11-03T23:31:14.726+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/feature_and_augm_dag.py took 0.487 seconds
+[2024-11-03T23:31:45.089+0000] {processor.py:153} INFO - Started process (PID=1001) to work on /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:31:45.091+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/feature_and_augm_dag.py for tasks to queue
+[2024-11-03T23:31:45.092+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:31:45.092+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:31:45.605+0000] {processor.py:753} INFO - DAG(s) dict_keys(['DAG_feature_select_and_data_augmentation']) retrieved from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:31:45.619+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:31:45.619+0000] {dag.py:2690} INFO - Sync 1 DAGs
+[2024-11-03T23:31:45.636+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:31:45.635+0000] {dag.py:3441} INFO - Setting next_dagrun for DAG_feature_select_and_data_augmentation to None, run_after=None
+[2024-11-03T23:31:45.643+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/feature_and_augm_dag.py took 0.561 seconds
+[2024-11-03T23:32:15.993+0000] {processor.py:153} INFO - Started process (PID=1053) to work on /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:32:15.994+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/feature_and_augm_dag.py for tasks to queue
+[2024-11-03T23:32:15.994+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:32:15.994+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:32:16.450+0000] {processor.py:753} INFO - DAG(s) dict_keys(['DAG_feature_select_and_data_augmentation']) retrieved from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:32:16.462+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:32:16.461+0000] {dag.py:2690} INFO - Sync 1 DAGs
+[2024-11-03T23:32:16.473+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:32:16.473+0000] {dag.py:3441} INFO - Setting next_dagrun for DAG_feature_select_and_data_augmentation to None, run_after=None
+[2024-11-03T23:32:16.480+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/feature_and_augm_dag.py took 0.490 seconds
+[2024-11-03T23:32:46.765+0000] {processor.py:153} INFO - Started process (PID=1105) to work on /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:32:46.767+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/feature_and_augm_dag.py for tasks to queue
+[2024-11-03T23:32:46.767+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:32:46.767+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:32:47.340+0000] {processor.py:753} INFO - DAG(s) dict_keys(['DAG_feature_select_and_data_augmentation']) retrieved from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:32:47.353+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:32:47.352+0000] {dag.py:2690} INFO - Sync 1 DAGs
+[2024-11-03T23:32:47.364+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:32:47.364+0000] {dag.py:3441} INFO - Setting next_dagrun for DAG_feature_select_and_data_augmentation to None, run_after=None
+[2024-11-03T23:32:47.371+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/feature_and_augm_dag.py took 0.610 seconds
+[2024-11-03T23:33:17.710+0000] {processor.py:153} INFO - Started process (PID=1141) to work on /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:33:17.711+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/feature_and_augm_dag.py for tasks to queue
+[2024-11-03T23:33:17.713+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:33:17.712+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:33:18.265+0000] {processor.py:753} INFO - DAG(s) dict_keys(['DAG_feature_select_and_data_augmentation']) retrieved from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:33:18.278+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:33:18.278+0000] {dag.py:2690} INFO - Sync 1 DAGs
+[2024-11-03T23:33:18.291+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:33:18.290+0000] {dag.py:3441} INFO - Setting next_dagrun for DAG_feature_select_and_data_augmentation to None, run_after=None
+[2024-11-03T23:33:18.308+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/feature_and_augm_dag.py took 0.603 seconds
+[2024-11-03T23:33:48.692+0000] {processor.py:153} INFO - Started process (PID=1193) to work on /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:33:48.693+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/feature_and_augm_dag.py for tasks to queue
+[2024-11-03T23:33:48.694+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:33:48.694+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:33:49.122+0000] {processor.py:753} INFO - DAG(s) dict_keys(['DAG_feature_select_and_data_augmentation']) retrieved from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:33:49.134+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:33:49.134+0000] {dag.py:2690} INFO - Sync 1 DAGs
+[2024-11-03T23:33:49.147+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:33:49.147+0000] {dag.py:3441} INFO - Setting next_dagrun for DAG_feature_select_and_data_augmentation to None, run_after=None
+[2024-11-03T23:33:49.155+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/feature_and_augm_dag.py took 0.468 seconds
+[2024-11-03T23:34:19.449+0000] {processor.py:153} INFO - Started process (PID=1245) to work on /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:34:19.451+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/feature_and_augm_dag.py for tasks to queue
+[2024-11-03T23:34:19.452+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:34:19.452+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:34:19.923+0000] {processor.py:753} INFO - DAG(s) dict_keys(['DAG_feature_select_and_data_augmentation']) retrieved from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:34:19.935+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:34:19.935+0000] {dag.py:2690} INFO - Sync 1 DAGs
+[2024-11-03T23:34:19.947+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:34:19.947+0000] {dag.py:3441} INFO - Setting next_dagrun for DAG_feature_select_and_data_augmentation to None, run_after=None
+[2024-11-03T23:34:19.954+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/feature_and_augm_dag.py took 0.510 seconds
+[2024-11-03T23:34:50.284+0000] {processor.py:153} INFO - Started process (PID=1297) to work on /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:34:50.286+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/feature_and_augm_dag.py for tasks to queue
+[2024-11-03T23:34:50.287+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:34:50.287+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:34:50.727+0000] {processor.py:753} INFO - DAG(s) dict_keys(['DAG_feature_select_and_data_augmentation']) retrieved from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:34:50.738+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:34:50.738+0000] {dag.py:2690} INFO - Sync 1 DAGs
+[2024-11-03T23:34:50.750+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:34:50.750+0000] {dag.py:3441} INFO - Setting next_dagrun for DAG_feature_select_and_data_augmentation to None, run_after=None
+[2024-11-03T23:34:50.758+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/feature_and_augm_dag.py took 0.480 seconds
+[2024-11-03T23:35:21.079+0000] {processor.py:153} INFO - Started process (PID=1333) to work on /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:35:21.080+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/feature_and_augm_dag.py for tasks to queue
+[2024-11-03T23:35:21.083+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:35:21.083+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:35:21.550+0000] {processor.py:753} INFO - DAG(s) dict_keys(['DAG_feature_select_and_data_augmentation']) retrieved from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:35:21.562+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:35:21.562+0000] {dag.py:2690} INFO - Sync 1 DAGs
+[2024-11-03T23:35:21.574+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:35:21.574+0000] {dag.py:3441} INFO - Setting next_dagrun for DAG_feature_select_and_data_augmentation to None, run_after=None
+[2024-11-03T23:35:21.584+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/feature_and_augm_dag.py took 0.509 seconds
+[2024-11-03T23:35:51.845+0000] {processor.py:153} INFO - Started process (PID=1385) to work on /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:35:51.847+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/feature_and_augm_dag.py for tasks to queue
+[2024-11-03T23:35:51.848+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:35:51.848+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:35:52.347+0000] {processor.py:753} INFO - DAG(s) dict_keys(['DAG_feature_select_and_data_augmentation']) retrieved from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:35:52.360+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:35:52.360+0000] {dag.py:2690} INFO - Sync 1 DAGs
+[2024-11-03T23:35:52.375+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:35:52.375+0000] {dag.py:3441} INFO - Setting next_dagrun for DAG_feature_select_and_data_augmentation to None, run_after=None
+[2024-11-03T23:35:52.385+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/feature_and_augm_dag.py took 0.542 seconds
+[2024-11-03T23:36:22.738+0000] {processor.py:153} INFO - Started process (PID=1437) to work on /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:36:22.740+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/feature_and_augm_dag.py for tasks to queue
+[2024-11-03T23:36:22.741+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:36:22.741+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:36:25.276+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:36:25.275+0000] {process_utils.py:256} INFO - Waiting up to 5 seconds for processes to exit...
+[2024-11-03T23:42:00.122+0000] {processor.py:153} INFO - Started process (PID=42) to work on /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:42:00.123+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/feature_and_augm_dag.py for tasks to queue
+[2024-11-03T23:42:00.124+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:42:00.124+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:42:01.292+0000] {processor.py:753} INFO - DAG(s) dict_keys(['DAG_feature_select_and_data_augmentation']) retrieved from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:42:01.366+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:42:01.365+0000] {dag.py:2690} INFO - Sync 1 DAGs
+[2024-11-03T23:42:01.387+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:42:01.387+0000] {dag.py:3441} INFO - Setting next_dagrun for DAG_feature_select_and_data_augmentation to None, run_after=None
+[2024-11-03T23:42:01.407+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/feature_and_augm_dag.py took 1.288 seconds
+[2024-11-03T23:42:31.935+0000] {processor.py:153} INFO - Started process (PID=94) to work on /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:42:31.947+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/feature_and_augm_dag.py for tasks to queue
+[2024-11-03T23:42:31.978+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:42:31.977+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:42:34.776+0000] {processor.py:753} INFO - DAG(s) dict_keys(['DAG_feature_select_and_data_augmentation']) retrieved from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:42:34.825+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:42:34.824+0000] {dag.py:2690} INFO - Sync 1 DAGs
+[2024-11-03T23:42:34.890+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:42:34.890+0000] {dag.py:3441} INFO - Setting next_dagrun for DAG_feature_select_and_data_augmentation to None, run_after=None
+[2024-11-03T23:42:34.910+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/feature_and_augm_dag.py took 3.026 seconds
+[2024-11-03T23:43:05.667+0000] {processor.py:153} INFO - Started process (PID=146) to work on /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:43:05.672+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/feature_and_augm_dag.py for tasks to queue
+[2024-11-03T23:43:05.673+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:43:05.672+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:43:06.160+0000] {processor.py:753} INFO - DAG(s) dict_keys(['DAG_feature_select_and_data_augmentation']) retrieved from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:43:06.172+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:43:06.171+0000] {dag.py:2690} INFO - Sync 1 DAGs
+[2024-11-03T23:43:06.182+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:43:06.182+0000] {dag.py:3441} INFO - Setting next_dagrun for DAG_feature_select_and_data_augmentation to None, run_after=None
+[2024-11-03T23:43:06.190+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/feature_and_augm_dag.py took 0.540 seconds
+[2024-11-03T23:44:10.755+0000] {processor.py:153} INFO - Started process (PID=42) to work on /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:44:10.756+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/feature_and_augm_dag.py for tasks to queue
+[2024-11-03T23:44:10.757+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:44:10.757+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:44:11.289+0000] {processor.py:753} INFO - DAG(s) dict_keys(['DAG_feature_select_and_data_augmentation']) retrieved from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:44:11.346+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:44:11.346+0000] {dag.py:2690} INFO - Sync 1 DAGs
+[2024-11-03T23:44:11.360+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:44:11.359+0000] {dag.py:3441} INFO - Setting next_dagrun for DAG_feature_select_and_data_augmentation to None, run_after=None
+[2024-11-03T23:44:11.370+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/feature_and_augm_dag.py took 0.618 seconds
+[2024-11-03T23:44:41.900+0000] {processor.py:153} INFO - Started process (PID=94) to work on /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:44:41.902+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/feature_and_augm_dag.py for tasks to queue
+[2024-11-03T23:44:41.903+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:44:41.903+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:44:42.412+0000] {processor.py:753} INFO - DAG(s) dict_keys(['DAG_feature_select_and_data_augmentation']) retrieved from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:44:42.430+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:44:42.430+0000] {dag.py:2690} INFO - Sync 1 DAGs
+[2024-11-03T23:44:42.447+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:44:42.446+0000] {dag.py:3441} INFO - Setting next_dagrun for DAG_feature_select_and_data_augmentation to None, run_after=None
+[2024-11-03T23:44:42.456+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/feature_and_augm_dag.py took 0.560 seconds
+[2024-11-03T23:45:13.007+0000] {processor.py:153} INFO - Started process (PID=139) to work on /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:45:13.008+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/feature_and_augm_dag.py for tasks to queue
+[2024-11-03T23:45:13.009+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:45:13.009+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:45:13.618+0000] {processor.py:753} INFO - DAG(s) dict_keys(['DAG_feature_select_and_data_augmentation']) retrieved from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:45:13.655+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:45:13.655+0000] {dag.py:2690} INFO - Sync 1 DAGs
+[2024-11-03T23:45:13.675+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:45:13.675+0000] {dag.py:3441} INFO - Setting next_dagrun for DAG_feature_select_and_data_augmentation to None, run_after=None
+[2024-11-03T23:45:13.691+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/feature_and_augm_dag.py took 0.686 seconds
+[2024-11-03T23:45:44.604+0000] {processor.py:153} INFO - Started process (PID=181) to work on /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:45:44.606+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/feature_and_augm_dag.py for tasks to queue
+[2024-11-03T23:45:44.606+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:45:44.606+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:45:45.111+0000] {processor.py:753} INFO - DAG(s) dict_keys(['DAG_feature_select_and_data_augmentation']) retrieved from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:45:45.133+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:45:45.133+0000] {dag.py:2690} INFO - Sync 1 DAGs
+[2024-11-03T23:45:45.146+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:45:45.145+0000] {dag.py:3441} INFO - Setting next_dagrun for DAG_feature_select_and_data_augmentation to None, run_after=None
+[2024-11-03T23:45:45.153+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/feature_and_augm_dag.py took 0.554 seconds
+[2024-11-03T23:46:15.499+0000] {processor.py:153} INFO - Started process (PID=233) to work on /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:46:15.500+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/feature_and_augm_dag.py for tasks to queue
+[2024-11-03T23:46:15.501+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:46:15.501+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:46:16.002+0000] {processor.py:753} INFO - DAG(s) dict_keys(['DAG_feature_select_and_data_augmentation']) retrieved from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:46:16.017+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:46:16.017+0000] {dag.py:2690} INFO - Sync 1 DAGs
+[2024-11-03T23:46:16.036+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:46:16.036+0000] {dag.py:3441} INFO - Setting next_dagrun for DAG_feature_select_and_data_augmentation to None, run_after=None
+[2024-11-03T23:46:16.047+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/feature_and_augm_dag.py took 0.553 seconds
+[2024-11-03T23:46:46.316+0000] {processor.py:153} INFO - Started process (PID=285) to work on /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:46:46.317+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/feature_and_augm_dag.py for tasks to queue
+[2024-11-03T23:46:46.318+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:46:46.318+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:46:46.809+0000] {processor.py:753} INFO - DAG(s) dict_keys(['DAG_feature_select_and_data_augmentation']) retrieved from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:46:46.822+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:46:46.821+0000] {dag.py:2690} INFO - Sync 1 DAGs
+[2024-11-03T23:46:46.834+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:46:46.834+0000] {dag.py:3441} INFO - Setting next_dagrun for DAG_feature_select_and_data_augmentation to None, run_after=None
+[2024-11-03T23:46:46.842+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/feature_and_augm_dag.py took 0.529 seconds
+[2024-11-03T23:47:17.532+0000] {processor.py:153} INFO - Started process (PID=321) to work on /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:47:17.533+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/feature_and_augm_dag.py for tasks to queue
+[2024-11-03T23:47:17.534+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:47:17.534+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:47:18.163+0000] {processor.py:753} INFO - DAG(s) dict_keys(['DAG_feature_select_and_data_augmentation']) retrieved from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:47:18.180+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:47:18.179+0000] {dag.py:2690} INFO - Sync 1 DAGs
+[2024-11-03T23:47:18.203+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:47:18.203+0000] {dag.py:3441} INFO - Setting next_dagrun for DAG_feature_select_and_data_augmentation to None, run_after=None
+[2024-11-03T23:47:18.211+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/feature_and_augm_dag.py took 0.683 seconds
+[2024-11-03T23:47:49.144+0000] {processor.py:153} INFO - Started process (PID=373) to work on /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:47:49.145+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/feature_and_augm_dag.py for tasks to queue
+[2024-11-03T23:47:49.148+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:47:49.148+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:47:49.599+0000] {processor.py:753} INFO - DAG(s) dict_keys(['DAG_feature_select_and_data_augmentation']) retrieved from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:47:49.612+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:47:49.612+0000] {dag.py:2690} INFO - Sync 1 DAGs
+[2024-11-03T23:47:49.624+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:47:49.624+0000] {dag.py:3441} INFO - Setting next_dagrun for DAG_feature_select_and_data_augmentation to None, run_after=None
+[2024-11-03T23:47:49.632+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/feature_and_augm_dag.py took 0.494 seconds
+[2024-11-03T23:48:19.933+0000] {processor.py:153} INFO - Started process (PID=425) to work on /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:48:19.935+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/feature_and_augm_dag.py for tasks to queue
+[2024-11-03T23:48:19.936+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:48:19.936+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:48:20.429+0000] {processor.py:753} INFO - DAG(s) dict_keys(['DAG_feature_select_and_data_augmentation']) retrieved from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:48:20.441+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:48:20.441+0000] {dag.py:2690} INFO - Sync 1 DAGs
+[2024-11-03T23:48:20.453+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:48:20.453+0000] {dag.py:3441} INFO - Setting next_dagrun for DAG_feature_select_and_data_augmentation to None, run_after=None
+[2024-11-03T23:48:20.460+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/feature_and_augm_dag.py took 0.533 seconds
+[2024-11-03T23:48:50.830+0000] {processor.py:153} INFO - Started process (PID=477) to work on /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:48:50.832+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/feature_and_augm_dag.py for tasks to queue
+[2024-11-03T23:48:50.833+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:48:50.833+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:48:51.559+0000] {processor.py:753} INFO - DAG(s) dict_keys(['DAG_feature_select_and_data_augmentation']) retrieved from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:48:51.578+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:48:51.577+0000] {dag.py:2690} INFO - Sync 1 DAGs
+[2024-11-03T23:48:51.592+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:48:51.592+0000] {dag.py:3441} INFO - Setting next_dagrun for DAG_feature_select_and_data_augmentation to None, run_after=None
+[2024-11-03T23:48:51.603+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/feature_and_augm_dag.py took 0.785 seconds
+[2024-11-03T23:49:21.906+0000] {processor.py:153} INFO - Started process (PID=513) to work on /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:49:21.907+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/feature_and_augm_dag.py for tasks to queue
+[2024-11-03T23:49:21.907+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:49:21.907+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:49:22.439+0000] {processor.py:753} INFO - DAG(s) dict_keys(['DAG_feature_select_and_data_augmentation']) retrieved from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:49:22.456+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:49:22.455+0000] {dag.py:2690} INFO - Sync 1 DAGs
+[2024-11-03T23:49:22.476+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:49:22.476+0000] {dag.py:3441} INFO - Setting next_dagrun for DAG_feature_select_and_data_augmentation to None, run_after=None
+[2024-11-03T23:49:22.489+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/feature_and_augm_dag.py took 0.587 seconds
+[2024-11-03T23:49:52.796+0000] {processor.py:153} INFO - Started process (PID=564) to work on /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:49:52.798+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/feature_and_augm_dag.py for tasks to queue
+[2024-11-03T23:49:52.799+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:49:52.798+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:49:53.353+0000] {processor.py:753} INFO - DAG(s) dict_keys(['DAG_feature_select_and_data_augmentation']) retrieved from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:49:53.368+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:49:53.368+0000] {dag.py:2690} INFO - Sync 1 DAGs
+[2024-11-03T23:49:53.380+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:49:53.380+0000] {dag.py:3441} INFO - Setting next_dagrun for DAG_feature_select_and_data_augmentation to None, run_after=None
+[2024-11-03T23:49:53.390+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/feature_and_augm_dag.py took 0.598 seconds
+[2024-11-03T23:50:23.691+0000] {processor.py:153} INFO - Started process (PID=616) to work on /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:50:23.693+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/feature_and_augm_dag.py for tasks to queue
+[2024-11-03T23:50:23.693+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:50:23.693+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:50:24.157+0000] {processor.py:753} INFO - DAG(s) dict_keys(['DAG_feature_select_and_data_augmentation']) retrieved from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:50:24.168+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:50:24.168+0000] {dag.py:2690} INFO - Sync 1 DAGs
+[2024-11-03T23:50:24.189+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:50:24.189+0000] {dag.py:3441} INFO - Setting next_dagrun for DAG_feature_select_and_data_augmentation to None, run_after=None
+[2024-11-03T23:50:24.201+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/feature_and_augm_dag.py took 0.514 seconds
+[2024-11-03T23:50:54.499+0000] {processor.py:153} INFO - Started process (PID=668) to work on /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:50:54.501+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/feature_and_augm_dag.py for tasks to queue
+[2024-11-03T23:50:54.502+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:50:54.502+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:50:54.981+0000] {processor.py:753} INFO - DAG(s) dict_keys(['DAG_feature_select_and_data_augmentation']) retrieved from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:50:54.995+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:50:54.995+0000] {dag.py:2690} INFO - Sync 1 DAGs
+[2024-11-03T23:50:55.020+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:50:55.020+0000] {dag.py:3441} INFO - Setting next_dagrun for DAG_feature_select_and_data_augmentation to None, run_after=None
+[2024-11-03T23:50:55.028+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/feature_and_augm_dag.py took 0.533 seconds
+[2024-11-03T23:51:06.175+0000] {processor.py:153} INFO - Started process (PID=688) to work on /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:51:06.177+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/feature_and_augm_dag.py for tasks to queue
+[2024-11-03T23:51:06.177+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:51:06.177+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:51:06.604+0000] {processor.py:753} INFO - DAG(s) dict_keys(['DAG_feature_select_and_data_augmentation']) retrieved from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:51:06.615+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:51:06.615+0000] {dag.py:2690} INFO - Sync 1 DAGs
+[2024-11-03T23:51:06.626+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:51:06.626+0000] {dag.py:3441} INFO - Setting next_dagrun for DAG_feature_select_and_data_augmentation to None, run_after=None
+[2024-11-03T23:51:06.635+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/feature_and_augm_dag.py took 0.465 seconds
+[2024-11-03T23:52:41.088+0000] {processor.py:153} INFO - Started process (PID=42) to work on /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:52:41.090+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/feature_and_augm_dag.py for tasks to queue
+[2024-11-03T23:52:41.092+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:52:41.092+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:52:41.719+0000] {processor.py:753} INFO - DAG(s) dict_keys(['DAG_feature_select_and_data_augmentation']) retrieved from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:52:41.783+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:52:41.783+0000] {dag.py:2690} INFO - Sync 1 DAGs
+[2024-11-03T23:52:41.801+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:52:41.801+0000] {dag.py:3441} INFO - Setting next_dagrun for DAG_feature_select_and_data_augmentation to None, run_after=None
+[2024-11-03T23:52:41.815+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/feature_and_augm_dag.py took 0.730 seconds
+[2024-11-03T23:53:12.224+0000] {processor.py:153} INFO - Started process (PID=93) to work on /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:53:12.225+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/feature_and_augm_dag.py for tasks to queue
+[2024-11-03T23:53:12.226+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:53:12.226+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:53:12.751+0000] {processor.py:753} INFO - DAG(s) dict_keys(['DAG_feature_select_and_data_augmentation']) retrieved from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:53:12.776+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:53:12.776+0000] {dag.py:2690} INFO - Sync 1 DAGs
+[2024-11-03T23:53:12.792+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:53:12.791+0000] {dag.py:3441} INFO - Setting next_dagrun for DAG_feature_select_and_data_augmentation to None, run_after=None
+[2024-11-03T23:53:12.813+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/feature_and_augm_dag.py took 0.595 seconds
+[2024-11-03T23:53:43.187+0000] {processor.py:153} INFO - Started process (PID=138) to work on /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:53:43.189+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/feature_and_augm_dag.py for tasks to queue
+[2024-11-03T23:53:43.190+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:53:43.190+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:53:43.940+0000] {processor.py:753} INFO - DAG(s) dict_keys(['DAG_feature_select_and_data_augmentation']) retrieved from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:53:43.955+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:53:43.955+0000] {dag.py:2690} INFO - Sync 1 DAGs
+[2024-11-03T23:53:43.969+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:53:43.969+0000] {dag.py:3441} INFO - Setting next_dagrun for DAG_feature_select_and_data_augmentation to None, run_after=None
+[2024-11-03T23:53:43.977+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/feature_and_augm_dag.py took 0.796 seconds
+[2024-11-03T23:54:14.369+0000] {processor.py:153} INFO - Started process (PID=181) to work on /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:54:14.371+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/feature_and_augm_dag.py for tasks to queue
+[2024-11-03T23:54:14.372+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:54:14.372+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:54:14.975+0000] {processor.py:753} INFO - DAG(s) dict_keys(['DAG_feature_select_and_data_augmentation']) retrieved from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:54:15.023+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:54:15.023+0000] {dag.py:2690} INFO - Sync 1 DAGs
+[2024-11-03T23:54:15.041+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:54:15.041+0000] {dag.py:3441} INFO - Setting next_dagrun for DAG_feature_select_and_data_augmentation to None, run_after=None
+[2024-11-03T23:54:15.050+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/feature_and_augm_dag.py took 0.687 seconds
+[2024-11-03T23:54:45.359+0000] {processor.py:153} INFO - Started process (PID=233) to work on /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:54:45.361+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/feature_and_augm_dag.py for tasks to queue
+[2024-11-03T23:54:45.363+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:54:45.363+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:54:45.853+0000] {processor.py:753} INFO - DAG(s) dict_keys(['DAG_feature_select_and_data_augmentation']) retrieved from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:54:45.866+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:54:45.866+0000] {dag.py:2690} INFO - Sync 1 DAGs
+[2024-11-03T23:54:45.877+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:54:45.877+0000] {dag.py:3441} INFO - Setting next_dagrun for DAG_feature_select_and_data_augmentation to None, run_after=None
+[2024-11-03T23:54:45.885+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/feature_and_augm_dag.py took 0.530 seconds
+[2024-11-03T23:55:16.223+0000] {processor.py:153} INFO - Started process (PID=285) to work on /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:55:16.225+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/feature_and_augm_dag.py for tasks to queue
+[2024-11-03T23:55:16.227+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:55:16.226+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:55:16.696+0000] {processor.py:753} INFO - DAG(s) dict_keys(['DAG_feature_select_and_data_augmentation']) retrieved from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:55:16.708+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:55:16.708+0000] {dag.py:2690} INFO - Sync 1 DAGs
+[2024-11-03T23:55:16.720+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:55:16.719+0000] {dag.py:3441} INFO - Setting next_dagrun for DAG_feature_select_and_data_augmentation to None, run_after=None
+[2024-11-03T23:55:16.730+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/feature_and_augm_dag.py took 0.511 seconds
+[2024-11-03T23:55:47.279+0000] {processor.py:153} INFO - Started process (PID=320) to work on /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:55:47.300+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/feature_and_augm_dag.py for tasks to queue
+[2024-11-03T23:55:48.052+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:55:48.051+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:55:51.726+0000] {processor.py:753} INFO - DAG(s) dict_keys(['DAG_feature_select_and_data_augmentation']) retrieved from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:55:51.796+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:55:51.794+0000] {dag.py:2690} INFO - Sync 1 DAGs
+[2024-11-03T23:55:51.864+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:55:51.863+0000] {dag.py:3441} INFO - Setting next_dagrun for DAG_feature_select_and_data_augmentation to None, run_after=None
+[2024-11-03T23:55:51.903+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/feature_and_augm_dag.py took 4.642 seconds
+[2024-11-03T23:56:22.328+0000] {processor.py:153} INFO - Started process (PID=372) to work on /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:56:22.330+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/feature_and_augm_dag.py for tasks to queue
+[2024-11-03T23:56:22.331+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:56:22.331+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:56:22.839+0000] {processor.py:753} INFO - DAG(s) dict_keys(['DAG_feature_select_and_data_augmentation']) retrieved from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:56:22.855+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:56:22.854+0000] {dag.py:2690} INFO - Sync 1 DAGs
+[2024-11-03T23:56:22.867+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:56:22.867+0000] {dag.py:3441} INFO - Setting next_dagrun for DAG_feature_select_and_data_augmentation to None, run_after=None
+[2024-11-03T23:56:22.875+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/feature_and_augm_dag.py took 0.552 seconds
+[2024-11-03T23:56:53.181+0000] {processor.py:153} INFO - Started process (PID=423) to work on /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:56:53.183+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/feature_and_augm_dag.py for tasks to queue
+[2024-11-03T23:56:53.183+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:56:53.183+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:56:53.667+0000] {processor.py:753} INFO - DAG(s) dict_keys(['DAG_feature_select_and_data_augmentation']) retrieved from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:56:53.680+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:56:53.680+0000] {dag.py:2690} INFO - Sync 1 DAGs
+[2024-11-03T23:56:53.693+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:56:53.693+0000] {dag.py:3441} INFO - Setting next_dagrun for DAG_feature_select_and_data_augmentation to None, run_after=None
+[2024-11-03T23:56:53.701+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/feature_and_augm_dag.py took 0.522 seconds
+[2024-11-03T23:57:24.556+0000] {processor.py:153} INFO - Started process (PID=475) to work on /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:57:24.588+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/feature_and_augm_dag.py for tasks to queue
+[2024-11-03T23:57:24.605+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:57:24.603+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:57:25.338+0000] {processor.py:753} INFO - DAG(s) dict_keys(['DAG_feature_select_and_data_augmentation']) retrieved from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:57:25.359+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:57:25.359+0000] {dag.py:2690} INFO - Sync 1 DAGs
+[2024-11-03T23:57:25.372+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:57:25.372+0000] {dag.py:3441} INFO - Setting next_dagrun for DAG_feature_select_and_data_augmentation to None, run_after=None
+[2024-11-03T23:57:25.385+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/feature_and_augm_dag.py took 0.850 seconds
+[2024-11-03T23:57:55.899+0000] {processor.py:153} INFO - Started process (PID=511) to work on /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:57:55.900+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/feature_and_augm_dag.py for tasks to queue
+[2024-11-03T23:57:55.901+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:57:55.901+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:57:56.478+0000] {processor.py:753} INFO - DAG(s) dict_keys(['DAG_feature_select_and_data_augmentation']) retrieved from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:57:56.497+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:57:56.496+0000] {dag.py:2690} INFO - Sync 1 DAGs
+[2024-11-03T23:57:56.515+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:57:56.515+0000] {dag.py:3441} INFO - Setting next_dagrun for DAG_feature_select_and_data_augmentation to None, run_after=None
+[2024-11-03T23:57:56.526+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/feature_and_augm_dag.py took 0.632 seconds
+[2024-11-03T23:58:26.907+0000] {processor.py:153} INFO - Started process (PID=563) to work on /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:58:26.909+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/feature_and_augm_dag.py for tasks to queue
+[2024-11-03T23:58:26.910+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:58:26.910+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:58:27.404+0000] {processor.py:753} INFO - DAG(s) dict_keys(['DAG_feature_select_and_data_augmentation']) retrieved from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:58:27.418+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:58:27.418+0000] {dag.py:2690} INFO - Sync 1 DAGs
+[2024-11-03T23:58:27.430+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:58:27.429+0000] {dag.py:3441} INFO - Setting next_dagrun for DAG_feature_select_and_data_augmentation to None, run_after=None
+[2024-11-03T23:58:27.438+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/feature_and_augm_dag.py took 0.543 seconds
+[2024-11-03T23:58:57.788+0000] {processor.py:153} INFO - Started process (PID=615) to work on /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:58:57.790+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/feature_and_augm_dag.py for tasks to queue
+[2024-11-03T23:58:57.791+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:58:57.791+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:58:58.273+0000] {processor.py:753} INFO - DAG(s) dict_keys(['DAG_feature_select_and_data_augmentation']) retrieved from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:58:58.290+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:58:58.290+0000] {dag.py:2690} INFO - Sync 1 DAGs
+[2024-11-03T23:58:58.303+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:58:58.303+0000] {dag.py:3441} INFO - Setting next_dagrun for DAG_feature_select_and_data_augmentation to None, run_after=None
+[2024-11-03T23:58:58.317+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/feature_and_augm_dag.py took 0.535 seconds
+[2024-11-03T23:59:28.634+0000] {processor.py:153} INFO - Started process (PID=669) to work on /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:59:28.636+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/feature_and_augm_dag.py for tasks to queue
+[2024-11-03T23:59:28.636+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:59:28.636+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:59:29.012+0000] {processor.py:753} INFO - DAG(s) dict_keys(['DAG_feature_select_and_data_augmentation']) retrieved from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:59:29.021+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:59:29.020+0000] {dag.py:2690} INFO - Sync 1 DAGs
+[2024-11-03T23:59:29.030+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:59:29.030+0000] {dag.py:3441} INFO - Setting next_dagrun for DAG_feature_select_and_data_augmentation to None, run_after=None
+[2024-11-03T23:59:29.037+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/feature_and_augm_dag.py took 0.407 seconds
+[2024-11-03T23:59:59.333+0000] {processor.py:153} INFO - Started process (PID=704) to work on /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:59:59.337+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/feature_and_augm_dag.py for tasks to queue
+[2024-11-03T23:59:59.338+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:59:59.338+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:59:59.650+0000] {processor.py:753} INFO - DAG(s) dict_keys(['DAG_feature_select_and_data_augmentation']) retrieved from /opt/airflow/dags/feature_and_augm_dag.py
+[2024-11-03T23:59:59.660+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:59:59.660+0000] {dag.py:2690} INFO - Sync 1 DAGs
+[2024-11-03T23:59:59.670+0000] {logging_mixin.py:137} INFO - [2024-11-03T23:59:59.670+0000] {dag.py:3441} INFO - Setting next_dagrun for DAG_feature_select_and_data_augmentation to None, run_after=None
+[2024-11-03T23:59:59.677+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/feature_and_augm_dag.py took 0.348 seconds

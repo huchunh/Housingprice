@@ -3,7 +3,7 @@ import numpy as np
 from sklearn.linear_model import LassoCV
 from sklearn.preprocessing import StandardScaler
 
-def select_correlated_features(encoded_data):
+def select_correlated_features(encoded_data, numerical_features, target, threshold):
     """
     Selects numerical features with a correlation of at least `threshold` with the target variable.
     
@@ -18,20 +18,6 @@ def select_correlated_features(encoded_data):
     """
     ### path
     df = pd.read_json(encoded_data)
-
-    # List of all numerical features except the target to consider for correlation
-    numerical_features = [
-       "Order", "PID", "MS SubClass", "Lot Frontage", "Lot Area", "Overall Qual", 
-       "Overall Cond", "Year Built", "Year Remod/Add", "Mas Vnr Area", "BsmtFin SF 1", 
-       "BsmtFin SF 2", "Bsmt Unf SF", "Total Bsmt SF", "1st Flr SF", "2nd Flr SF", 
-       "Low Qual Fin SF", "Gr Liv Area", "Bsmt Full Bath", "Bsmt Half Bath", "Full Bath", 
-       "Half Bath", "Bedroom AbvGr", "Kitchen AbvGr", "TotRms AbvGrd", "Fireplaces", 
-       "Garage Cars", "Garage Area", "Wood Deck SF", "Open Porch SF", "Enclosed Porch", 
-       "3Ssn Porch", "Screen Porch", "Pool Area", "Misc Val", "Mo Sold", "Yr Sold"
-    ]
-    target='SalePrice'
-
-    threshold=0.3
 
     # Use only numerical features without the target variable
     X_num = df[numerical_features]
@@ -55,7 +41,7 @@ def select_correlated_features(encoded_data):
     return selected_features
 
 
-def rank_features_by_lasso(encoded_data):
+def rank_features_by_lasso(encoded_data, selected_features, target, threshold):
     """
     Ranks numerical features by importance using Lasso coefficients and selects
     features with coefficients above a specified threshold.
@@ -69,10 +55,6 @@ def rank_features_by_lasso(encoded_data):
     Returns:
     - list: Selected feature names (features based on Lasso importance).
     """
-
-    target='SalePrice'
-    selected_features = select_correlated_features()
-    threshold=0.1
     df = pd.read_json(encoded_data)
 
     # Extract the feature matrix (X) and target variable (y)

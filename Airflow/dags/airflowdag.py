@@ -8,7 +8,6 @@ from datetime import datetime, timedelta
 from src.data_prep import load_data, data_overview, data_validation, data_cleaning
 from src.label_encode import encode_data
 
-
 # Define default arguments for your DAG
 default_args = {
     'owner': 'House_Price_Prediction Team',
@@ -118,7 +117,7 @@ def encode_data_callable(**kwargs):
             raise ValueError("No data found in XCom for key 'cleaned_data'")
         
         # Encode data using updated encode_data function
-        encoded_result = encode_data(cleaned_data)
+        encoded_result, _ = encode_data(cleaned_data)
         
         # Push the entire encoded result as a single JSON string
         ti.xcom_push(key='encoded_result', value=encoded_result)
@@ -133,13 +132,30 @@ encode_data_task = PythonOperator(
     provide_context=True,
     dag=dag1,
 )
+ 
 
-# Trigger the second DAG after the data encoding step
-trigger_dag2_task = TriggerDagRunOperator(
-    task_id="trigger_feature_select_and_data_augmentation",
-    trigger_dag_id="DAG_feature_select_and_data_augmentation",  # The ID of the second DAG
-    conf={"encoded_data_key": "encoded_data"},  # Optional: Pass any needed context
-    trigger_rule="all_success",  # Ensures it only runs if all previous tasks are successful
+# Function to retrieve XCom data and trigger dag2
+def trigger_dag2_with_conf(**kwargs):
+    ti = kwargs['ti']
+    # Retrieve `encoded_result` from XCom
+    encoded_result = ti.xcom_pull(task_ids='encode_data_task', key='encoded_result')
+    
+    if encoded_result is None:
+        raise ValueError("No encoded data found in XCom for 'encoded_result'")
+
+    # Set up the TriggerDagRunOperator dynamically with conf
+    TriggerDagRunOperator(
+        task_id="trigger_feature_select_and_data_augmentation",
+        trigger_dag_id="DAG_feature_select_and_data_augmentation",  # The ID of the second DAG
+        conf={"encoded_result": encoded_result},  # Pass the encoded result to DAG 2
+        trigger_rule="all_success",  # Ensures it only runs if all previous tasks are successful
+    ).execute(kwargs)  # Pass Airflow context to execute method
+
+# Define a PythonOperator to run the trigger_dag2_with_conf function
+trigger_dag2_task = PythonOperator(
+    task_id='trigger_dag2_with_conf',
+    python_callable=trigger_dag2_with_conf,
+    provide_context=True,
     dag=dag1,
 )
 

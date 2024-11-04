@@ -3,11 +3,9 @@ import logging
 from airflow.operators.python import PythonOperator
 from datetime import datetime, timedelta
 import pandas as pd
-import numpy as np
+from src.data_splitting import split_data
 from src.feature_select import rank_features_by_lasso, select_correlated_features
 from src.data_augment import augment_data_with_perturbations
-from src.data_splitting import split_data
-import json
 
 # Define default arguments for your DAG
 default_args = {
@@ -30,9 +28,15 @@ dag2 = DAG(
 # Task to split data
 def split_data_callable(**kwargs):
     ti = kwargs['ti']
-    data = ti.xcom_pull(task_ids='encode_data_task', key='encoded_data')
+
+    # Access the configuration passed from dag1
+    conf = kwargs.get("dag_run").conf
+    
+    # Retrieve encoded_result from the conf dictionary
+    data = conf.get('encoded_result')
+
     if data is None:
-        logging.error("No encoded data found in XCom for key 'encoded_data'")
+        logging.error("No encoded data found in XCom for key 'encoded_result'")
     else:
         # Call the split_data function with encoded data
         split_result = split_data(data, test_size=0.15)
@@ -53,13 +57,16 @@ data_split_task = PythonOperator(
 def feature_selection_callable(**kwargs):
     # Pull the encoded data from XCom
     ti = kwargs['ti']
-    encoded_data_json = ti.xcom_pull(task_ids='encode_data_task', key='encoded_data')
+
+    # Access the configuration passed from dag1
+    conf = kwargs.get("dag_run").conf
+    
+    # Retrieve encoded_result from the conf dictionary
+    encoded_data_json = conf.get('encoded_result')
     
     if encoded_data_json is None:
         raise ValueError("No encoded data found in XCom for 'encoded_data'")
     
-    # Load the JSON data into a DataFrame
-    df_encoded = pd.read_json(encoded_data_json)
 
     # Define parameters
     numerical_features = [
@@ -74,10 +81,10 @@ def feature_selection_callable(**kwargs):
     target = 'SalePrice'
     
     # Step 1: Select features based on correlation
-    selected_features = select_correlated_features(df_encoded, numerical_features, target, threshold=0.3)
+    selected_features = select_correlated_features(encoded_data_json, numerical_features, target, threshold=0.3)
 
     # Step 2: Rank features using Lasso and further refine the selection
-    final_features = rank_features_by_lasso(df_encoded, selected_features, target, threshold=0.1)
+    final_features = rank_features_by_lasso(encoded_data_json, selected_features, target, threshold=0.1)
 
     # Push final selected features to XCom for use in subsequent tasks
     ti.xcom_push(key='final_features', value=final_features)
