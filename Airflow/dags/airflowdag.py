@@ -3,6 +3,7 @@ import logging
 import json
 from airflow import DAG
 from airflow.operators.python import PythonOperator
+from airflow.operators.trigger_dagrun import TriggerDagRunOperator
 from datetime import datetime, timedelta
 from src.data_prep import load_data, data_overview, data_validation, data_cleaning
 from src.label_encode import encode_data
@@ -15,13 +16,14 @@ default_args = {
     'retry_delay': timedelta(minutes=5),
 }
 
-# Create a DAG instance
-dag = DAG(
+# Create a DAG instance named 'DAG_Data_Preprocessing' with the defined default arguments
+dag1 = DAG(
     'DAG_Data_Preprocessing',
     default_args=default_args,
     description='DAG for data preprocessing tasks in House Price Prediction Project',
     schedule_interval=None,
     catchup=False,
+    max_active_runs=1,
 )
 
 # Task to load data
@@ -37,7 +39,7 @@ def load_data_callable(**kwargs):
 load_data_task = PythonOperator(
     task_id='load_data_task',
     python_callable=load_data_callable,
-    dag=dag,
+    dag=dag1,
 )
 
 # Task to perform data overview
@@ -59,7 +61,7 @@ data_overview_task = PythonOperator(
     task_id='data_overview_task',
     python_callable=data_overview_callable,
     provide_context=True,
-    dag=dag,
+    dag=dag1,
 )
 
 # Task to perform data validation
@@ -81,7 +83,7 @@ data_validation_task = PythonOperator(
     task_id='data_validation_task',
     python_callable=data_validation_callable,
     provide_context=True,
-    dag=dag,
+    dag=dag1,
 )
 
 # Task to perform data cleaning
@@ -103,7 +105,7 @@ data_cleaning_task = PythonOperator(
     task_id='data_cleaning_task',
     python_callable=data_cleaning_callable,
     provide_context=True,
-    dag=dag,
+    dag=dag1,
 )
 
 # Task to perform encoding
@@ -115,7 +117,7 @@ def encode_data_callable(**kwargs):
             raise ValueError("No data found in XCom for key 'cleaned_data'")
         
         # Encode data using updated encode_data function
-        encoded_result = encode_data(cleaned_data)
+        encoded_result, _ = encode_data(cleaned_data)
         
         # Push the entire encoded result as a single JSON string
         ti.xcom_push(key='encoded_result', value=encoded_result)
@@ -128,8 +130,34 @@ encode_data_task = PythonOperator(
     task_id='encode_data_task',
     python_callable=encode_data_callable,
     provide_context=True,
-    dag=dag,
+    dag=dag1,
+)
+ 
+
+# Function to retrieve XCom data and trigger dag2
+def trigger_dag2_with_conf(**kwargs):
+    ti = kwargs['ti']
+    # Retrieve `encoded_result` from XCom
+    encoded_result = ti.xcom_pull(task_ids='encode_data_task', key='encoded_result')
+    
+    if encoded_result is None:
+        raise ValueError("No encoded data found in XCom for 'encoded_result'")
+
+    # Set up the TriggerDagRunOperator dynamically with conf
+    TriggerDagRunOperator(
+        task_id="trigger_feature_select_and_data_augmentation",
+        trigger_dag_id="DAG_feature_select_and_data_augmentation",  # The ID of the second DAG
+        conf={"encoded_result": encoded_result},  # Pass the encoded result to DAG 2
+        trigger_rule="all_success",  # Ensures it only runs if all previous tasks are successful
+    ).execute(kwargs)  # Pass Airflow context to execute method
+
+# Define a PythonOperator to run the trigger_dag2_with_conf function
+trigger_dag2_task = PythonOperator(
+    task_id='trigger_dag2_with_conf',
+    python_callable=trigger_dag2_with_conf,
+    provide_context=True,
+    dag=dag1,
 )
 
-# Set task dependencies
-load_data_task >> data_overview_task >> data_validation_task >> data_cleaning_task >> encode_data_task
+# Set the updated task dependencies
+load_data_task >> data_overview_task >> data_validation_task >> data_cleaning_task >> encode_data_task >> trigger_dag2_task
