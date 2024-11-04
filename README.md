@@ -31,7 +31,7 @@ Our data version control is managed and hosted on Google Cloud Platform (GCP). G
 
 ![image](https://github.com/user-attachments/assets/9b1e2f1e-82fc-4628-be23-db7f63b685f4)
 
-Pictured our data files at GCP
+Picture: Our data files at GCP
 
 Current MLPipline
 
@@ -47,12 +47,14 @@ We utilize Apache Airflow for our pipeline. We create a DAG with our modules.
 Picture: our current dag
 
 
-Unittest
-- We use GitHub Actions and unit tests to validate functions within our Airflow DAGs. Once functions are merged into the main branch, unit tests are triggered automatically, providing us with feedback on the test results.
+# Unittest
+
+We use GitHub Actions and unit tests to validate functions of our Airflow DAGs. Once functions are merged into the main branch, unit tests are triggered automatically, providing us with feedback on the test results.
 
 ![image](https://github.com/user-attachments/assets/dd5985b6-f473-4a29-b036-991de9a1e4b4)
 ![image](https://github.com/user-attachments/assets/28978057-f8c0-4e58-bbec-e66ecf3a1ae6)
 ![image](https://github.com/user-attachments/assets/74c31c68-e3ad-4c8e-ac46-17482e6718f7)
+
 Picture: Our unit tests
 
 
