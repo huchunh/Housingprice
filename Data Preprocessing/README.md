@@ -1,6 +1,6 @@
-# Data Preprocessing for House Price Prediction
+# Methodology for House Price Prediction
 
-This folder contains the data preprocessing steps for the House Price Prediction project. The original data set is AmesHousing.csv
+This folder contains the methodology for the House Price Prediction project. The original data set is AmesHousing.csv
 
 ### Overview of the Dataset
 - **Dimensions**: 82 columns, 2930 rows
