@@ -25,7 +25,7 @@ Airflow
 │   │   ├── feature_select.py
 │   │   └── label_encode.py
 │   ├── __init__.py     # Initialization file for Airflow
-│   ├── airflowdag.py   # Main DAG definition file
+│   ├── data_prep_dag.py   # DAG for data preprocessing (loading data and data cleaning)
 │   └── feature_and_augm_dag.py  # DAG for feature engineering and augmentation
 ```
 
