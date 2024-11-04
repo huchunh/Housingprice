@@ -1,7 +1,3 @@
-Here's a revised and structured version of your README:
-
----
-
 # Data Preprocessing for House Price Prediction
 
 This folder contains the data preprocessing steps for the House Price Prediction project. The original data set is AmesHousing.csv
