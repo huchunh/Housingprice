@@ -125,8 +125,8 @@ This project is licensed under the [].
 ## Contact Information
 
 For questions or collaboration inquiries, please contact one of the team members:
-Aliya at [26aly000@gmail.com]
-Changping Chen at [champing1409@gmail.com]
-Krishna Priya Gitalaxmi at [gitakrishnapriya@gmail.com]
-Qi An at [blessanq@gmail.com]
-Ziqi Li at [zql04150415@gmail.com]
+- Aliya at [26aly000@gmail.com]
+- Changping Chen at [champing1409@gmail.com]
+- Krishna Priya Gitalaxmi at [gitakrishnapriya@gmail.com]
+- Qi An at [blessanq@gmail.com]
+- Ziqi Li at [zql04150415@gmail.com]
