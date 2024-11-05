@@ -25,33 +25,6 @@ For all features please check the reference : [Features Explanation](https://doc
 
 
 
-## Data Splitting
-
-We split the encoded dataset into training and test sets with an 85/15 ratio. This allocation provides a larger portion of data for training, which is essential for model learning, especially with our limited dataset size. The larger training set also supports the accuracy and balance required for our subsequent data augmentation. 
-
-Importantly, we only augment the training data to ensure that the test data remains purely representative of real-world cases, helping to provide an unbiased evaluation of model performance.
-
-
-## Feature Selection
-
-After splitting, we apply feature selection to identify the most relevant features for predicting SalePrice. These selected features will be used for data augmentation.
-
-### *1. Correlation Analysis*
-
-First, we perform a correlation analysis, focusing on features with a correlation coefficient (Pearson’s r) of at least 0.3 with SalePrice. Pearson’s r, which ranges from -1 to +1, measures the strength and direction of a linear relationship between two variables. We set the threshold at 0.3 to capture features with a moderate level of association, aiming to retain features that hold predictive potential without being overly restrictive. This method also enhances interpretability in the context of a linear model, like linear regression, which we plan to use in modeling.
-
-
-### *2. Lasso Coefficients*
-
-Next, we apply Lasso regression to further refine our feature selection. Before performing Lasso, we standardize the features since Lasso is sensitive to feature scaling. We then use LassoCV to automatically determine the optimal level of regularization. This technique penalizes less important features, potentially reducing their coefficients to zero, thereby simplifying the model and focusing on the most predictive features. We set a high threshold of 0.1 for feature importance to retain only the most impactful features. Notably, only one feature was removed by Lasso, indicating that most of the features identified in the correlation step were indeed significant.
-
-
-## Data Augmentation
-
-Finally, we use the selected features as input to the augment_data_with_perturbations function for data augmentation. This approach generates synthetic records by perturbing only the most relevant features, thereby adding meaningful diversity to the training set. By introducing controlled variability in the important features, we enable the model to generalize better to slight variations in real-world data, enhancing robustness and stability.
-
-We set the perturbation_percentage to 0.02, limiting perturbations to within 2% of each feature’s original value. This conservative level of variation ensures that the synthetic data remains realistic, avoiding outliers that could reduce model accuracy. Adding 2000 augmented records expands the dataset in a balanced way, enhancing model performance without introducing excessive noise, while keeping computational requirements manageable.
-
 
 
 ## Load dataset from Google Cloud Storage
