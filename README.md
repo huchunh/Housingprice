@@ -103,10 +103,10 @@ We use **Apache Airflow** to manage our pipeline, which includes tasks for data 
 
 - **Data Loading and Preprocessing**: Loads raw data from GCS, validates and cleans the data.
 - **Feature Engineering**: Transforms and augments data for better model performance.
-- **Model Training**: Trains models using various algorithms and stores results for evaluation.
-- **Model Evaluation**: Assesses model performance and pushes metrics to monitoring systems.
+- **Model Training**: Trains models using various algorithms and stores results for evaluation. [Next Stage]
+- **Model Evaluation**: Assesses model performance and pushes metrics to monitoring systems. [Next Stage]
 
-![Pipeline Diagram](https://github.com/user-attachments/assets/a8ecfda0-bf73-4ce4-9c8c-46b162cf10a2)
+![Pipeline Diagram]
 
 ## Unit Testing and Continuous Integration
 
