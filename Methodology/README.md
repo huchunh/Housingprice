@@ -1,6 +1,18 @@
 # Methodology for House Price Prediction
 
-This folder contains the methodology for the House Price Prediction project. The original data set is AmesHousing.csv
+This folder documents the methodology used in the House Price Prediction project, detailing the steps taken to process data, select features, and develop a robust model. The dataset used is **AmesHousing.csv**.
+
+---
+
+## 1. Introduction
+
+The methodology outlined here serves as a guide to understanding the reasoning behind data processing, feature selection, and model preparation for predicting house prices. Each decision was made with the goal of improving model accuracy, interpretability, and robustness. 
+
+For detailed data definitions, refer to this [Data Definition Document](https://docs.google.com/spreadsheets/d/1XL6LJVgLLU27yV7a_oh2zuqhGOI3Syg-jWpmr0Ekk14/edit?usp=sharing).
+
+---
+
+## 2. Data Processing Methods
 
 ### Overview of the Dataset
 - **Dimensions**: 82 columns, 2930 rows
@@ -9,68 +21,90 @@ This folder contains the methodology for the House Price Prediction project. The
   - `int64`: 28 columns
   - `object`: 43 columns
 
-The dataset includes almost half of bjective/quantitative variables (e.g., year built, number of fireplaces) and half of subjective/qualitative variables (e.g., heating quality, exterior quality).
-
-For detailed data definitions, refer to this [Data Definition Document]
-(https://docs.google.com/spreadsheets/d/1XL6LJVgLLU27yV7a_oh2zuqhGOI3Syg-jWpmr0Ekk14/edit?usp=sharing)
+The dataset includes a balanced mix of quantitative variables (e.g., year built, number of fireplaces) and qualitative variables (e.g., heating quality, exterior quality).
 
 ### Data Validation
-We performed data validation based on the source: [Data Documentation](http://jse.amstat.org/v19n3/decock/DataDocumentation.txt).
-
-1. **Outlier Removal**: We excluded houses with more than 4000 square feet from the dataset.
-2. **Data Correction**: Corrected a record where the garage build year was erroneously listed as 2207, changing it to 2007 (matching the house build year).
+We validated the dataset using information from the [Data Documentation](http://jse.amstat.org/v19n3/decock/DataDocumentation.txt). Key steps included:
+1. **Outlier Removal**: Houses with over 4000 square feet were excluded to avoid skewing the model.
+2. **Data Correction**: Corrected a record where the garage build year was incorrectly listed as 2207, changing it to 2007.
 
 ### Handling Missing Values and Duplicates
-- **Duplicates**: No duplicate records were found; all data entries are unique.
+- **Duplicates**: No duplicate records were identified in the dataset.
 - **Missing Values**:
-  - Split into numerical and categorical variables for separate handling:
-    - **Numerical Variables**:
+   - **Numerical Variables**: Handled based on variable type:
       - Filled with `0` for features like basement full bathroom and total basement square feet.
-      - Used the median for features like lot frontage and garage cars.
-      - Filled with mode for electrical (which had only one missing value).
-    - **Categorical Variables**:
-      - Standardized all `NA`, empty, or `None` values to "Missing" for consistency.
+      - Used the median for continuous features like lot frontage and garage cars.
+   - **Categorical Variables**: Standardized all `NA`, empty, or `None` values to "Missing" for consistency.
 
 ### Data Saving
-To ensure reproducibility and flexibility, we saved a cleaned version of the dataset (cleaned_data.csv) for potential future use with other encoding methods.
+The cleaned dataset was saved as `cleaned_data.csv` to ensure reproducibility and facilitate alternative encoding methods if needed.
 
-### Label Encoding
-We applied label encoding to prepare categorical features for modeling. Key steps included:
+---
 
-1. **Missing Values Handling**: Encoded all "Missing" values as `0`.
-2. **Feature Grouping**:
-    - Grouped features into three categories based on their type and quality scales:
-      - **Quality-related Features**: Encoded on a scale from 1 to 5, ranging from Poor to Excellent. This included 10 features.
-      - **Good-to-Bad Features**: Assigned numerical values from low to high quality across 7 features.
-      - **Remaining Features**: Encoded as needed for modeling purposes.
+## 3. Feature Engineering
 
-After these steps, we obtained a fully encoded dataset ready for analysis and modeling. (encoding_data.csv)
+To prepare categorical features for modeling, we applied label encoding. The encoding was customized based on feature types and scales:
 
+1. **Handling Missing Values**: Encoded all "Missing" values as `0`.
+2. **Feature Grouping and Encoding**:
+   - **Quality-related Features**: Encoded on a scale from 1 to 5, ranging from Poor to Excellent, covering 10 features.
+   - **Good-to-Bad Features**: Assigned values from low to high quality across 7 features.
+   - **Other Features**: Encoded appropriately based on their role in modeling.
 
-## Data Splitting
+After encoding, we saved the transformed dataset as `encoding_data.csv` for modeling use.
 
-We split the encoded dataset into training and test sets with an 85/15 ratio. This allocation provides a larger portion of data for training, which is essential for model learning, especially with our limited dataset size. The larger training set also supports the accuracy and balance required for our subsequent data augmentation. 
+---
 
-Importantly, we only augment the training data to ensure that the test data remains purely representative of real-world cases, helping to provide an unbiased evaluation of model performance.
+## 4. Data Splitting
 
+The processed data was split into training and test sets with an 85/15 ratio. This larger training set size enhances model learning, particularly given the limited dataset size. To maintain an unbiased evaluation, we applied data augmentation only to the training data, leaving the test set untouched as a representative sample for real-world cases.
 
-## Feature Selection
+---
 
-After splitting, we apply feature selection to identify the most relevant features for predicting SalePrice. These selected features will be used for data augmentation.
+## 5. Feature Selection
+
+After data splitting, we identified relevant features for predicting SalePrice using two methods:
 
 ### *1. Correlation Analysis*
+   - We focused on features with a Pearson’s r correlation coefficient of at least 0.3 with SalePrice. This threshold balances relevance with simplicity, retaining features with moderate associations without over-complicating the model.
 
-First, we perform a correlation analysis, focusing on features with a correlation coefficient (Pearson’s r) of at least 0.3 with SalePrice. Pearson’s r, which ranges from -1 to +1, measures the strength and direction of a linear relationship between two variables. We set the threshold at 0.3 to capture features with a moderate level of association, aiming to retain features that hold predictive potential without being overly restrictive. This method also enhances interpretability in the context of a linear model, like linear regression, which we plan to use in modeling.
+### *2. Lasso Regression*
+   - To refine feature selection further, we applied Lasso regression, using LassoCV to find the optimal regularization level. Standardized features were used to ensure consistent scaling. We set a high importance threshold of 0.1, and only one feature was removed, reinforcing the relevance of those identified in the correlation analysis.
 
+---
 
-### *2. Lasso Coefficients*
+## 6. Data Augmentation
 
-Next, we apply Lasso regression to further refine our feature selection. Before performing Lasso, we standardize the features since Lasso is sensitive to feature scaling. We then use LassoCV to automatically determine the optimal level of regularization. This technique penalizes less important features, potentially reducing their coefficients to zero, thereby simplifying the model and focusing on the most predictive features. We set a high threshold of 0.1 for feature importance to retain only the most impactful features. Notably, only one feature was removed by Lasso, indicating that most of the features identified in the correlation step were indeed significant.
+The selected features were passed through the `augment_data_with_perturbations` function for data augmentation, which introduces slight variations in key features. This approach is intended to enhance model generalization by simulating small real-world changes in the data. Key augmentation parameters:
 
+- **Perturbation Percentage**: Set at 0.02 to ensure variations remain within 2% of original feature values, maintaining data realism.
+- **Augmented Records**: Generated 2000 synthetic records, balancing data diversity with computational efficiency.
 
-## Data Augmentation
+---
 
-Finally, we use the selected features as input to the augment_data_with_perturbations function for data augmentation. This approach generates synthetic records by perturbing only the most relevant features, thereby adding meaningful diversity to the training set. By introducing controlled variability in the important features, we enable the model to generalize better to slight variations in real-world data, enhancing robustness and stability.
+## 7. Model Selection and Training
 
-We set the perturbation_percentage to 0.02, limiting perturbations to within 2% of each feature’s original value. This conservative level of variation ensures that the synthetic data remains realistic, avoiding outliers that could reduce model accuracy. Adding 2000 augmented records expands the dataset in a balanced way, enhancing model performance without introducing excessive noise, while keeping computational requirements manageable.
+For model selection, we experimented with regression, tree-based models, and neural networks. **Lasso regression** and **tree-based models** were chosen for their interpretability and performance. Hyperparameters were fine-tuned to optimize performance while avoiding overfitting.
+
+---
+
+## 8. Evaluation Metrics
+
+To assess model performance, we used **Root Mean Squared Error (RMSE)** and **Mean Absolute Error (MAE)**, as both metrics provide insight into prediction accuracy and error magnitudes. These metrics help in evaluating model generalization and guiding further tuning.
+
+---
+
+## 9. Experimentation and Results
+
+Several experiments were conducted to evaluate feature impact and model configurations. Through these, we achieved:
+- An optimal balance between accuracy and complexity.
+- Improved performance using data augmentation, which increased model robustness.
+
+---
+
+## 10. References and Resources
+
+- **[Data Definition Document](https://docs.google.com/spreadsheets/d/1XL6LJVgLLU27yV7a_oh2zuqhGOI3Syg-jWpmr0Ekk14/edit?usp=sharing)**
+- **[Data Documentation](http://jse.amstat.org/v19n3/decock/DataDocumentation.txt)**
+- **Research Papers and Resources on Data Augmentation and Feature Selection Techniques**
 
