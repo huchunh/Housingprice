@@ -11,7 +11,7 @@ class TestDagTasks(unittest.TestCase):
 
     def setUp(self):
         # Load real data from AmesHousing.csv
-        self.real_data = pd.read_csv('Data Preprocessing/AmesHousing.csv').head(5).to_json()
+        self.real_data = pd.read_csv('Methodology/AmesHousing.csv').head(5).to_json()
 
     def test_data_overview_task(self):
         # Create a mock for TaskInstance
