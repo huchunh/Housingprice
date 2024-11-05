@@ -1,161 +1,160 @@
 # Airflow Pipeline Setup and Usage
 
-This document provides instructions for setting up, running, and troubleshooting the Airflow-based data pipeline. This pipeline orchestrates various ETL processes and ML workflows, ensuring modular, scalable, and efficient data processing.
+This document provides instructions for setting up, running, and troubleshooting the Airflow-based data pipeline for the **House Price Prediction MLOps** project. Apache Airflow orchestrates various ETL processes and machine learning workflows, ensuring modular, scalable, and efficient data processing.
 
-## 1. Overview
+---
 
-The Airflow pipeline is used to automate the end-to-end data processing and machine learning workflow for the project. It includes tasks for:
-- Data acquisition from Google Cloud Storage
-- Data preprocessing, feature engineering, and splitting
-- Model training and evaluation
-- Version control and artifact storage using DVC
+## 1. Introduction
 
-## 2. Project Structure
+The Airflow pipeline automates the end-to-end data processing and machine learning workflow for the House Price Prediction project. Key stages in the pipeline include:
+- **Data acquisition** from Google Cloud Storage (GCS)
+- **Data preprocessing** (cleaning, validation, splitting)
+- **Feature engineering** and **data augmentation**
+- **Model training** and **evaluation**
+- **Artifact storage** and version control using DVC
+
+---
+
+## 2. Pipeline Overview
+
+The pipeline consists of modular DAGs (Directed Acyclic Graphs) that run specific tasks in a sequence to process data, train models, and track outputs. Each DAG is designed to operate independently, allowing for flexibility in updating and testing individual components.
+
+### DAGs Included:
+- **data_prep_dag**: Handles data loading, validation, cleaning, and splitting.
+- **feature_and_augm_dag**: Performs feature engineering and data augmentation.
+
+### Pipeline Flow Diagram:
+![Pipeline Diagram](https://github.com/user-attachments/assets/a8ecfda0-bf73-4ce4-9c8c-46b162cf10a2)
+![Pipeline Diagram](https://github.com/user-attachments/assets/cf91bad9-c892-41cb-9640-31a8ef25fee9)
+
+---
+
+## 3. Setup
+
+### a. Prerequisites
+
+- **Python 3.8+**
+- **Apache Airflow** (version 2.x)
+- **Docker** (if using Docker Compose for containerized Airflow)
+- **Google Cloud SDK** (for integration with GCS and DVC)
+
+### b. Environment Variables
+
+To facilitate connections to GCS and manage Airflow configuration, add environment variables in a `.env` file within the `config/` folder. Key variables include:
+- `GCP_PROJECT_ID`
+- `GCS_BUCKET_NAME`
+- `DVC_REMOTE_PATH`
+- Additional Google Cloud credentials as needed
+
+### c. Installation Steps
+
+1. **Clone the Repository**:
+   ```bash
+   git clone [REPO_URL]
+   cd Airflow
+   ```
+
+2. **Install Dependencies**:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+3. **Initialize Airflow**:
+   - Set up the Airflow database, then start the scheduler and web server:
+   ```bash
+   airflow db init
+   airflow scheduler &
+   airflow webserver
+   ```
+
+4. **Docker Setup** (Optional):
+   - If using Docker Compose, start Airflow services as follows:
+   ```bash
+   docker-compose up -d
+   ```
+
+5. **Configure DVC**:
+   - Refer to the main project `README.md` for DVC setup instructions with Google Cloud.
+
+---
+
+## 4. Running the Pipeline
+
+1. **Access the Airflow Web UI**:
+   - Open `http://localhost:8080` in your browser to view your DAGs.
+
+2. **Enable DAGs**:
+   - In the Airflow UI, toggle the DAGs to enable them:
+     - `data_prep_dag`: Manages data loading, cleaning, and splitting
+     - `feature_and_augm_dag`: Conducts feature engineering and augmentation
+
+3. **Trigger DAG Runs**:
+   - Manually start a DAG run or configure a schedule in the DAG definitions as needed.
+
+---
+
+## 5. DAG Structure and Task Descriptions
+
+### **data_prep_dag**
+This DAG performs core data processing tasks:
+- **Data Loading**: Loads raw data from GCS.
+- **Data Validation**: Validates data schema and format.
+- **Data Preprocessing**: Cleans missing values, encodes categorical data, and normalizes features.
+- **Data Splitting**: Divides data into training, validation, and test sets.
+
+### **feature_and_augm_dag**
+This DAG is responsible for feature engineering and data augmentation:
+- **Feature Engineering**: Applies transformations and extracts meaningful features.
+- **Data Augmentation**: Expands the dataset using augmentation techniques to improve model robustness.
+
+---
+
+## 6. Troubleshooting and Common Issues
+
+- **Airflow DAG Not Showing**: Ensure the `dags` folder is correctly set in `AIRFLOW_HOME`. Check for syntax errors in the DAG files.
+- **GCS Permission Issues**: Verify that the GCP service account has access permissions to the specified GCS bucket.
+- **Docker Errors**: If using Docker, confirm that the Docker daemon is running and `.env` variables are correctly configured.
+
+---
+
+## 7. Folder Structure (Airflow-Specific)
+
+Here is an outline of the `Airflow` folder structure for easy reference:
 
 ```
 Airflow
-├── dags                # Main folder containing all Airflow DAGs and related scripts
-│   ├── __pycache__     # Folder for cached Python files
-│   ├── data            # Folder for any data files required by DAGs
-│   ├── src             # Source folder containing custom scripts
+├── dags                   # Contains all DAG scripts
+│   ├── __pycache__        # Python cache files
+│   ├── data               # Data files required by DAGs
+│   ├── src                # Source scripts for custom processing
 │   │   ├── __init__.py
 │   │   ├── data_augment.py
 │   │   ├── data_prep.py
 │   │   ├── data_splitting.py
 │   │   ├── feature_select.py
 │   │   └── label_encode.py
-│   ├── __init__.py     # Initialization file for Airflow
-│   ├── data_prep_dag.py   # DAG for data preprocessing (loading data and data cleaning)
+│   ├── __init__.py        # Initialization file for Airflow
+│   ├── data_prep_dag.py   # DAG for data loading and preprocessing
 │   └── feature_and_augm_dag.py  # DAG for feature engineering and augmentation
 ```
 
-## 3. Prerequisites
+---
 
-### a. Software Requirements
-- **Python 3.8+**
-- **Apache Airflow**: Version 2.x
-- **Docker** (if using Docker Compose)
-- **Google Cloud SDK** (for GCS and DVC integration)
+## 8. Testing and Validation
 
-### b. Environment Variables
-Place environment variables in the `.env` file under the `config` folder. Required variables include:
-- `GCP_PROJECT_ID`
-- `GCS_BUCKET_NAME`
-- `DVC_REMOTE_PATH`
-- Additional credentials for Google Cloud
-
-## 4. Setup
-
-### a. Install Dependencies
-
-1. **Clone the repository** and navigate to the Airflow directory.
-   ```bash
-   git clone [REPO_URL]
-   cd Airflow
-   ```
-
-2. **Install Python dependencies**.
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-3. **Set up Airflow**: Initialize the Airflow database and start the scheduler and web server.
-   ```bash
-   airflow db init
-   airflow scheduler
-   airflow webserver
-   ```
-
-4. **Docker Setup** (Optional): If using Docker Compose, follow these steps:
-   ```bash
-   docker-compose up -d
-   ```
-
-### b. Configure DVC for Data Version Control
-Follow the steps in the main project `README.md` to set up DVC with Google Cloud.
-
-## 5. Running the Pipeline
-
-1. **Access the Airflow Web UI**: Navigate to `http://localhost:8080` to view your DAGs.
-2. **Enable DAGs**: Toggle the DAGs you want to activate, including:
-   - `airflowdag`: Main pipeline DAG
-   - `feature_and_augm_dag`: Feature engineering and augmentation DAG
-3. **Trigger DAG Runs**: You can start a DAG run manually or configure a schedule in the DAG definitions.
-
-## 6. DAG Structure and Task Descriptions
-
-## Data
-https://www.kaggle.com/datasets/shashanknecrothapa/ames-housing-dataset 
-
-## Key features
-![image](https://github.com/user-attachments/assets/82150931-caac-4779-8d48-8e7c4ee0f828)
-
-
-For all features please check the reference : [Features Explanation](https://docs.google.com/spreadsheets/d/1XL6LJVgLLU27yV7a_oh2zuqhGOI3Syg-jWpmr0Ekk14/edit?gid=0#gid=0).
-
-
-
-
-
-## Load dataset from Google Cloud Storage
-Our data version control is managed and hosted on Google Cloud Platform (GCP). GCP offers seamless support for hosting large datasets and tracking their versions, facilitating the development of robust ETL pipelines. It enables multiple users to access and update data simultaneously, with built-in versioning that makes retrieving previous versions straightforward. GCP has been instrumental in efficiently implementing our ETL processes while maintaining intermediate files for all modular tasks.
-
-- To get started with GCP services, simply initialize a service account.
-- As with other remote services, downloading an SSH key is necessary for remote access.
-
-![image](https://github.com/user-attachments/assets/9b1e2f1e-82fc-4628-be23-db7f63b685f4)
-
-Picture: Our data files at GCP
-
-Current MLPipline
-
-（insert pipline pic here maybe ）
-
-Airflow Dags
-We utilize Apache Airflow for our pipeline. We create a DAG with our modules.
-
-![image](https://github.com/user-attachments/assets/a8ecfda0-bf73-4ce4-9c8c-46b162cf10a2)
-
-![image](https://github.com/user-attachments/assets/1282bf7d-c42b-4383-a2b3-73847527460f)
-
-Picture: our current dag
-
-
-
-### data_prep_dag
-This DAG orchestrates the main data pipeline tasks:
-- **Data Loading**: Loads raw data from GCS.
-- **Data Validation**: Ensures data integrity by checking schema and formats.
-- **Data Preprocessing**: Handles missing values, encoding, and scaling.
-- **Data Splitting**: Splits data into train, validation, and test sets.
-
-### feature_and_augm_dag
-This DAG handles feature engineering tasks:
-- **Feature Engineering**: Applies transformations and feature extraction.
-- **Data Augmentation**: Expands the dataset with augmented samples.
-
-## 7. Testing and Validation
-
-We use GitHub Actions to run unit tests for each task. When functions are merged into the main branch, unit tests trigger automatically, providing feedback on the pipeline's functionality.
+We use **GitHub Actions** to automate unit tests and validate each task within the DAGs. When changes are committed to the main branch, GitHub Actions triggers the tests and provides feedback on their results.
 
 To run tests locally:
-We use GitHub Actions and unit tests to validate functions of our Airflow DAGs. Once functions are merged into the main branch, unit tests are triggered automatically, providing us with feedback on the test results.
+```bash
+pytest tests/
+```
 
-![image](https://github.com/user-attachments/assets/dd5985b6-f473-4a29-b036-991de9a1e4b4)
-![image](https://github.com/user-attachments/assets/28978057-f8c0-4e58-bbec-e66ecf3a1ae6)
-![image](https://github.com/user-attachments/assets/74c31c68-e3ad-4c8e-ac46-17482e6718f7)
+![Unit Test Status](https://github.com/user-attachments/assets/74c31c68-e3ad-4c8e-ac46-17482e6718f7)
 
-Picture: Our unit tests
-
-## 8. Troubleshooting
-
-- **Airflow DAG Not Showing**: Ensure the `dags` folder is correctly set in your `AIRFLOW_HOME` and the DAG files are syntactically correct.
-- **GCS Permission Issues**: Confirm that your GCP service account has access to the specified GCS bucket.
-- **Docker Setup Errors**: Check that the Docker daemon is running and the `.env` file is correctly configured.
+---
 
 ## 9. Resources and References
 
-- **[Apache Airflow Documentation](https://airflow.apache.org/docs/)**: Official Airflow documentation.
-- **[Google Cloud SDK](https://cloud.google.com/sdk/docs)**: Instructions for setting up GCS and managing data.
-- **[DVC Documentation](https://dvc.org/doc)**: Guide for setting up DVC for data version control.
-
+- **[Apache Airflow Documentation](https://airflow.apache.org/docs/)**: Official documentation for setting up and using Apache Airflow.
+- **[Google Cloud SDK](https://cloud.google.com/sdk/docs)**: Guide for configuring GCS and managing data storage.
+- **[DVC Documentation](https://dvc.org/doc)**: Guide for setting up DVC for data versioning.
