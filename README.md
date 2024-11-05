@@ -1,66 +1,132 @@
-# House_Price_Prediction_MLOPs
-This project implements an advanced Machine Learning Operations (MLOps) pipeline for predicting house prices. It incorporates traditional factors such as location, size, and number of rooms, along with a novel feature: house condition.
+# House_Price_Prediction_MLOps
 
-## Features
+This project implements an advanced Machine Learning Operations (MLOps) pipeline for predicting house prices. It integrates traditional property features (location, size, and number of rooms) with a novel feature: **house condition**. The pipeline uses Google Cloud Platform (GCP) for data management, Apache Airflow for orchestration, and Data Version Control (DVC) for tracking data versions and model iterations.
 
-- Data scraping from Zillow for up-to-date market information
-- Comprehensive data preprocessing and feature engineering
-- Advanced modeling techniques including regression, tree-based models, and neural networks
-- Continuous integration and deployment (CI/CD) practices
-- Monitoring and maintenance systems for model performance and fairness
+---
 
-## Installation
+## Table of Contents
+1. [Project Overview](#project-overview)
+2. [Folder Structure](#folder-structure)
+3. [Installation and Setup](#installation-and-setup)
+4. [Quickstart Guide](#quickstart-guide)
+5. [Data Source](#data-source)
+6. [Pipeline Workflow](#pipeline-workflow)
+7. [Unit Testing and Continuous Integration](#unit-testing-and-continuous-integration)
+8. [Contributing](#contributing)
+9. [License](#license)
+10. [Contact Information](#contact-information)
 
-1. Clone the repository:
+---
 
+## Project Overview
 
-## Data
-https://www.kaggle.com/datasets/shashanknecrothapa/ames-housing-dataset 
+This project aims to develop an accurate, condition-aware model for predicting house prices. The model considers a variety of features and employs advanced data processing, feature engineering, and modeling techniques. Key features of this project include:
 
-## Key features
-![image](https://github.com/user-attachments/assets/82150931-caac-4779-8d48-8e7c4ee0f828)
+- **Data Acquisition**: Data scraping from Zillow and integration with the Ames Housing Dataset.
+- **Data Preprocessing**: Cleaning, transforming, and feature engineering to enhance prediction accuracy.
+- **Modeling Techniques**: Utilizes regression, tree-based models, and neural networks to compare and optimize performance.
+- **CI/CD Practices**: Automated deployment and testing using GitHub Actions.
+- **Model Monitoring and Maintenance**: Tracks model performance and ensures fairness in predictions over time.
 
+### Dependencies
 
-For all features please check the reference : [Features Explanation](https://docs.google.com/spreadsheets/d/1XL6LJVgLLU27yV7a_oh2zuqhGOI3Syg-jWpmr0Ekk14/edit?gid=0#gid=0).
+Key tools and services used in this project include:
+- **Apache Airflow**: For orchestrating the ETL pipeline.
+- **Google Cloud Platform (GCP)**: For data storage and version control.
+- **DVC (Data Version Control)**: For tracking data and model versions.
 
+## Folder Structure
 
+```
+House_Price_Prediction_MLOps/
+├── Airflow/               # Contains DAGs and scripts for data pipeline orchestration.
+├── Methodology/           # Provides details on model choices, data processing, and feature engineering.
+├── project_dvc/           # Stores DVC configuration files for data versioning and management.
+├── tests/                 # Contains unit tests and validation scripts.
+├── .gitignore             # Specifies files to ignore in Git.
+└── README.md              # Main project documentation.
+```
 
+## Installation and Setup
 
+To set up the project environment:
 
-## Load dataset from Google Cloud Storage
-Our data version control is managed and hosted on Google Cloud Platform (GCP). GCP offers seamless support for hosting large datasets and tracking their versions, facilitating the development of robust ETL pipelines. It enables multiple users to access and update data simultaneously, with built-in versioning that makes retrieving previous versions straightforward. GCP has been instrumental in efficiently implementing our ETL processes while maintaining intermediate files for all modular tasks.
+1. **Clone the repository**:
+    ```bash
+    git clone https://github.com/your_username/House_Price_Prediction_MLOps.git
+    cd House_Price_Prediction_MLOps
+    ```
 
-- To get started with GCP services, simply initialize a service account.
-- As with other remote services, downloading an SSH key is necessary for remote access.
+2. **Install dependencies**:
+   - Use the `requirements.txt` file to install Python dependencies.
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-![image](https://github.com/user-attachments/assets/9b1e2f1e-82fc-4628-be23-db7f63b685f4)
+3. **Configure Environment Variables**:
+   - Add GCP credentials and other environment variables in a `.env` file (refer to the `config/` folder).
+   - Initialize a GCP service account and download an SSH key if accessing data remotely.
 
-Picture: Our data files at GCP
+4. **Set Up Airflow**:
+   - Initialize the Airflow database and start the Airflow scheduler and web server:
+   ```bash
+   airflow db init
+   airflow scheduler
+   airflow webserver
+   ```
 
-Current MLPipline
+## Quickstart Guide
 
-（insert pipline pic here maybe ）
+1. **Load Data from Google Cloud Storage (GCS)**:
+   - Our datasets are managed in GCS, with version control provided by DVC.
 
-Airflow Dags
-We utilize Apache Airflow for our pipeline. We create a DAG with our modules.
+2. **Trigger the Airflow Pipeline**:
+   - Access the Airflow web UI at `http://localhost:8080`.
+   - Enable and trigger the DAGs (data acquisition, preprocessing, and model training pipelines) as needed.
 
-![image](https://github.com/user-attachments/assets/a8ecfda0-bf73-4ce4-9c8c-46b162cf10a2)
+3. **Monitor Data and Model Versions**:
+   - Use DVC commands to track changes in data and models:
+   ```bash
+   dvc add data/raw/ames_housing.csv
+   dvc push
+   ```
 
-![image](https://github.com/user-attachments/assets/1282bf7d-c42b-4383-a2b3-73847527460f)
+## Data Source
 
-Picture: our current dag
+The main dataset used is the [Ames Housing Dataset](https://www.kaggle.com/datasets/shashanknecrothapa/ames-housing-dataset), which includes details on property features. For additional feature details, refer to our [Features Explanation](https://docs.google.com/spreadsheets/d/1XL6LJVgLLU27yV7a_oh2zuqhGOI3Syg-jWpmr0Ekk14/edit?gid=0#gid=0).
 
+## Pipeline Workflow
 
-## Unittest
+We use **Apache Airflow** to manage our pipeline, which includes tasks for data scraping, preprocessing, model training, and evaluation. The pipeline structure is modular, with tasks organized into distinct DAGs for each stage.
 
-We use GitHub Actions and unit tests to validate functions of our Airflow DAGs. Once functions are merged into the main branch, unit tests are triggered automatically, providing us with feedback on the test results.
+**Pipeline Overview**:
 
-![image](https://github.com/user-attachments/assets/dd5985b6-f473-4a29-b036-991de9a1e4b4)
-![image](https://github.com/user-attachments/assets/28978057-f8c0-4e58-bbec-e66ecf3a1ae6)
-![image](https://github.com/user-attachments/assets/74c31c68-e3ad-4c8e-ac46-17482e6718f7)
+- **Data Loading and Preprocessing**: Loads raw data from GCS, validates and cleans the data.
+- **Feature Engineering**: Transforms and augments data for better model performance.
+- **Model Training**: Trains models using various algorithms and stores results for evaluation.
+- **Model Evaluation**: Assesses model performance and pushes metrics to monitoring systems.
 
-Picture: Our unit tests
+![Pipeline Diagram](https://github.com/user-attachments/assets/a8ecfda0-bf73-4ce4-9c8c-46b162cf10a2)
 
+## Unit Testing and Continuous Integration
 
+We use **GitHub Actions** to perform automated unit tests on each pipeline component. When changes are pushed to the main branch, GitHub Actions runs the unit tests and provides feedback on their status.
 
+![Unit Test](https://github.com/user-attachments/assets/74c31c68-e3ad-4c8e-ac46-17482e6718f7)
 
+## Contributing
+
+We welcome contributions to improve this project. Please fork the repository, make changes, and submit a pull request. Ensure that your code follows the existing style guidelines and includes tests for any new features.
+
+## License
+
+This project is licensed under the [].
+
+## Contact Information
+
+For questions or collaboration inquiries, please contact one of the team members:
+Aliya at [26aly000@gmail.com]
+Changping Chen at [champing1409@gmail.com]
+Krishna Priya Gitalaxmi at [gitakrishnapriya@gmail.com]
+Qi An at [blessanq@gmail.com]
+Ziqi Li at [zql04150415@gmail.com]
