@@ -106,7 +106,8 @@ We use **Apache Airflow** to manage our pipeline, which includes tasks for data 
 - **Model Training**: Trains models using various algorithms and stores results for evaluation. [Next Stage]
 - **Model Evaluation**: Assesses model performance and pushes metrics to monitoring systems. [Next Stage]
 
-![Pipeline Diagram]
+![Pipeline Diagram](https://github.com/user-attachments/assets/55121bb8-6b69-4101-ba7b-37ae5d89cab9)
+
 
 ## Unit Testing and Continuous Integration
 
