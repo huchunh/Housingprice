@@ -84,7 +84,7 @@ Follow the steps in the main project `README.md` to set up DVC with Google Cloud
 
 ## 6. DAG Structure and Task Descriptions
 
-### airflowdag
+### data_prep_dag
 This DAG orchestrates the main data pipeline tasks:
 - **Data Loading**: Loads raw data from GCS.
 - **Data Validation**: Ensures data integrity by checking schema and formats.
@@ -101,9 +101,13 @@ This DAG handles feature engineering tasks:
 We use GitHub Actions to run unit tests for each task. When functions are merged into the main branch, unit tests trigger automatically, providing feedback on the pipeline's functionality.
 
 To run tests locally:
-```bash
-pytest tests/
-```
+We use GitHub Actions and unit tests to validate functions of our Airflow DAGs. Once functions are merged into the main branch, unit tests are triggered automatically, providing us with feedback on the test results.
+
+![image](https://github.com/user-attachments/assets/dd5985b6-f473-4a29-b036-991de9a1e4b4)
+![image](https://github.com/user-attachments/assets/28978057-f8c0-4e58-bbec-e66ecf3a1ae6)
+![image](https://github.com/user-attachments/assets/74c31c68-e3ad-4c8e-ac46-17482e6718f7)
+
+Picture: Our unit tests
 
 ## 8. Troubleshooting
 
