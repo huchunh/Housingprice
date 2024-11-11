@@ -17,20 +17,16 @@ def encode_one_hot_columns(df):
     
     return df_encoded
 
-def encode_data(file_path):
+def encode_data(data):
     """
     Main function to perform encoding on the dataset.
     """
     # Load the dataset from the file path
-    df = pd.read_csv(file_path)
+    df = pd.read_json(data)
 
     # Apply One-Hot Encoding to the dataset
     df_encoded = encode_one_hot_columns(df)
 
     # Save the encoded data back to the same file path
-    df_encoded.to_csv(file_path, index=False)
-    print(f"Encoded data has been saved to {file_path}")
-
-# Usage example
-file_path = "cleaned_data.csv"
-encode_data(file_path)
+    serialized_data = df.to_json()
+    return serialized_data
