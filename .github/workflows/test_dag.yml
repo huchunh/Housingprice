@@ -27,7 +27,7 @@ jobs:
       # Step 3: Build Airflow Docker Containers
       - name: Build Docker Containers
         run: |
-          docker-compose -f docker-compose.yml up -d --build || {
+          docker-compose -f docker-compose.yaml up -d --build || {
             echo "Failed to build and start Airflow containers!";
             exit 1;
           }
