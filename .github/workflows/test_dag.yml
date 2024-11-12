@@ -6,7 +6,7 @@ on:
       - main
     paths:
       - "Airflow/dags/**"
-      - "docker-compose.yml"
+      - "Airflow/docker-compose.yaml"
 
 jobs:
   test-dag:
@@ -27,7 +27,7 @@ jobs:
       # Step 3: Build Airflow Docker Containers
       - name: Build Docker Containers
         run: |
-          docker-compose -f docker-compose.yaml up -d --build || {
+          docker-compose -f Airflow/docker-compose.yaml up -d --build || {
             echo "Failed to build and start Airflow containers!";
             exit 1;
           }
@@ -64,7 +64,7 @@ jobs:
       - name: Tear Down
         if: always()
         run: |
-          docker-compose -f docker-compose.yaml down || {
+          docker-compose -f Airflow/docker-compose.yaml down || {
             echo "Failed to tear down the Docker environment!";
             exit 1;
           }
