@@ -6,7 +6,7 @@
       branches:
         - main
       paths:
-        - "dags/**"
+        - "Airflow/dags/**"
         - "docker-compose.yml"
   
   jobs:
