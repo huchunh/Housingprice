@@ -1,6 +1,7 @@
 from airflow import DAG
 import logging
 from airflow.operators.python import PythonOperator
+from airflow.operators.trigger_dagrun import TriggerDagRunOperator
 from datetime import datetime, timedelta
 import pandas as pd
 from src.data_splitting import split_data
@@ -120,5 +121,33 @@ data_augmentation_task = PythonOperator(
     dag=dag2,
 )
 
+
+def trigger_dag3_with_conf(**kwargs):
+    ti = kwargs['ti']
+    
+    # Retrieve `augmented_data` and `test_data` from XCom
+    augmented_data = ti.xcom_pull(task_ids='data_augmentation_task', key='augmented_data')
+    test_data = ti.xcom_pull(task_ids='data_split_task', key='test_data')
+    
+    if augmented_data is None or test_data is None:
+        raise ValueError("Required data not found in XCom for 'augmented_data' or 'test_data'")
+
+    # Dynamically set up TriggerDagRunOperator to trigger `dag3`
+    TriggerDagRunOperator(
+        task_id="trigger_model_training_and_evaluation",
+        trigger_dag_id="DAG_Model_Training_and_Evaluation",  # The ID of DAG 3
+        conf={"augmented_data": augmented_data, "test_data": test_data},  # Pass data to DAG 3
+        trigger_rule="all_success",  # Only trigger if all previous tasks in DAG2 are successful
+    ).execute(kwargs)  # Pass Airflow context to execute method
+
+
+# Trigger the DAG3 from DAG2
+trigger_dag3_task = PythonOperator(
+    task_id="trigger_model_training_and_evaluation",
+    python_callable=trigger_dag3_with_conf,
+    provide_context=True,
+    dag=dag2,
+)
+
 # Set dependencies
-data_split_task >> feature_selection_task >> data_augmentation_task
+data_split_task >> feature_selection_task >> data_augmentation_task >> trigger_dag3_task
