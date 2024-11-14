@@ -5,7 +5,7 @@ from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 
 # Function to train the model and make predictions
-def train_and_predict(augmented_data, test_data):
+def train_and_predict(augmented_data, test_data, combined_features):
     """
     Trains a linear regression model and predicts on the test set.
 
@@ -17,9 +17,9 @@ def train_and_predict(augmented_data, test_data):
     Returns:
     - np.ndarray: Predicted values for the test set.
     """
-    X_train = augmented_data.drop('SalePrice', axis=1)
+    X_train = augmented_data[combined_features]
     y_train = augmented_data['SalePrice']
-    X_test = test_data.drop('SalePrice', axis=1)
+    X_test = test_data.drop[combined_features]
 
     model = LinearRegression()
     model.fit(X_train, y_train)

@@ -2,6 +2,7 @@ import pandas as pd
 import numpy as np
 from sklearn.linear_model import LassoCV
 from sklearn.preprocessing import StandardScaler
+from sklearn.ensemble import RandomForestRegressor
 
 def select_correlated_features(encoded_data, numerical_features, target, threshold):
     """
@@ -72,6 +73,40 @@ def rank_features_by_lasso(encoded_data, selected_features, target, threshold):
     feature_importance = pd.Series(lasso.coef_, index=X.columns).abs()
 
     # Filter features based on the specified threshold and sort by importance
+    selected_features = feature_importance[feature_importance >= threshold].sort_values(ascending=False)
+    selected_features = selected_features.index.tolist()
+
+    return selected_features
+
+
+def select_categorical_features_by_rf(encoded_data, selected_features, target, threshold):
+    """
+    Selects important categorical features based on feature importance computed using Random Forest.
+
+    Parameters:
+    - encoded_data (str): JSON-encoded string of the dataset.
+    - target (str): Name of the target variable.
+    - threshold (float): Minimum feature importance threshold for selection.
+
+    Returns:
+    - list: Selected categorical feature names based on importance.
+    """
+    # Load encoded data
+    df = pd.read_json(encoded_data)
+
+    # Extract feature matrix (X) and target variable (y)
+    X = df.drop(columns=[target])  # Exclude target column
+    X = pd.get_dummies(X, drop_first=True)  # One-hot encoding
+    y = df[target]
+
+    # Fit a Random Forest Regressor
+    rf = RandomForestRegressor(n_estimators=100, random_state=42)
+    rf.fit(X, y)
+
+    # Compute feature importances
+    feature_importance = pd.Series(rf.feature_importances_, index=X.columns)
+
+    # Select features with importance above the threshold
     selected_features = feature_importance[feature_importance >= threshold].sort_values(ascending=False)
     selected_features = selected_features.index.tolist()
 
