@@ -28,7 +28,6 @@ jobs:
           python -m pip install --upgrade pip
           pip install apache-airflow
           if [ -f Airflow/requirements.txt ]; then
-            sed -i '/==/d' Airflow/requirements.txt  # Remove version constraints dynamically
             pip install -r Airflow/requirements.txt
           fi
 
