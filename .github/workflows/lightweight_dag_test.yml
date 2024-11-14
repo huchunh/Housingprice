@@ -39,8 +39,25 @@ jobs:
             python "$dag"
           done
 
-      # Step 5: Lint DAG Files
+      # [NEW] Step 5: Test Airflow DAGs (Mock Execution)
+      # Added to test DAG execution with Airflow's test feature
+      - name: Test DAG Execution
+        run: |
+          pip install apache-airflow[testing]
+          echo "Testing DAG: DAG_Data_Preprocessing"
+          airflow dags test DAG_Data_Preprocessing 2024-01-01
+      # ----> Added for lightweight execution testing.
+
+      # Step 6: Lint DAG Files
       - name: Lint DAG Files
         run: |
           pip install flake8
           flake8 Airflow/dags/
+
+      # [NEW] Step 7: Check Airflow DAGs with airflow-dag-linter
+      # Added for structural validation of DAGs
+      - name: Lint DAG Structure
+        run: |
+          pip install airflow-dag-linter
+          airflow-dag-linter Airflow/dags/
+      # ----> Added for ensuring DAG best practices.
