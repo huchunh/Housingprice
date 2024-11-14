@@ -28,6 +28,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install apache-airflow
           if [ -f Airflow/requirements.txt ]; then
+            sed -i '/==/d' Airflow/requirements.txt  # Remove version constraints dynamically
             pip install -r Airflow/requirements.txt
           fi
 
@@ -61,3 +62,9 @@ jobs:
           pip install airflow-dag-linter
           airflow-dag-linter Airflow/dags/
       # ----> Added for ensuring DAG best practices.
+          
+      # Step 7: Generate and Lock Dependencies
+      - name: Lock Dependencies
+        run: |
+          pip freeze > Airflow/locked-requirements.txt
+          echo "Dependencies locked in Airflow/locked-requirements.txt"
