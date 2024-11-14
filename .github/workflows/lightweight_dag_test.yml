@@ -31,7 +31,14 @@ jobs:
             pip install -r Airflow/requirements.txt
           fi
 
-      # Step 4: Validate DAG Syntax
+      # Step 4: Initialize Airflow Database
+      - name: Initialize Airflow Database
+        run: |
+          export AIRFLOW_HOME=$(pwd)/airflow_home
+          airflow db init
+      # ----> Added to ensure Airflow database is ready for DAG testing.
+
+      # Step 5: Validate DAG Syntax
       - name: Validate DAG Syntax
         run: |
           for dag in Airflow/dags/*.py; do
@@ -39,30 +46,28 @@ jobs:
             python "$dag"
           done
 
-      # [NEW] Step 5: Test Airflow DAGs (Mock Execution)
-      # Added to test DAG execution with Airflow's test feature
+      # Step 6: Test Airflow DAGs (Mock Execution)
       - name: Test DAG Execution
         run: |
+          export AIRFLOW_HOME=$(pwd)/airflow_home
           pip install apache-airflow[testing]
           echo "Testing DAG: DAG_Data_Preprocessing"
           airflow dags test DAG_Data_Preprocessing 2024-01-01
-      # ----> Added for lightweight execution testing.
+      # ----> Adjusted for database initialization and execution environment.
 
-      # Step 6: Lint DAG Files
+      # Step 7: Lint DAG Files
       - name: Lint DAG Files
         run: |
           pip install flake8
           flake8 Airflow/dags/
 
-      # [NEW] Step 7: Check Airflow DAGs with airflow-dag-linter
-      # Added for structural validation of DAGs
+      # Step 8: Check Airflow DAGs with airflow-dag-linter
       - name: Lint DAG Structure
         run: |
           pip install airflow-dag-linter
           airflow-dag-linter Airflow/dags/
-      # ----> Added for ensuring DAG best practices.
-          
-      # Step 7: Generate and Lock Dependencies
+
+      # Step 9: Generate and Lock Dependencies
       - name: Lock Dependencies
         run: |
           pip freeze > Airflow/locked-requirements.txt
