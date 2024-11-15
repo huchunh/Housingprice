@@ -42,8 +42,14 @@ jobs:
           export AIRFLOW_HOME=$(pwd)/Airflow
           airflow db init
       # ----> Ensures the database is initialized in the correct Airflow directory.
+      
+      # Step 6: Lint DAG Files
+      - name: Lint DAG Files
+        run: |
+          pip install flake8
+          flake8 Airflow/dags/ --max-line-length=120
 
-      # Step 6: Validate DAG Syntax
+      # Step 7: Validate DAG Syntax
       - name: Validate DAG Syntax
         run: |
           export AIRFLOW_HOME=$(pwd)/Airflow
@@ -52,7 +58,7 @@ jobs:
             python "$dag"
           done
 
-      # Step 7: Test Airflow DAGs (Mock Execution)
+      # Step 8: Test Airflow DAGs (Mock Execution)
       - name: Test DAG Execution
         run: |
           export AIRFLOW_HOME=$(pwd)/Airflow
@@ -60,13 +66,6 @@ jobs:
           echo "Testing DAG: DAG_Data_Preprocessing"
           airflow dags test DAG_Data_Preprocessing 2024-01-01
       # ----> Adjusted for the Airflow directory structure.
-
-      # Step 8: Lint DAG Files
-      - name: Lint DAG Files
-        run: |
-          pip install flake8
-          flake8 Airflow/dags/ --max-line-length=120
-
 
       # Step 9: Generate and Lock Dependencies
       - name: Lock Dependencies
