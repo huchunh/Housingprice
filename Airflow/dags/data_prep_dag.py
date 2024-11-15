@@ -152,7 +152,9 @@ def trigger_dag2_with_conf(**kwargs):
         )
 
         if encoded_result is None:
-            raise ValueError("No encoded data found in XCom for 'encoded_result'.")
+            raise ValueError(
+                "No encoded data found in XCom for 'encoded_result'."
+            )
 
         TriggerDagRunOperator(
             task_id="trigger_feature_select_and_data_augmentation",
