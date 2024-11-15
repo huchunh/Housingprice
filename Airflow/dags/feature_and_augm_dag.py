@@ -142,7 +142,7 @@ def trigger_dag3_with_conf(**kwargs):
     TriggerDagRunOperator(
         task_id="trigger_model_training_and_evaluation",
         trigger_dag_id="DAG_Model_Training_and_Evaluation",  # The ID of DAG 3
-        conf={"augmented_data": augmented_data, "test_data": test_data, 
+        conf={"augmented_data": augmented_data, "test_data": test_data,
               "combined_features": combined_features, },  # Pass data to DAG 3
         trigger_rule="all_success",  # Only trigger if all previous tasks in DAG2 are successful
     ).execute(kwargs)  # Pass Airflow context to execute method
