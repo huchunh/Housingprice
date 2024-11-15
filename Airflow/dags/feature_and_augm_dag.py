@@ -117,5 +117,4 @@ data_augmentation_task = PythonOperator(
 )
 
 # Set dependencies
-data_split_task >> feature_selection_task
-#data_split_task >> feature_selection_task >> data_augmentation_task
+data_split_task >> feature_selection_task >> data_augmentation_task
