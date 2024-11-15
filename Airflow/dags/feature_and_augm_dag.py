@@ -1,10 +1,11 @@
 from airflow import DAG
 import logging
 from airflow.operators.python import PythonOperator
+from airflow.operators.trigger_dagrun import TriggerDagRunOperator
 from datetime import datetime, timedelta
 import pandas as pd
 from src.data_splitting import split_data
-from src.feature_select import rank_features_by_lasso, select_correlated_features
+from src.feature_select import rank_features_by_lasso, select_correlated_features, select_categorical_features_by_rf
 from src.data_augment import augment_data_with_perturbations
 
 # Define default arguments for your DAG
@@ -74,14 +75,37 @@ def feature_selection_callable(**kwargs):
         "Open Porch SF", "Enclosed Porch", "3Ssn Porch", "Screen Porch",
         "Pool Area", "Misc Val", "Mo Sold", "Yr Sold"
     ]
+    # Load the encoded data
+    df = pd.read_json(encoded_data_json)
     target = 'SalePrice'
+    # Identify one-hot encoded categorical columns
+    categorical_features = [col for col in df.columns if col not in numerical_features + [target]]
 
-    selected_features = select_correlated_features(
-        encoded_data_json, numerical_features, target, threshold=0.3
+    
+    # Step 1: Select features based on correlation
+    selected_features = select_correlated_features(encoded_data_json, numerical_features, target, threshold=0.3)
+
+    # Step 2: Rank features using Lasso and further refine the selection
+    final_features = rank_features_by_lasso(encoded_data_json, selected_features, target, threshold=0.1)
+
+    # Step 3: Select categorical features using Random Forest
+    selected_categorical_features = select_categorical_features_by_rf(
+        encoded_data=encoded_data_json,  # Pass JSON-encoded dataset
+        selected_features=categorical_features,  # Focus on categorical features
+        target=target, 
+        threshold=0.01
     )
-    final_features = rank_features_by_lasso(
-        encoded_data_json, selected_features, target, threshold=0.1
-    )
+    
+    # Step 4: Combine numerical and categorical features
+    combined_features = list(set(final_features + selected_categorical_features))  # Remove duplicates
+    
+    # Push combined features to XCom
+    ti.xcom_push(key='combined_features', value=combined_features)
+
+    # Push categorical features to XCom
+    ti.xcom_push(key='selected_categorical_features', value=selected_categorical_features)
+
+    # Push final selected features to XCom for use in subsequent tasks
     ti.xcom_push(key='final_features', value=final_features)
 
 
@@ -93,12 +117,13 @@ feature_selection_task = PythonOperator(
 )
 
 
+# Data augmentation task
 def data_augmentation_callable(**kwargs):
     """Task to augment data."""
     ti = kwargs['ti']
     train_data_json = ti.xcom_pull(task_ids='data_split_task', key='train_data')
     final_features = ti.xcom_pull(task_ids='feature_selection_task', key='final_features')
-
+    combined_features = ti.xcom_pull(task_ids='feature_selection_task', key='combined_features')
     if train_data_json is None or final_features is None:
         raise ValueError("Required data not found in XCom")
 
@@ -107,6 +132,7 @@ def data_augmentation_callable(**kwargs):
         train_data, final_features, perturbation_percentage=0.02
     )
     ti.xcom_push(key='augmented_data', value=augmented_data.to_json(orient='split'))
+    ti.xcom_push(key='combined_features', value=combined_features)
 
 
 data_augmentation_task = PythonOperator(
@@ -116,5 +142,36 @@ data_augmentation_task = PythonOperator(
     dag=dag2,
 )
 
+
+def trigger_dag3_with_conf(**kwargs):
+    ti = kwargs['ti']
+    
+    # Retrieve `augmented_data` and `test_data` from XCom
+    augmented_data = ti.xcom_pull(task_ids='data_augmentation_task', key='augmented_data')
+    test_data = ti.xcom_pull(task_ids='data_split_task', key='test_data')
+    combined_features = ti.xcom_pull(task_ids='feature_selection_task', key='combined_features')
+
+
+    if augmented_data is None or test_data is None:
+        raise ValueError("Required data not found in XCom for 'augmented_data' or 'test_data'")
+
+    # Dynamically set up TriggerDagRunOperator to trigger `dag3`
+    TriggerDagRunOperator(
+        task_id="trigger_model_training_and_evaluation",
+        trigger_dag_id="DAG_Model_Training_and_Evaluation",  # The ID of DAG 3
+        conf={"augmented_data": augmented_data, "test_data": test_data,
+              "combined_features": combined_features,},  # Pass data to DAG 3
+        trigger_rule="all_success",  # Only trigger if all previous tasks in DAG2 are successful
+    ).execute(kwargs)  # Pass Airflow context to execute method
+
+
+# Trigger the DAG3 from DAG2
+trigger_dag3_task = PythonOperator(
+    task_id="trigger_model_training_and_evaluation",
+    python_callable=trigger_dag3_with_conf,
+    provide_context=True,
+    dag=dag2,
+)
+
 # Set dependencies
-data_split_task >> feature_selection_task >> data_augmentation_task
+data_split_task >> feature_selection_task >> data_augmentation_task >> trigger_dag3_task

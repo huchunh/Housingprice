@@ -6,7 +6,7 @@ from datetime import datetime, timedelta
 from src.data_prep import (
     load_data, data_overview, data_validation, data_cleaning
 )
-from src.label_encode import encode_data
+from src.one_hot_encoder import encode_data
 
 # Define default arguments for your DAG
 default_args = {
@@ -126,32 +126,33 @@ data_cleaning_task = PythonOperator(
 )
 
 
+# Task to perform one-hot encoding
 def encode_data_callable(**kwargs):
-    """Task to encode data."""
     try:
         ti = kwargs['ti']
-        cleaned_data = ti.xcom_pull(
-            task_ids='data_cleaning_task',
-            key='cleaned_data'
-        )
+        cleaned_data = ti.xcom_pull(task_ids='data_cleaning_task', key='cleaned_data')
         if cleaned_data is None:
-            raise ValueError("No data found in XCom for key 'cleaned_data'.")
-
-        encoded_result, _ = encode_data(cleaned_data)
+            raise ValueError("No data found in XCom for key 'cleaned_data'")
+        
+        # Encode data using updated encode_data function (one-hot encoding)
+        encoded_result = encode_data(cleaned_data)
+        
+        # Push the encoded data as a JSON string
         ti.xcom_push(key='encoded_result', value=encoded_result)
-        logging.info("Data encoding completed successfully.")
+        logging.info("Data encoding (one-hot) completed successfully")
     except Exception as e:
         logging.error(f"Error in encode_data_task: {str(e)}")
         raise
 
-
 encode_data_task = PythonOperator(
     task_id='encode_data_task',
     python_callable=encode_data_callable,
+    provide_context=True,
     dag=dag1,
 )
 
 
+# Function to retrieve XCom data and trigger dag2
 def trigger_dag2_with_conf(**kwargs):
     """Trigger another DAG with encoded data."""
     try:
