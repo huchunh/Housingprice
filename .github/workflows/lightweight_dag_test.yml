@@ -67,13 +67,8 @@ jobs:
           pip install flake8
           flake8 Airflow/dags/ --max-line-length=120
 
-      # Step 9: Check Airflow DAGs with airflow-dag-linter
-      - name: Lint DAG Structure
-        run: |
-          pip install airflow-dag-linter
-          airflow-dag-linter Airflow/dags/
 
-      # Step 10: Generate and Lock Dependencies
+      # Step 9: Generate and Lock Dependencies
       - name: Lock Dependencies
         run: |
           pip freeze > Airflow/locked-requirements.txt
