@@ -31,7 +31,10 @@ def load_data_callable(**kwargs):
     """Task to load data."""
     try:
         data = load_data()
-        kwargs['ti'].xcom_push(key='data', value=data)
+        kwargs['ti'].xcom_push(
+            key='data',
+            value=data
+        )
         logging.info("Data loaded successfully.")
     except Exception as e:
         logging.error(f"Error in load_data_task: {str(e)}")
@@ -73,7 +76,8 @@ def data_validation_callable(**kwargs):
     try:
         ti = kwargs['ti']
         overview_data = ti.xcom_pull(
-            task_ids='data_overview_task', key='overview_data'
+            task_ids='data_overview_task',
+            key='overview_data'
         )
         if overview_data is None:
             raise ValueError("No data found in XCom for key 'overview_data'.")
@@ -98,7 +102,8 @@ def data_cleaning_callable(**kwargs):
     try:
         ti = kwargs['ti']
         validated_data = ti.xcom_pull(
-            task_ids='data_validation_task', key='validated_data'
+            task_ids='data_validation_task',
+            key='validated_data'
         )
         if validated_data is None:
             raise ValueError("No data found in XCom for key 'validated_data'.")
@@ -123,7 +128,8 @@ def encode_data_callable(**kwargs):
     try:
         ti = kwargs['ti']
         cleaned_data = ti.xcom_pull(
-            task_ids='data_cleaning_task', key='cleaned_data'
+            task_ids='data_cleaning_task',
+            key='cleaned_data'
         )
         if cleaned_data is None:
             raise ValueError("No data found in XCom for key 'cleaned_data'.")
@@ -148,7 +154,8 @@ def trigger_dag2_with_conf(**kwargs):
     try:
         ti = kwargs['ti']
         encoded_result = ti.xcom_pull(
-            task_ids='encode_data_task', key='encoded_result'
+            task_ids='encode_data_task',
+            key='encoded_result'
         )
 
         if encoded_result is None:
@@ -159,7 +166,9 @@ def trigger_dag2_with_conf(**kwargs):
         TriggerDagRunOperator(
             task_id="trigger_feature_select_and_data_augmentation",
             trigger_dag_id="DAG_feature_select_and_data_augmentation",
-            conf={"encoded_result": encoded_result},
+            conf={
+                "encoded_result": encoded_result
+            },
             trigger_rule="all_success",
         ).execute(kwargs)
         logging.info("DAG 2 triggered successfully.")
