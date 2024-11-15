@@ -133,16 +133,15 @@ def encode_data_callable(**kwargs):
         cleaned_data = ti.xcom_pull(task_ids='data_cleaning_task', key='cleaned_data')
         if cleaned_data is None:
             raise ValueError("No data found in XCom for key 'cleaned_data'")
-        
         # Encode data using updated encode_data function (one-hot encoding)
         encoded_result = encode_data(cleaned_data)
-        
         # Push the encoded data as a JSON string
         ti.xcom_push(key='encoded_result', value=encoded_result)
         logging.info("Data encoding (one-hot) completed successfully")
     except Exception as e:
         logging.error(f"Error in encode_data_task: {str(e)}")
         raise
+
 
 encode_data_task = PythonOperator(
     task_id='encode_data_task',
