@@ -20,7 +20,10 @@ default_args = {
 dag1 = DAG(
     'DAG_Data_Preprocessing',
     default_args=default_args,
-    description='DAG for data preprocessing tasks in House Price Prediction Project',
+    description=(
+        'DAG for data preprocessing tasks '
+        'in House Price Prediction Project'
+    ),
     schedule_interval=None,
     catchup=False,
     max_active_runs=1,
@@ -184,4 +187,5 @@ trigger_dag2_task = PythonOperator(
 )
 
 # Set task dependencies
-load_data_task >> data_overview_task >> data_validation_task >> data_cleaning_task >> encode_data_task >> trigger_dag2_task
+load_data_task >> data_overview_task >> data_validation_task >> \
+    data_cleaning_task >> encode_data_task >> trigger_dag2_task

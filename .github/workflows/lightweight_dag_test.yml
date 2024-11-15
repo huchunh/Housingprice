@@ -65,7 +65,7 @@ jobs:
       - name: Lint DAG Files
         run: |
           pip install flake8
-          flake8 Airflow/dags/
+          flake8 Airflow/dags/ --max-line-length=120
 
       # Step 9: Check Airflow DAGs with airflow-dag-linter
       - name: Lint DAG Structure
