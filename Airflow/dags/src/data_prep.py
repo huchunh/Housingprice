@@ -56,11 +56,11 @@ def data_validation(data):
     # Drop outliers for 'Gr Liv Area'
     df.drop(df[df['Gr Liv Area'] > 4000].index, inplace=True)
     logging.info("Outliers removed where 'Gr Liv Area' > 4000.")
-    
+
     # Correcting Garage Year Built anomaly
     df['Garage Yr Blt'] = df['Garage Yr Blt'].replace({2207: 2007})
     logging.info("Corrected 'Garage Yr Blt' from 2207 to 2007.")
-    
+
     return df.to_json()
 
 
