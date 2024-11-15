@@ -119,10 +119,10 @@ def detect_model_bias_callable(**kwargs):
 
 
 bias_detection_task = PythonOperator(
-task_id='detect_model_bias_task',
-python_callable=detect_model_bias_callable,
-provide_context=True,
-dag=dag3,)
+    task_id='detect_model_bias_task',
+    python_callable=detect_model_bias_callable,
+    provide_context=True,
+    dag=dag3,)
 
 
 def evaluate_bias_disparity_callable(**kwargs):
@@ -142,10 +142,10 @@ def evaluate_bias_disparity_callable(**kwargs):
 
 
 bias_disparity_evaluation_task = PythonOperator(
-task_id='evaluate_bias_disparity_task',
-python_callable=evaluate_bias_disparity_callable,
-provide_context=True,
-dag=dag3,)
+    task_id='evaluate_bias_disparity_task',
+    python_callable=evaluate_bias_disparity_callable,
+    provide_context=True,
+    dag=dag3,)
 
 
 # Set dependencies for tasks within dag3

@@ -12,9 +12,7 @@ def encode_one_hot_columns(df):
     df_encoded = pd.get_dummies(df, columns=categorical_columns)
     print("Data after One-Hot Encoding:")
     print(df_encoded.head())
-    
     return df_encoded
-
 
 
 def encode_data(data):

@@ -75,7 +75,7 @@ def feature_selection_callable(**kwargs):
     df = pd.read_json(encoded_data_json)
     target = 'SalePrice'
     # Identify one-hot encoded categorical columns
-    categorical_features = [col for col in df.columns if col not in numerical_features + [target]] 
+    categorical_features = [col for col in df.columns if col not in numerical_features + [target]]
     # Step 1: Select features based on correlation
     selected_features = select_correlated_features(encoded_data_json, numerical_features, target, threshold=0.3)
     # Step 2: Rank features using Lasso and further refine the selection
@@ -84,7 +84,7 @@ def feature_selection_callable(**kwargs):
     selected_categorical_features = select_categorical_features_by_rf(
         encoded_data=encoded_data_json,  # Pass JSON-encoded dataset
         selected_features=categorical_features,  # Focus on categorical features
-        target=target, 
+        target=target,
         threshold=0.01
     )
     # Step 4: Combine numerical and categorical features
@@ -142,7 +142,7 @@ def trigger_dag3_with_conf(**kwargs):
     TriggerDagRunOperator(
         task_id="trigger_model_training_and_evaluation",
         trigger_dag_id="DAG_Model_Training_and_Evaluation",  # The ID of DAG 3
-        conf={"augmented_data": augmented_data, "test_data": test_data,"combined_features": combined_features,},  # Pass data to DAG 3
+        conf={"augmented_data": augmented_data, "test_data": test_data, "combined_features": combined_features, },  # Pass data to DAG 3
         trigger_rule="all_success",  # Only trigger if all previous tasks in DAG2 are successful
     ).execute(kwargs)  # Pass Airflow context to execute method
 
