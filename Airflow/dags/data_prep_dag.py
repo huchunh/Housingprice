@@ -3,7 +3,9 @@ from airflow import DAG
 from airflow.operators.python import PythonOperator
 from airflow.operators.trigger_dagrun import TriggerDagRunOperator
 from datetime import datetime, timedelta
-from src.data_prep import load_data, data_overview, data_validation, data_cleaning
+from src.data_prep import (
+    load_data, data_overview, data_validation, data_cleaning
+)
 from src.label_encode import encode_data
 
 # Define default arguments for your DAG
@@ -70,7 +72,9 @@ def data_validation_callable(**kwargs):
     """Task to validate data."""
     try:
         ti = kwargs['ti']
-        overview_data = ti.xcom_pull(task_ids='data_overview_task', key='overview_data')
+        overview_data = ti.xcom_pull(
+            task_ids='data_overview_task', key='overview_data'
+        )
         if overview_data is None:
             raise ValueError("No data found in XCom for key 'overview_data'.")
 
@@ -93,7 +97,9 @@ def data_cleaning_callable(**kwargs):
     """Task to clean data."""
     try:
         ti = kwargs['ti']
-        validated_data = ti.xcom_pull(task_ids='data_validation_task', key='validated_data')
+        validated_data = ti.xcom_pull(
+            task_ids='data_validation_task', key='validated_data'
+        )
         if validated_data is None:
             raise ValueError("No data found in XCom for key 'validated_data'.")
 
@@ -116,7 +122,9 @@ def encode_data_callable(**kwargs):
     """Task to encode data."""
     try:
         ti = kwargs['ti']
-        cleaned_data = ti.xcom_pull(task_ids='data_cleaning_task', key='cleaned_data')
+        cleaned_data = ti.xcom_pull(
+            task_ids='data_cleaning_task', key='cleaned_data'
+        )
         if cleaned_data is None:
             raise ValueError("No data found in XCom for key 'cleaned_data'.")
 
@@ -139,7 +147,9 @@ def trigger_dag2_with_conf(**kwargs):
     """Trigger another DAG with encoded data."""
     try:
         ti = kwargs['ti']
-        encoded_result = ti.xcom_pull(task_ids='encode_data_task', key='encoded_result')
+        encoded_result = ti.xcom_pull(
+            task_ids='encode_data_task', key='encoded_result'
+        )
 
         if encoded_result is None:
             raise ValueError("No encoded data found in XCom for 'encoded_result'.")
