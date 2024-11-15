@@ -29,17 +29,20 @@ dag3 = DAG(
     max_active_runs=1,
 )
 
+
 # Initialize MLflow and ngrok
 def initialize_mlflow_callable():
     os.system("lsof -t -i:5000 | xargs kill -9")  # Terminate any process using port 5000
     mlflow.set_tracking_uri("http://127.0.0.1:5000")
     mlflow.end_run()  # Ensure no active run
 
+
 initialize_mlflow_task = PythonOperator(
     task_id='initialize_mlflow_task',
     python_callable=initialize_mlflow_callable,
     dag=dag3,
 )
+
 
 # Task to train the model and make predictions
 def train_and_predict_callable(**kwargs):
@@ -180,4 +183,5 @@ bias_disparity_evaluation_task = PythonOperator(
 
 
 # Set dependencies for tasks within dag3
-initialize_mlflow_task >> train_and_predict_task >> evaluate_and_compare_task >> bias_detection_task >> bias_disparity_evaluation_task
+initialize_mlflow_task >> train_and_predict_task >> evaluate_and_compare_task >> \
+    bias_detection_task >> bias_disparity_evaluation_task
