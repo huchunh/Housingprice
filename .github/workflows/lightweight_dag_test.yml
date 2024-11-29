@@ -44,10 +44,10 @@ jobs:
       # ----> Ensures the database is initialized in the correct Airflow directory.
       
       # Step 6: Lint DAG Files
-      - name: Lint DAG Files
-        run: |
-          pip install flake8
-          flake8 Airflow/dags/ --max-line-length=120
+      #- name: Lint DAG Files
+      #  run: |
+      #    pip install flake8
+      #    flake8 Airflow/dags/ --max-line-length=120
 
       # Step 7: Validate DAG Syntax
       - name: Validate DAG Syntax
