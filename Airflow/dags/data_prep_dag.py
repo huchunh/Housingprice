@@ -8,7 +8,7 @@ from src.data_prep import (
 )
 from src.one_hot_encoder import encode_data
 
-# Define default arguments for your DAG
+# Define default arguments for the DAG
 default_args = {
     'owner': 'House_Price_Prediction Team',
     'start_date': datetime(2024, 10, 29),
