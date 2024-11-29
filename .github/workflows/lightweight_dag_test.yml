@@ -70,7 +70,7 @@ jobs:
           
       - name: Trigger DAG
         run: |
-          airflow dags trigger -d DAG_Data_Preprocessing
+          airflow dags trigger DAG_Data_Preprocessing
       
       # ----> Adjusted for the Airflow directory structure.
 
