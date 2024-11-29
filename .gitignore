@@ -1,1 +1,15 @@
+# macOS system file
 .DS_Store
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Airflow logs
+logs/
+Airflow/logs/
+Airflow/*.log
+Airflow/dags/*.log
+
+#ignore mlruns
+mlruns/
