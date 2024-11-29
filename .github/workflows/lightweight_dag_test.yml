@@ -27,6 +27,7 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install apache-airflow
+          pip install graphviz
           if [ -f Airflow/requirements.txt ]; then
             pip install -r Airflow/requirements.txt
           fi
@@ -40,7 +41,7 @@ jobs:
       - name: Initialize Airflow Database
         run: |
           export AIRFLOW_HOME=$(pwd)/Airflow
-          airflow db init
+          airflow db migrate
           # Run the init-db.sh script
           bash Airflow/scripts/init-db.sh
       # ----> Ensures the database is initialized in the correct Airflow directory.
