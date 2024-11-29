@@ -67,6 +67,11 @@ jobs:
           pip install apache-airflow[testing]
           echo "Testing DAG: DAG_Data_Preprocessing"
           airflow dags test DAG_Data_Preprocessing 2024-01-01
+          
+      - name: Trigger DAG
+        run: |
+          airflow dags trigger -d DAG_Data_Preprocessing
+      
       # ----> Adjusted for the Airflow directory structure.
 
       # Step 9: Generate and Lock Dependencies
