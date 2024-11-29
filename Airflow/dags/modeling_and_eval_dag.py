@@ -13,7 +13,7 @@ from src.model_linear_regression import train_and_predict_linear_regression
 from src.model_rf import evaluate_model
 from src.model_elastic_net import train_and_predict_elastic_net
 
-# Define default arguments for your DAG
+# Define default arguments for the DAG
 default_args = {
     'owner': 'House_Price_Prediction Team',
     'start_date': datetime(2024, 11, 6),
