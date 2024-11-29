@@ -3,7 +3,7 @@ def detect_model_bias(test_data, y_pred, encoded_features, target):
     Detect model bias by evaluating performance metrics across groups.
 
     Parameters:
-    - test_data (pd.DataFrame): Test dataset containing predictions and group features.
+    - test_data (pd.DataFrame): Test dataset containing predictions and group features .
     - y_pred (np.ndarray): Model predictions for the test data.
     - group_feature (str): Feature name to group by (e.g., 'Overall Qual').
     - target (str): Target variable name (e.g., 'SalePrice').
