@@ -41,6 +41,8 @@ jobs:
         run: |
           export AIRFLOW_HOME=$(pwd)/Airflow
           airflow db init
+          # Run the init-db.sh script
+          bash Airflow/scripts/init-db.sh
       # ----> Ensures the database is initialized in the correct Airflow directory.
       
       # Step 6: Lint DAG Files
