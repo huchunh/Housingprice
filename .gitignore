@@ -10,3 +10,6 @@ logs/
 Airflow/logs/
 Airflow/*.log
 Airflow/dags/*.log
+
+#ignore mlruns
+mlruns/
