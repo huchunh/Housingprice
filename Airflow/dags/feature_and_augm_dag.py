@@ -8,7 +8,7 @@ from src.data_splitting import split_data
 from src.feature_select import rank_features_by_lasso, select_correlated_features, select_categorical_features_by_rf
 from src.data_augment import augment_data_with_perturbations
 
-# Define default arguments for your DAG
+# Define default arguments for the DAG
 default_args = {
     'owner': 'House_Price_Prediction Team',
     'start_date': datetime(2024, 11, 2),
