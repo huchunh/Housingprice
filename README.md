@@ -293,7 +293,7 @@ pytest tests/
 - **[Google Cloud SDK](https://cloud.google.com/sdk/docs)**: Guide for configuring GCS and managing data storage.
 - **[DVC Documentation](https://dvc.org/doc)**: Guide for setting up DVC for data versioning.
 
-# **Running MLflow UI in an Airflow Container**
+# **Running MLflow UI in an Airflow Container for Experiment Tracking**
 
 This guide explains how to run the **MLflow UI** from an Airflow container in a Dockerized environment. It assumes you already have an Airflow setup running using `docker-compose` and MLflow installed in the containers via `_PIP_ADDITIONAL_REQUIREMENTS`.
 ![image](https://github.com/user-attachments/assets/e0e1720d-b7f7-4f88-afbb-546535b91c5d)
