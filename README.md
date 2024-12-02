@@ -24,7 +24,7 @@ This project aims to develop an accurate, condition-aware model for predicting h
 
 - **Data Acquisition**: Data scraping from Zillow and integration with the Ames Housing Dataset.
 - **Data Preprocessing**: Cleaning, transforming, and feature engineering to enhance prediction accuracy.
-- **Modeling Techniques**: Utilizes regression, tree-based models, and neural networks to compare and optimize performance.
+- **Modeling Techniques**: Utilizes regression, tree-based models to compare and optimize performance.
 - **CI/CD Practices**: Automated deployment and testing using GitHub Actions.
 - **Model Monitoring and Maintenance**: Tracks model performance and ensures fairness in predictions over time.
 
@@ -129,7 +129,7 @@ For questions or collaboration inquiries, please contact one of the team members
 - Aliya at [26aly000@gmail.com]
 - Changping Chen at [champing1409@gmail.com]
 - Krishna Priya Gitalaxmi at [gitakrishnapriya@gmail.com]
-- Qi An at [blessanq@gmail.com]
+- Qi An at [an.qi2@northeastern.edu]
 - Ziqi Li at [zql04150415@gmail.com]
   
 # Airflow Pipeline Setup and Usage
@@ -589,13 +589,74 @@ The selected features were passed through the `augment_data_with_perturbations` 
 
 ## 7. Model Selection and Training
 
-For model selection, we experimented with regression, tree-based models, and neural networks. **Lasso regression** and **tree-based models** were chosen for their interpretability and performance. Hyperparameters were fine-tuned to optimize performance while avoiding overfitting.
+For model selection,  we implemented and compared three regression models to predict house prices. These models were chosen for their ability to handle both simple and complex relationships between features and the target variable, providing a comprehensive evaluation of model performance.
+
+**1. Linear Regression**:
+
+Linear regression serves as a foundational model to establish a baseline for prediction accuracy. It assumes a linear relationship between the features and the target variable (SalePrice).
+
+Strengths:
+Simple and interpretable.
+Ideal for datasets exhibiting linear relationships.
+
+Implementation:
+Standard linear regression was implemented without regularization to capture the direct influence of features on the target.
+Features were standardized before training for consistent model scaling.
+Model training and predictions were logged and tracked using MLflow.
+
+**2. Random Forest Regressor**:
+
+Random Forest is an ensemble tree-based model that aggregates predictions from multiple decision trees to reduce variance and improve prediction accuracy.
+
+Strengths:
+Handles non-linear relationships and interactions between features effectively.
+Robust to overfitting with a proper number of trees (n_estimators).
+Capable of ranking feature importance.
+
+Implementation:
+Hyperparameters such as the number of trees (n_estimators) were tuned to balance performance and computational cost.
+MLflow was used to track the training process, including feature importance and performance.
+
+**3. Elastic Net Regressor**:
+
+Elastic Net is a linear regression model with combined L1 (Lasso) and L2 (Ridge) regularization penalties. It balances feature selection and coefficient shrinkage to improve generalization.
+
+Strengths:
+Effective when there are correlations among features.
+Automatically reduces the impact of less important features.
+Combines the strengths of Lasso (sparse feature selection) and Ridge (handles multicollinearity).
+
+Implementation:
+Hyperparameters alpha (penalty strength) and l1_ratio (balance between Lasso and Ridge) were fine-tuned.
+Elastic Net was chosen to handle the complexity of correlated features identified during feature selection.
 
 ---
 
 ## 8. Evaluation Metrics
 
-To assess model performance, we used **Root Mean Squared Error (RMSE)** and **Mean Absolute Error (MAE)**, as both metrics provide insight into prediction accuracy and error magnitudes. These metrics help in evaluating model generalization and guiding further tuning.
+To assess the performance of our models, we employed a consistent set of evaluation metrics across all three models: Linear Regression, Elastic Net Regressor, and Random Forest Regressor. These metrics provide comprehensive insights into the predictive accuracy, error magnitude, and overall model fit.
+
+Metrics Used:
+
+**1. Root Mean Squared Error (RMSE):**
+
+Measures the standard deviation of prediction errors.
+Lower RMSE indicates better performance and fewer large prediction errors.
+
+**2. Mean Absolute Error (MAE):**
+
+Computes the average of absolute differences between predicted and actual values.
+Provides a direct measure of prediction accuracy in the same units as the target variable.
+
+**3. Mean Squared Error (MSE):**
+
+Calculates the average squared difference between predicted and actual values.
+Heavily penalizes larger errors, which makes it useful when avoiding large deviations is critical.
+
+**4. R-squared (R²):**
+
+Evaluates the proportion of variance in the target variable explained by the model.
+Higher R² values (closer to 1) signify better model fit.
 
 ---
 
