@@ -296,6 +296,9 @@ pytest tests/
 # **Running MLflow UI in an Airflow Container**
 
 This guide explains how to run the **MLflow UI** from an Airflow container in a Dockerized environment. It assumes you already have an Airflow setup running using `docker-compose` and MLflow installed in the containers via `_PIP_ADDITIONAL_REQUIREMENTS`.
+![image](https://github.com/user-attachments/assets/e0e1720d-b7f7-4f88-afbb-546535b91c5d)
+![image](https://github.com/user-attachments/assets/d5bee6ac-93bd-4dfa-a1b0-0d92ef9c01b9)
+![image](https://github.com/user-attachments/assets/750effb5-34bf-4c72-a9d9-7fb311b043d2)
 
 ---
 
