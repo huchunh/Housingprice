@@ -4,6 +4,43 @@ from airflow.models import Variable
 from google.cloud import storage
 import logging
 
+def fetch_latest_data():
+    """
+    Fetch the latest data file from the 'data/' folder in the GCS bucket and load it into a DataFrame.
+    """
+    # Fetch the credentials from Airflow Variables
+    gcp_credentials = Variable.get("GOOGLE_APPLICATION_CREDENTIALS", deserialize_json=True)
+
+    # Authenticate using the fetched credentials
+    credentials = service_account.Credentials.from_service_account_info(gcp_credentials)
+
+    # Create a storage client with specified credentials
+    storage_client = storage.Client(credentials=credentials)
+    bucket_name = 'bucket_data_mlopsteam2'
+    folder_prefix = 'data/'
+
+    # Get the bucket
+    bucket = storage_client.get_bucket(bucket_name)
+
+    # List all blobs in the 'data/' folder
+    blobs = list(bucket.list_blobs(prefix=folder_prefix))
+    if not blobs:
+        raise ValueError(f"No files found in folder: {folder_prefix}")
+
+    # Find the latest blob based on updated time
+    latest_blob = max(blobs, key=lambda blob: blob.updated)
+    logging.info(f"Latest file: {latest_blob.name}")
+
+    # Download the latest blob to a temporary file
+    local_file_path = '/tmp/AmesHousing.csv'
+    latest_blob.download_to_filename(local_file_path)
+
+    # Load the dataset into a DataFrame
+    data = pd.read_csv(local_file_path)
+    serialized_data = data.to_json()  # Serialize DataFrame to JSON
+    logging.info(data.head())
+    
+    return serialized_data
 
 def load_data():
     # Fetch the credentials from Airflow Variables

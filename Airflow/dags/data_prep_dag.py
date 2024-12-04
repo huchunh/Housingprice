@@ -4,7 +4,7 @@ from airflow.operators.python import PythonOperator
 from airflow.operators.trigger_dagrun import TriggerDagRunOperator
 from datetime import datetime, timedelta
 from src.data_prep import (
-    load_data, data_overview, data_validation, data_cleaning
+    data_overview, data_validation, data_cleaning, fetch_latest_data
 )
 from src.one_hot_encoder import encode_data
 
@@ -24,7 +24,7 @@ dag1 = DAG(
         'DAG for data preprocessing tasks '
         'in House Price Prediction Project'
     ),
-    schedule_interval=None,
+    schedule_interval="0 */1 * * *",
     catchup=False,
     max_active_runs=1,
 )
@@ -33,7 +33,7 @@ dag1 = DAG(
 def load_data_callable(**kwargs):
     """Task to load data."""
     try:
-        data = load_data()
+        data = fetch_latest_data()
         kwargs['ti'].xcom_push(
             key='data',
             value=data
