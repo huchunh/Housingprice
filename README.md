@@ -502,6 +502,121 @@ fi
 ## Contact
 If you encounter further issues, consult the Docker and PostgreSQL documentation or reach out for support.
 
+---
+
+## Data Validation and Data Shift Detection
+
+To ensure high-quality data processing and robust model training, the project incorporates automated **Data Validation** and **Data Shift Detection** mechanisms. These processes leverage **TensorFlow Data Validation (TFDV)** and custom Cloud Functions integrated with **Google Pub/Sub** for real-time tracking of changes to the data folder in the GCS bucket. Notifications are sent via email for critical events.
+
+![image](https://github.com/user-attachments/assets/a4199b64-e6be-4a0c-876c-fed11986d7ba)
+
+
+---
+
+### 1. Data Validation using TFDV
+
+We use **TensorFlow Data Validation (TFDV)** to validate the dataset during the preprocessing pipeline. TFDV automatically analyzes the dataset to detect anomalies, inconsistencies, and schema violations.
+
+![image](https://github.com/user-attachments/assets/02c56254-e950-463e-b864-cb456579453e)
+
+
+#### Key Features:
+- **Schema Generation**: Defines expected feature types, value ranges, and distributions.
+- **Anomaly Detection**: Identifies:
+  - Missing or unexpected values.
+  - Type mismatches (e.g., numerical features containing non-numeric values).
+  - Distributional anomalies (e.g., significant deviations in feature distributions).
+- **Statistics Comparison**: Ensures consistency with historical data by comparing feature statistics (mean, median, standard deviation).
+
+#### Workflow:
+1. During the **data preprocessing pipeline**, TFDV analyzes the dataset and validates it against the schema.
+2. Anomalies detected by TFDV are logged, and an email notification is sent for critical issues.
+3. If no anomalies are found, the pipeline proceeds to the next stage.
+
+---
+
+### 2. Data Shift Detection using Cloud Functions
+
+To maintain model reliability, we monitor the **data folder** in the GCS bucket for changes (additions or deletions). A custom **Google Cloud Function** tracks these events in real-time and evaluates potential data drift.
+
+![image](https://github.com/user-attachments/assets/4a57684f-d84a-411a-9841-3fc859796662)
+
+
+#### Pub/Sub Integration:
+- A **Pub/Sub topic** is configured to monitor the `data/` folder in the GCS bucket.
+- Whenever a new file is added or an existing file is deleted, a message is published to the Pub/Sub topic, triggering the **Data Shift Detection Cloud Function**.
+
+#### Data Drift Detection:
+- The Cloud Function compares the statistics of the newly added file with a reference dataset using statistical tests:
+  - **Kolmogorov-Smirnov Test**: For numerical features.
+  - **Chi-Squared Test**: For categorical features.
+- Drift detection logic identifies significant deviations in feature distributions, indicating potential issues with the data pipeline.
+
+#### Workflow:
+1. **File Added to GCS**: When a new file is added to the `data/` folder, the Cloud Function:
+   - Downloads the new file and the reference dataset.
+   - Generates feature statistics for both datasets.
+   - Detects drift using statistical tests.
+2. **File Deleted from GCS**: If a file is removed, the function logs the event and sends an email notification.
+
+---
+
+### 3. Email Notifications
+
+The Cloud Functions and TFDV processes are configured to send email alerts for critical events:
+- **Data Validation Anomalies**:
+  - Schema violations (e.g., unexpected feature types).
+  - Missing or out-of-range values.
+    ![image](https://github.com/user-attachments/assets/8644ff1a-d9a6-4224-abe9-84382b040075)
+
+- **Data Drift Detection**:
+  - Significant drift in feature distributions.
+  - Notifications include a summary of drifted features and the corresponding p-values.
+    ![image](https://github.com/user-attachments/assets/2d6eac52-bbce-40bf-a9fa-98e096fe61c5)
+
+- **File Addition/Deletion**:
+  - Alerts are sent whenever files are added to or removed from the `data/` folder.
+
+#### Email Sample:
+**Subject**: Data Drift Detected in Latest File  
+**Body**:
+```
+A data drift was detected in the file 'new_data.csv' uploaded to the GCS bucket.
+
+Drift Summary:
+- Feature: 'Lot Area'
+  Test: Kolmogorov-Smirnov Test
+  p-value: 0.001
+  Drift Detected: True
+
+- Feature: 'Neighborhood'
+  Test: Chi-Squared Test
+  p-value: 0.015
+  Drift Detected: True
+
+Please review the new data to ensure consistency with the reference dataset.
+```
+
+---
+
+### 4. Benefits of Automation
+
+- **Real-time Monitoring**: Tracks changes to the `data/` folder instantly, ensuring quick detection of anomalies or drift.
+- **Improved Data Quality**: TFDV ensures that only validated data proceeds to the preprocessing and modeling stages.
+- **Early Issue Detection**: Data drift alerts allow for proactive adjustments to maintain model performance and reliability.
+- **Seamless Integration**: Leveraging Pub/Sub and Cloud Functions ensures that the system is highly scalable and fault-tolerant.
+
+---
+
+### 5. How to Customize
+
+- **Pub/Sub Topic**: Modify the topic subscription in the Cloud Function to track additional folders or buckets as needed.
+- **Email Recipients**: Update the email configuration to include new recipients or modify the alert formats.
+- **Drift Sensitivity**: Adjust the p-value threshold in the Cloud Function to control the sensitivity of drift detection.
+
+---
+
+This automated pipeline ensures data consistency and enhances the reliability of the **House Price Prediction** system, enabling efficient and scalable machine learning operations.
 
 # Methodology for House Price Prediction
 
