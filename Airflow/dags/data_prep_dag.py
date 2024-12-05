@@ -24,10 +24,13 @@ dag1 = DAG(
         'DAG for data preprocessing tasks '
         'in House Price Prediction Project'
     ),
-    schedule_interval="0 */1 * * *",
+    schedule_interval=timedelta(hours=1),  # Runs every hour
+    start_date=datetime(2024, 12, 5, 0, 0),  # Today's date, midnight,
     catchup=False,
     max_active_runs=1,
 )
+
+#schedule_interval="0 */1 * * *",
 
 
 def load_data_callable(**kwargs):
