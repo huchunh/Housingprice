@@ -16,8 +16,8 @@ dag4 = DAG(
     'DAG_Compare_and_Push_Best_Model',
     default_args=default_args,
     description='Compare MLflow experiments, pick the best model, and upload to GCS',
-    schedule_interval=None,  # Manual trigger or custom schedule
-    start_date=datetime(2024, 1, 1),
+    schedule_interval=timedelta(hours=1, minutes=30),  # Runs every hour
+    start_date=datetime(2024, 12, 5, 0, 0),  # Today's date, midnight,
     catchup=False,
 )
 
