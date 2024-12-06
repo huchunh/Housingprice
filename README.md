@@ -8,11 +8,11 @@ A comprehensive MLOps pipeline for predicting house prices using advanced machin
 3. [Installation and Setup](#installation-and-setup)
 4. [Project Structure](#project-structure)
 5. [Pipeline Components](#pipeline-components)
-6. [MLflow Integration](#mlflow-integration)
-7. [Data Management](#data-management)
-8. [Model Development](#model-development)
-9. [Monitoring and Validation](#monitoring-and-validation)
-10. [Troubleshooting Guide](#troubleshooting-guide)
+6. [Model Development and Methodology](#model-development-and-methodology)
+7. [MLflow Integration](#mlflow-integration)
+8. [Data Management](#data-management)
+9. [Production Deployment](#production-deployment)
+10. [References and Resources](#references-and-resources)
 11. [Contributing](#contributing)
 12. [Contact Information](#contact-information)
 
@@ -33,14 +33,8 @@ This project implements a production-grade machine learning pipeline for house p
 - Real-time data validation using TensorFlow Data Validation (TFDV)
 - Model deployment via Google Cloud Run
 
-### Deployed Application
-- **Application URL**: [House Price Prediction App](https://house-price-app-752005993878.us-east1.run.app)
-- **Platform**: Google Cloud Run
-- **Features**: Real-time predictions, interactive interface
+### System Architecture
 
-## System Architecture
-
-### Pipeline Overview
 ```
 Data Source → Preprocessing → Feature Engineering → Model Training → Evaluation
      ↓             ↓               ↓                    ↓             ↓
@@ -94,10 +88,10 @@ Data Source → Preprocessing → Feature Engineering → Model Training → Eva
 
 ```
 House_Price_Prediction_MLOps/
-├── .github/workflows/            # GitHub Actions workflows
+├── .github/workflows/           # GitHub Actions workflows
 │   ├── ci-unittest.yml
 │   └── lightweight_dag_test.yml
-├── Airflow/                      # Airflow configuration and DAGs
+├── Airflow/                     # Airflow configuration and DAGs
 │   ├── dags/
 │   │   ├── data/
 │   │   ├── src/
@@ -105,114 +99,122 @@ House_Price_Prediction_MLOps/
 │   │   │   ├── feature_and_augm_dag.py
 │   │   │   ├── mlflow_model_deploy_dag.py
 │   │   │   └── modeling_and_eval_dag.py
-│   ├── mlruns/                   # MLflow tracking
+│   ├── mlruns/                  # MLflow tracking
 │   ├── scripts/
 │   └── docker-compose.yaml
-├── Methodology/                  # Project methodology docs
-├── project_dvc/                  # DVC configuration
-└── tests/                        # Project tests
+├── Methodology/                 # Project methodology docs
+├── project_dvc/                 # DVC configuration
+└── tests/                       # Project tests
 ```
 
-## Pipeline Components
+## Model Development and Methodology
 
-### 1. Data Processing
-- Data validation and cleaning
-- Feature engineering
-- Data augmentation
-- Train/test splitting
+### Dataset Overview
+- **Dimensions**: 82 columns, 2930 rows
+- **Data Types**:
+  - `float64`: 11 columns
+  - `int64`: 28 columns
+  - `object`: 43 columns
+- **Feature Mix**: Balanced combination of quantitative (e.g., year built, fireplaces) and qualitative variables (e.g., heating quality, exterior quality)
 
-### 2. Model Development
-Three primary models implemented:
-- Linear Regression (baseline)
-- Random Forest
-- Elastic Net
+### Data Processing Pipeline
 
-### 3. MLflow Integration
+1. **Data Validation and Cleaning**
+   - Outlier removal: Houses > 4000 square feet excluded
+   - Data corrections: Fixed anomalies (e.g., garage year 2207 → 2007)
+   - Duplicate check: No duplicates found
 
-#### Setup MLflow UI
-1. **Access Container**
-   ```bash
-   docker exec -it airflow-airflow-worker-1 bash
-   ```
+2. **Missing Value Treatment**
+   - **Numerical Variables**:
+     - Zero imputation for structural features (e.g., basement bathrooms)
+     - Median imputation for continuous features (e.g., lot frontage)
+   - **Categorical Variables**:
+     - Standardized all NA/empty/None values to "Missing"
 
-2. **Start MLflow UI**
-   ```bash
-   mlflow ui --backend-store-uri postgresql+psycopg2://airflow:airflow@postgres/mlflow --host 0.0.0.0
-   ```
+3. **Feature Engineering and Selection**
+   - **Correlation Analysis**:
+     - Pearson correlation threshold: 0.3
+     - Selected features with significant relationship to SalePrice
+   
+   - **Lasso-based Selection**:
+     - LassoCV for optimal regularization
+     - Importance threshold: 0.1
+     - Validated correlation-based selection
 
-3. **Access UI**
-   ```bash
-   # Default port (5000)
-   http://localhost:5000
-   ```
+4. **Data Augmentation**
+   - Custom `augment_data_with_perturbations` function
+   - Perturbation range: 2% of original values
+   - Generated 2000 synthetic records
+   - Applied only to training data
 
-#### MLflow Dashboard Views
-![MLflow Dashboard](https://github.com/user-attachments/assets/e0e1720d-b7f7-4f88-afbb-546535b91c5d)
-![MLflow Experiments](https://github.com/user-attachments/assets/d5bee6ac-93bd-4dfa-a1b0-0d92ef9c01b9)
-![MLflow Models](https://github.com/user-attachments/assets/750effb5-34bf-4c72-a9d9-7fb311b043d2)
+### Model Selection and Development
 
-## Data Management
+1. **Model Experimentation**
+   - Tested multiple architectures:
+     - Regression models (Linear, Lasso)
+     - Tree-based models (Random Forest)
+     - Neural networks
+   
+2. **Final Model Selection**
+   - Primary models chosen:
+     - **Lasso Regression**: For interpretability and feature selection
+     - **Tree-based Models**: For handling non-linear relationships
+   - Selection criteria:
+     - Model interpretability
+     - Prediction performance
+     - Training efficiency
 
-### DVC Integration
-1. **Initialize DVC**
-   ```bash
-   dvc init
-   ```
+3. **Model Optimization**
+   - Hyperparameter tuning for each model
+   - Cross-validation for stability
+   - Regularization to prevent overfitting
 
-2. **Add Data**
-   ```bash
-   dvc add data/raw/ames_housing.csv
-   dvc push
-   ```
+4. **Evaluation Framework**
+   - Key Metrics:
+     - **RMSE (Root Mean Squared Error)**:
+       - Measures prediction accuracy
+       - Penalizes larger errors
+     - **MAE (Mean Absolute Error)**:
+       - Provides average error magnitude
+       - More robust to outliers
+   - Performance monitoring through MLflow
+   - Regular model retraining based on metrics
 
-### Data Validation and Drift Detection
+## Production Deployment
 
-![Data Validation Architecture](https://github.com/user-attachments/assets/a4199b64-e6be-4a0c-876c-fed11986d7ba)
+1. **Web Application**
+   - **URL**: [House Price Prediction App](https://house-price-app-752005993878.us-east1.run.app)
+   - **Platform**: Google Cloud Run
+   - **Features**: 
+     - Real-time predictions
+     - Interactive interface
+     - Automated monitoring
 
-#### Validation Components
-1. **TFDV Pipeline**
-   ![TFDV Dashboard](https://github.com/user-attachments/assets/02c56254-e950-463e-b864-cb456579453e)
-   - Schema generation
-   - Anomaly detection
-   - Statistical validation
+2. **Performance Tracking**
+   - Continuous metric monitoring
+   - Automated retraining triggers
+   - Drift detection alerts
 
-2. **Drift Detection**
-   ![Drift Detection](https://github.com/user-attachments/assets/4a57684f-d84a-411a-9841-3fc859796662)
-   - Real-time monitoring
-   - Statistical testing
-   - Automated alerts
+3. **Results**
+   - Optimal accuracy-complexity balance
+   - Enhanced model robustness
+   - Reproducible evaluation framework
 
-#### Notification System
-![Validation Alert](https://github.com/user-attachments/assets/8644ff1a-d9a6-4224-abe9-84382b040075)
-![Drift Alert](https://github.com/user-attachments/assets/2d6eac52-bbce-40bf-a9fa-98e096fe61c5)
+## References and Resources
 
-## Troubleshooting Guide
+1. **Data Documentation**
+   - [Ames Housing Dataset Definition Document](https://docs.google.com/spreadsheets/d/1XL6LJVgLLU27yV7a_oh2zuqhGOI3Syg-jWpmr0Ekk14/edit?usp=sharing)
+   - [Original Data Documentation and Methodology](http://jse.amstat.org/v19n3/decock/DataDocumentation.txt)
 
-### MLflow Issues
+2. **Technical Resources**
+   - Feature Selection Techniques
+   - Data Augmentation Methods
+   - Model Validation Approaches
 
-1. **UI Access Problems**
-   ```bash
-   # Check port availability
-   sudo ss -tuln | grep 5000
-   ```
-
-2. **Permission Issues**
-   ```bash
-   chmod -R 755 ./mlruns
-   ```
-
-### Database Issues
-
-1. **Check Database Initialization**
-   ```bash
-   docker exec -it airflow-postgres-1 psql -U airflow
-   \l
-   ```
-
-2. **Script Permissions**
-   ```bash
-   chmod +x init-db.sh
-   ```
+3. **Project Documentation**
+   - Detailed methodology in `/Methodology`
+   - Pipeline documentation in `/Airflow`
+   - Model specifications in MLflow
 
 ## Contributing
 
