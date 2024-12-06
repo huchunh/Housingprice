@@ -76,7 +76,7 @@ House_Price_Prediction_MLOps/
 
 1. **Clone the Repository**
    ```bash
-   git clone https://github.com/Allliiiya/House_Price_Prediction_MLOps.git
+   git clone https://github.com/your_username/House_Price_Prediction_MLOps.git
    cd House_Price_Prediction_MLOps
    ```
 
