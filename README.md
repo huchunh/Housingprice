@@ -95,17 +95,40 @@ House_Price_Prediction_MLOps/
 │   ├── dags/
 │   │   ├── data/
 │   │   ├── src/
-│   │   │   ├── data_prep_dag.py
-│   │   │   ├── feature_and_augm_dag.py
-│   │   │   ├── mlflow_model_deploy_dag.py
-│   │   │   └── modeling_and_eval_dag.py
+│   │   │   ├── __pycache__/                    # Compiled Python files
+│   │   │   ├── __init__.py                     # Package initializer
+│   │   │   ├── bias_detection.py               # Bias detection script
+│   │   │   ├── data_augment.py                 # Data augmentation methods
+│   │   │   ├── data_prep.py                    # Data preparation utilities
+│   │   │   ├── data_splitting.py               # Dataset splitting logic
+│   │   │   ├── feature_select.py               # Feature selection logic
+│   │   │   ├── label_encode.py                 # Label encoding methods
+│   │   │   ├── mlflow_model_deploy.py          # MLflow model deployment script
+│   │   │   ├── model_elastic_net.py            # Elastic Net regression model
+│   │   │   ├── model_linear_regression.py      # Linear regression model
+│   │   │   ├── model_rf.py                     # Random Forest model
+│   │   │   ├── one_hot_encoder.py              # One-hot encoding methods
+│   │   ├── __init__.py                      # Package initializer
+│   │   ├── data_prep_dag.py
+│   │   ├── feature_and_augm_dag.py
+│   │   ├── mlflow_model_deploy_dag.py  
+│   │   └── modeling_and_eval_dag.py   
 │   ├── mlruns/                  # MLflow tracking
+│   │   └──model
+│   │   │   ├── conda.yaml                   # Conda environment configuration
+│   │   │   ├── MLmodel                      # MLflow model file
+│   │   │   ├── model.pkl                    # Serialized model file
+│   │   │   ├── python_env.yaml              # Python environment dependencies
+│   │   │   ├── requirements.txt             # Python package requirements
+│   |   └── feature_importance.csv           # CSV file containing feature importance scores
 │   ├── scripts/
 │   └── docker-compose.yaml
 ├── Methodology/                 # Project methodology docs
 ├── project_dvc/                 # DVC configuration
 └── tests/                       # Project tests
 ```
+
+
 
 ## Model Development and Methodology
 
