@@ -145,9 +145,12 @@ To facilitate connections to GCS and manage Airflow configuration, add environme
    - Manually start a DAG run or configure a schedule in the DAG definitions as needed.
    - In this project, DAG is scheduled automatically trigger in one hour interval and push model to GCP in one and half hour interval
 
-![Pipeline Diagram](https://github.com/user-attachments/assets/55121bb8-6b69-4101-ba7b-37ae5d89cab9)
 <img width="1426" alt="image" src="https://github.com/user-attachments/assets/4f8b5f1b-1a68-48f5-ab41-d392874a01a0">
+
 <img width="1423" alt="feature selection" src="https://github.com/user-attachments/assets/5c7cd917-d90f-4a23-9dee-b3ab3430c481">
+
+<img width="1422" alt="Screenshot 2024-12-07 at 11 20 13 AM" src="https://github.com/user-attachments/assets/051fa95c-dcb0-44f3-80fb-97213d5380d3">
+
 
 9. **Troubleshooting and Common Issues**:
 
@@ -396,6 +399,8 @@ The Cloud Functions and TFDV processes are configured to send email alerts for c
 - **Feature Mix**: Balanced combination of quantitative (e.g., year built, fireplaces) and qualitative variables (e.g., heating quality, exterior quality) For detailed data definitions, refer to this [Data Definition Document](https://docs.google.com/spreadsheets/d/1XL6LJVgLLU27yV7a_oh2zuqhGOI3Syg-jWpmr0Ekk14/edit?usp=sharing).
 
 ### Data Processing Pipeline
+
+![Pipeline Diagram](https://github.com/user-attachments/assets/55121bb8-6b69-4101-ba7b-37ae5d89cab9)
 
 1. **Data Validation and Cleaning**
    - Outlier removal: Houses > 4000 square feet excluded
