@@ -1,6 +1,6 @@
 # House Price Prediction MLOps Project
 
-A comprehensive MLOps pipeline for predicting house prices using advanced machine learning techniques and modern DevOps practices.
+A comprehensive MLOps pipeline for predicting house prices using advanced machine learning techniques and modern DevOps practices. [House Price Prediction App](https://house-price-app-752005993878.us-east1.run.app)
 
 ## Table of Contents
 1. [Project Overview](#project-overview)
