@@ -2,7 +2,7 @@
 
 A comprehensive MLOps pipeline for predicting house prices using advanced machine learning techniques and modern DevOps practices. [House Price Prediction App](https://house-price-app-752005993878.us-east1.run.app)
 
-## Table of Contents
+# Table of Contents
 1. [Project Overview](#project-overview)
 2. [System Architecture](#system-architecture)
 3. [Installation and Setup](#installation-and-setup)
@@ -16,7 +16,7 @@ A comprehensive MLOps pipeline for predicting house prices using advanced machin
 11. [Contributing](#contributing)
 12. [Contact Information](#contact-information)
 
-## Project Overview
+# Project Overview
 
 This project implements a production-grade machine learning pipeline for house price prediction, integrating:
 - Automated data processing and validation
@@ -43,7 +43,7 @@ Data Source → Preprocessing → Feature Engineering → Model Training → Eva
                                 Selection]     with MLflow]       Monitoring]
 ```
 
-## Project Structure
+# Project Structure
 
 ```
 House_Price_Prediction_MLOps/
@@ -87,7 +87,7 @@ House_Price_Prediction_MLOps/
 └── tests/                       # Project tests
 ```
 
-## Project Installation and Setup
+# Project Installation and Setup
 
 ### Prerequisites
 - Python 3.8+
@@ -104,7 +104,7 @@ To facilitate connections to GCS and manage Airflow configuration, add environme
 - `DVC_REMOTE_PATH`
 - Additional Google Cloud credentials as needed
 
-### Airflow DAG Setup Steps
+# Airflow DAG Setup Steps
 
 1. **Clone the Repository**:
    ```bash
@@ -158,7 +158,7 @@ To facilitate connections to GCS and manage Airflow configuration, add environme
 - **GCS Permission Issues**: Verify that the GCP service account has access permissions to the specified GCS bucket.
 - **Docker Errors**: If using Docker, confirm that the Docker daemon is running and `.env` variables are correctly configured.
 
-### Unit tests set up
+# Unit tests set up
 10. **Testing and Validation**:
 
 We use **GitHub Actions** to automate unit tests and validate each task within the DAGs functions. When changes are committed to the main branch, GitHub Actions triggers the tests and provides feedback on their results.
@@ -173,7 +173,7 @@ pytest tests/
 ```
 <img width="578" alt="image" src="https://github.com/user-attachments/assets/1f45ce59-b451-4a53-bbf6-3d2652c38c6b">
 
-### **Running MLflow UI in an Airflow Container for Experiment Tracking**
+# **MLflow Set up**
 In this project, we used MLflow within an Airflow container to track our machine learning experiments. We trained three models for predicting house prices using both categorical and numerical features:
 
 Linear Regression
@@ -314,7 +314,7 @@ If permissions are incorrect, run:
 chmod +x init-db.sh
 ```
 
-### Data Validation and Data Shift Detection
+# Data Validation and Data Shift Detection
 
 To ensure high-quality data processing and robust model training, the project incorporates automated **Data Validation** and **Data Shift Detection** mechanisms. These processes leverage **TensorFlow Data Validation (TFDV)** and custom Cloud Functions integrated with **Google Pub/Sub** for real-time tracking of changes to the data folder in the GCS bucket. Notifications are sent via email for critical events.
 
@@ -371,7 +371,7 @@ To maintain model reliability, we monitor the **data folder** in the GCS bucket 
 
 ---
 
-### Email Notifications
+# Email Notifications
 
 The Cloud Functions and TFDV processes are configured to send email alerts for critical events:
 - **Data Validation Anomalies**:
@@ -387,7 +387,7 @@ The Cloud Functions and TFDV processes are configured to send email alerts for c
 - **File Addition/Deletion**:
   - Alerts are sent whenever files are added to or removed from the `data/` folder.
  
- # Project DVC Set Up
+ # DVC Set Up
 
 This project uses Data Version Control (DVC) to manage datasets and track changes efficiently. Below is the directory structure and description of each component in this project.
 
