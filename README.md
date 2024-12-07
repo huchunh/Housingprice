@@ -449,7 +449,7 @@ project_dvc/                  # Root folder for the DVC project
 
 # Methodology for House Price Prediction
 
-### Dataset Overview
+## Dataset Overview
 - **Dimensions**: 82 columns, 2930 rows
 - **Data Types**:
   - `float64`: 11 columns
@@ -457,7 +457,7 @@ project_dvc/                  # Root folder for the DVC project
   - `object`: 43 columns
 - **Feature Mix**: Balanced combination of quantitative (e.g., year built, fireplaces) and qualitative variables (e.g., heating quality, exterior quality) For detailed data definitions, refer to this [Data Definition Document](https://docs.google.com/spreadsheets/d/1XL6LJVgLLU27yV7a_oh2zuqhGOI3Syg-jWpmr0Ekk14/edit?usp=sharing).
 
-### Data Processing Pipeline
+## Data Processing Pipeline
 
 ![Pipeline Diagram](https://github.com/user-attachments/assets/55121bb8-6b69-4101-ba7b-37ae5d89cab9)
 
@@ -489,7 +489,7 @@ project_dvc/                  # Root folder for the DVC project
    - Generated 2000 synthetic records
    - Applied only to training data
 
-### Model Selection and Development
+## Model Selection and Development
 <img width="1386" alt="Screenshot 2024-12-07 at 11 19 43 AM" src="https://github.com/user-attachments/assets/be5c830f-c024-47c7-8be1-890778d6faf4">
 
 1. **Model Experimentation**
