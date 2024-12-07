@@ -265,8 +265,6 @@ ps aux | grep 'mlflow'
 kill <PID>
 ```
 
----
-
 **Notes**
 
 - For modular setups, consider running the MLflow UI in a dedicated container for better scalability and separation of concerns.
