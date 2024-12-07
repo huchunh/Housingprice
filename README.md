@@ -203,7 +203,7 @@ This guide explains how to run the **MLflow UI** from an Airflow container in a 
 
 ---
 
-### **Steps to Run MLflow UI**
+#### **Steps to Run MLflow UI**
 
 1. **Start Airflow Containers**
 Start your Airflow setup:
@@ -274,7 +274,7 @@ kill <PID>
 
 ---
 
-### **Troubleshooting**
+#### **Troubleshooting**
 
 **Cannot Access MLflow UI**:
    - Verify that port **5000** is mapped correctly in the `docker-compose.yaml`.
@@ -290,11 +290,11 @@ kill <PID>
 
 ---
 
-### Troubleshooting `init-db.sh` Script in Docker Compose
+#### Troubleshooting `init-db.sh` Script in Docker Compose
 
 This guide helps you troubleshoot issues related to the execution of the `init-db.sh` script in a Docker Compose setup, specifically for initializing a PostgreSQL database.
 
-### Common Issues and Resolutions
+#### Common Issues and Resolutions
 
 1.**File Permissions**
 Ensure the `init-db.sh` file has executable permissions.
