@@ -5,16 +5,17 @@ A comprehensive MLOps pipeline for predicting house prices using advanced machin
 # Table of Contents
 1. [Project Overview](#project-overview)
 2. [System Architecture](#system-architecture)
-3. [Installation and Setup](#installation-and-setup)
-4. [Project Structure](#project-structure)
+3. [Project Structure](#project-structure)
+4. [Installation and Setup](#installation-and-setup)
 5. [Pipeline Components](#pipeline-components)
-6. [Model Development and Methodology](#model-development-and-methodology)
 7. [MLflow Integration](#mlflow-integration)
 8. [Data Management](#data-management)
-9. [Production Deployment](#production-deployment)
-10. [References and Resources](#references-and-resources)
-11. [Contributing](#contributing)
-12. [Contact Information](#contact-information)
+9. [Production Deployment](#production-deployment
+10. [Data Versioning Control](#Data Versioning Control)
+11. [Model Development and Methodology](#model-development-and-methodology)
+12. [References and Resources](#references-and-resources)
+13. [Contributing](#contributing)
+14. [Contact Information](#contact-information)
 
 # Project Overview
 
@@ -522,6 +523,59 @@ project_dvc/                  # Root folder for the DVC project
        - More robust to outliers
    - Performance monitoring through MLflow
    - Regular model retraining based on metrics
+
+## Model Sensitivity Analysis
+Our implementation centers on SHAP analysis as the primary tool for understanding feature contributions. Using shap.LinearExplainer, we calculate SHAP values for each feature-prediction pair in our linear regression model. The choice of LinearExplainer aligns with our model architecture and provides computationally efficient analysis for large-scale housing datasets.
+
+<img width="651" alt="image" src="https://github.com/user-attachments/assets/07c76a09-f6cb-41ca-a5fe-5a63fc0d8e61">
+<img width="431" alt="image" src="https://github.com/user-attachments/assets/49e1ad91-6f8e-4b73-aaf3-ed1382abae4e">
+<img width="664" alt="image" src="https://github.com/user-attachments/assets/56bbd294-d3ae-44bb-b920-d86156385b00">
+
+**Key insights:**
+- Feature Importance Key Insights: Zoning and basement features are crucial for house prices, notably:
+MS Zoning_RL, Basement Finished Square Feet, Unfinished Basement Area, 
+- Sensitivity Analysis:
+Roof materials significantly impact model performance when removed, especially Tar & Gravel (1.23e+22).
+The StoneBr neighborhood and Overall Condition are also highly sensitive.
+- Recommendations
+     - Keep roof material features despite lower coefficients.
+     - Pay attention to neighborhood effects and feature interactions.
+     - Test the impact of seemingly less important features before removal.
+
+The sensitivity analysis framework integrates into our MLOps pipeline between feature selection and data augmentation, allowing us to:
+- Validate feature selection.
+- Guide data augmentation based on feature stability.
+- Inform model training and parameters.
+- Support continuous model monitoring.
+- It processes numerical and categorical features through standardized scaling and encoding for consistent analysis.
+
+
+## Model Bias Detection
+
+**Split groups based on key feature**
+The main dataset used is the Ames Housing Dataset, which includes details on property features. It includes a total of 82 features. Based on the feature correlation results and the project's objectives, we identified house type as the key feature for analysis. Consequently, the dataset will be split into four distinct groups **based on house type**. 
+
+**Bias detection**
+Train a baseline regression model (e.g., Linear Regression, Random Forest, etc.) on the entire dataset. Evaluate the model's performance on each house type ('Bldg Type_1Fam', 'Bldg Type_2fmCon', 'Bldg Type_Duplex', 'Bldg Type_Twnhs', 'Bldg Type_TwnhsE') group using standard regression metrics: Mean Absolute Error (MAE), Root Mean Square Error (RMSE), R-squared (R^2)
+
+**Bias result evaluation**
+Compare performance metrics across house type groups. Identify significant disparities in prediction errors between groups. For instance, if one house type group consistently shows higher MAE or RMSE, it indicates a potential bias in the model.
+<img width="632" alt="image" src="https://github.com/user-attachments/assets/32abb0bc-b444-4fa4-8ad5-b3c729090663">
+<img width="643" alt="image" src="https://github.com/user-attachments/assets/5c121763-a025-4ae8-bd47-feee2fdf7633">
+
+**​​Disparities:**
+Based on the bias disparity evaluation result, some disparities in model performance across different building types.
+Significant disparities exist in MAE, MSE, RMSE, and R² values across groups.
+Bldg Type_2fmCon has the worst R², indicating severe issues with model predictions for this category.
+Bldg Type_Duplex has relatively low errors and decent R², suggesting better model performance for this group.
+Bias mitigation strategies were implemented to address identified disparities. These included:
+Data reaugmentation: Run a data balancing check to verify the representation of each group, very bad performance at Bldg Type_2fmCon might because less data. So we will augment the dataset based on split groups, so each group can have a relatively equal amount of data.
+Feature Rebalancing: Adjusting feature weights to ensure equal representation across house types.
+Model changing: Choose different models and test which one has the best and balanced performance among different groups.
+Model Tuning: Optimizing hyperparameters to minimize group-specific errors.
+
+
+
 
 ## Production Deployment
 
