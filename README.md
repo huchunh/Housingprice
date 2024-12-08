@@ -10,8 +10,8 @@ A comprehensive MLOps pipeline for predicting house prices using advanced machin
 5. [Pipeline Components](#pipeline-components)
 7. [MLflow Integration](#mlflow-integration)
 8. [Data Management](#data-management)
-9. [Production Deployment](#production-deployment
-10. [Data Versioning Control](#Data Versioning Control)
+9. [Production Deployment](#production-deployment)
+10. [Data Versioning Control](#Data-Versioning-Control)
 11. [Model Development and Methodology](#model-development-and-methodology)
 12. [References and Resources](#references-and-resources)
 13. [Contributing](#contributing)
