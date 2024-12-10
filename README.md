@@ -627,3 +627,4 @@ We welcome contributions! Please:
 - Krishna Priya Gitalaxmi: gitakrishnapriya@gmail.com
 - Qi An: an.qi2@northeastern.edu
 - Ziqi Li: zql04150415@gmail.com
+- Chunhao Hu: huchunh12@gmail.com
